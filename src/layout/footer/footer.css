@@ -1,0 +1,29 @@
+body {
+  position: relative;
+}
+footer {
+  clear: both;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  margin: 0%;
+  margin-top: auto;
+  width: 100%;
+  padding-top: 1%;
+  text-align: center;
+  color: rgb(26, 26, 26);
+  background-color: #95be01 !important;
+}
+
+a.copyright.link {
+  color: rgb(47, 104, 9) !important;
+}
+
+p.copyright > span {
+  display: block;
+  font-size: 14px;
+}
+
+p.copyright > span.slogan {
+  color: rgb(47, 104, 9);
+}

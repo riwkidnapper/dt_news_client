@@ -1,0 +1,32 @@
+h1.welcome {
+  text-align: center;
+  font-family: Raleway;
+  font-size: 25px;
+}
+
+p.welcome {
+  padding: 10px;
+  color: rgb(63, 145, 39);
+  font-size: 18px;
+  font-family: "Kanit";
+  font-weight: 300;
+}
+
+.jumbotron {
+  background-color: #77a74a42;
+  min-height: 350px;
+}
+
+.contect {
+  background-color: #95be017a;
+  min-height: 100px;
+}
+.contect > h5 {
+  padding-top: 1%;
+  padding-left: 4%;
+}
+.contect > p > span {
+  display: block;
+  padding-left: 5%;
+  padding-bottom: 1%;
+}

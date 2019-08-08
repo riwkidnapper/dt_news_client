@@ -1,0 +1,210 @@
+.carousel {
+  margin-top: -4%;
+}
+
+.carousel-caption > .name {
+  margin-bottom: -5%;
+  width: 100%;
+  padding-top: 10px;
+  font-size: 10px;
+  background-color: rgba(109, 150, 33, 0.164);
+  color: #79b900;
+  border: 1px solid #acca26dc;
+  text-align: center;
+}
+.carousel-caption > .name > p {
+  font-size: 8px;
+  color: #629700e7;
+  text-align: center;
+}
+.carousel-indicators .active {
+  background-color: #91aa1f;
+}
+
+.carousel-indicators li {
+  background-color: #7c7c7c;
+  border: 0px solid;
+}
+
+@media only screen and (min-width: 330px) {
+  .carousel-caption > .name {
+    margin-bottom: -5%;
+    width: 100%;
+    padding-top: 10px;
+    font-size: 12px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 1px solid #acca26dc;
+    text-align: center;
+  }
+  .carousel-caption > .name > p {
+    font-size: 9px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 460px) {
+  .carousel-caption > .name {
+    margin-bottom: 6%;
+    width: 100%;
+    padding-top: 10px;
+    font-size: 12px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 1px solid #acca26dc;
+    text-align: center;
+  }
+  .carousel-caption > .name > p {
+    font-size: 10px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  .carousel-caption > .name {
+    margin-bottom: 6%;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 1px solid #acca26dc;
+    text-align: center;
+  }
+
+  .carousel-caption > .name > p {
+    font-size: 14px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 940px) {
+  .carousel-caption > .name {
+    margin-bottom: 10%;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 2px solid #acca26dc;
+    text-align: center;
+  }
+  .carousel-caption > .name > p {
+    padding: 10px;
+    font-size: 16px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1040px) {
+  .carousel-item > img.d-block.w-100 {
+    height: max-content;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 2%;
+  }
+  .carousel-caption > .name {
+    margin-bottom: 18%;
+    width: 100%;
+    padding-top: 4%;
+    font-size: 20px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 2px solid #acca26dc;
+    text-align: center;
+  }
+
+  .carousel-caption > .name > p {
+    font-size: 16px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .carousel-item > img.d-block.w-100 {
+    height: 75ex;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 2%;
+  }
+  .carousel-caption > .name {
+    margin-bottom: 19%;
+    width: 100%;
+    padding-top: 4%;
+    font-size: 20px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 2px solid #acca26dc;
+    text-align: center;
+  }
+
+  .carousel-caption > .name > p {
+    font-size: 16px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1640px) {
+  .carousel {
+    margin-top: -7%;
+  }
+
+  .carousel-item > img.d-block.w-100 {
+    height: max-content;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 2%;
+  }
+  .carousel-caption > .name {
+    margin-bottom: 12%;
+    width: 100%;
+    padding-top: 4%;
+    font-size: 20px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 2px solid #acca26dc;
+    text-align: center;
+  }
+
+  .carousel-caption > .name > p {
+    font-size: 16px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .carousel-item > img.d-block.w-100 {
+    height: max-content;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 2%;
+  }
+
+  .carousel-caption > .name {
+    margin-bottom: 7%;
+    width: 100%;
+    padding-top: 4%;
+    font-size: 20px;
+    background-color: rgba(109, 150, 33, 0.164);
+    color: #79b900;
+    border: 2px solid #acca26dc;
+    text-align: center;
+  }
+
+  .carousel-caption > .name > p {
+    font-size: 16px;
+    color: #629700e7;
+    text-align: center;
+  }
+}
