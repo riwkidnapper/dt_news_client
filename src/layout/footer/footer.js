@@ -4,9 +4,9 @@ import "./footer.css";
 export class footer extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footerr">
         <Container fluid>
-          <p className="copyright pull-right">
+          <p className="copyright">
             &copy; {new Date().getFullYear()}{" "}
             <a className="copyright link" href="/">
               D T ACC TAX AND AUDIT

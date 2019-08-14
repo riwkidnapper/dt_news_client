@@ -1,78 +1,82 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { Nav } from "reactstrap";
 
-import AdminNavbarLinks from "../navbar/adminNavbar";
+import PerfectScrollbar from "perfect-scrollbar";
 
-import logo from "../../assets/img/reactlogo.png";
+import logo from "../../logo.svg";
 
-class Sidebar extends Component {
+var ps;
+
+class Sidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: window.innerWidth
-    };
+    this.activeRoute.bind(this);
+    this.sidebar = React.createRef();
   }
+
   activeRoute(routeName) {
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
   }
-  updateDimensions() {
-    this.setState({ width: window.innerWidth });
-  }
   componentDidMount() {
-    this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions.bind(this));
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps = new PerfectScrollbar(this.sidebar.current, {
+        suppressScrollX: true,
+        suppressScrollY: false
+      });
+    }
+  }
+  componentWillUnmount() {
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps.destroy();
+    }
   }
   render() {
-    const sidebarBackground = {
-      backgroundImage: "url(" + this.props.image + ")"
-    };
     return (
       <div
-        id="sidebar"
         className="sidebar"
-        data-color={this.props.color}
-        data-image={this.props.image}
+        data-color={this.props.bgColor}
+        data-active-color={this.props.activeColor}
       >
-        {this.props.hasImage ? (
-          <div className="sidebar-background" style={sidebarBackground} />
-        ) : null}
         <div className="logo">
-          <a href="admin/dashboard" className="simple-text logo-mini">
+          <a
+            href="https://www.creative-tim.com"
+            className="simple-text logo-mini"
+          >
             <div className="logo-img">
-              <img src={logo} alt="logo_image" />
+              <img src={logo} alt="react-logo" />
             </div>
           </a>
-          <a href="/admin/dashboard" className="simple-text logo-normal">
-            DT News
+          <a
+            href="https://www.creative-tim.com"
+            className="simple-text logo-normal"
+          >
+            Creative Tim
           </a>
         </div>
-        <div className="sidebar-wrapper">
-          <ul className="nav">
-            {this.state.width <= 991 ? <AdminNavbarLinks /> : null}
+        <div className="sidebar-wrapper" ref={this.sidebar}>
+          <Nav>
             {this.props.routes.map((prop, key) => {
-              if (!prop.redirect)
-                return (
-                  <li
-                    className={
-                      prop.upgrade
-                        ? "active active-pro"
-                        : this.activeRoute(prop.layout + prop.path)
-                    }
-                    key={key}
+              return (
+                <li
+                  className={
+                    this.activeRoute(prop.path) +
+                    (prop.pro ? " active-pro" : "")
+                  }
+                  key={key}
+                >
+                  <NavLink
+                    to={prop.layout + prop.path}
+                    className="nav-link"
+                    activeClassName="active"
                   >
-                    <NavLink
-                      to={prop.layout + prop.path}
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      <i className={prop.icon} />
-                      <p>{prop.name}</p>
-                    </NavLink>
-                  </li>
-                );
-              return null;
+                    <i className={prop.icon} />
+                    <p>{prop.name}</p>
+                  </NavLink>
+                </li>
+              );
             })}
-          </ul>
+          </Nav>
         </div>
       </div>
     );

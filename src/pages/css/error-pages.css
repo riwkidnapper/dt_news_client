@@ -1,0 +1,71 @@
+.error-body {
+  margin-top: 0%;
+  padding: 10%;
+}
+
+.error-body h1 {
+  padding-top: 6%;
+  font-size: 210px;
+  font-weight: 900;
+  color: rgb(118, 151, 0);
+  text-shadow: 4px 4px 0 #ffffff, 6px 6px 0 #3d551e;
+  line-height: 210px;
+}
+
+.error-body h3 {
+  color: rgb(82, 105, 0);
+}
+
+.text-muted {
+  color: #455800b7 !important;
+}
+
+.footer.error-page {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-size: 15px;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  color: rgb(104, 104, 104);
+  box-shadow: 1px 1px 5px 1px rgba(128, 128, 128, 0.247);
+}
+
+a.copyright.error {
+  font-size: 15px;
+  color: rgb(121, 121, 121) !important;
+}
+
+p.copyright > span {
+  display: block;
+  font-size: 14px;
+}
+.bt.btn.btn-outline-success {
+  color: #65a728;
+  border-color: #70a728 !important;
+}
+
+.bt.btn.btn-outline-success:hover {
+  color: #ffffff !important;
+  background-color: #70a728 !important;
+  border-color: #70a728 !important;
+}
+
+@media only screen and (min-width: 1024px) {
+  .error-body {
+    margin-top: -20%;
+  }
+
+  .error-body h1 {
+    padding-top: 6%;
+    font-size: 210px;
+    font-weight: 900;
+    color: rgb(118, 151, 0);
+    text-shadow: 4px 4px 0 #ffffff, 6px 6px 0 #3d551e;
+    line-height: 210px;
+  }
+}

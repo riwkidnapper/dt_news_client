@@ -1,166 +1,114 @@
-/*eslint-disable*/
 import React, { Component } from "react";
-import Toggle from "react-toggle";
-
-import imagine1 from "../../assets/img/sidebar-1.jpg";
-import imagine2 from "../../assets/img/sidebar-2.jpg";
-import imagine3 from "../../assets/img/sidebar-3.jpg";
-import imagine4 from "../../assets/img/sidebar-4.jpg";
 
 class FixedPlugin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      classes: "dropdown show-dropdown open",
-      bg_checked: true,
-      bgImage: this.props.bgImage
+      classes: "dropdown"
     };
+    this.handleClick = this.handleClick.bind(this);
   }
-  handleClick = () => {
-    this.props.handleFixedClick();
-  };
-  onChangeClick = () => {
-    this.props.handleHasImage(!this.state.bg_checked);
-    this.setState({ bg_checked: !this.state.bg_checked });
-  };
+  handleClick() {
+    if (this.state.classes === "dropdown show") {
+      this.setState({ classes: "dropdown" });
+    } else {
+      this.setState({ classes: "dropdown show" });
+    }
+  }
   render() {
     return (
       <div className="fixed-plugin">
-        <div id="fixedPluginClasses" className={this.props.fixedClasses}>
+        <div className={this.state.classes}>
           <div onClick={this.handleClick}>
             <i className="fa fa-cog fa-2x" />
           </div>
-          <ul className="dropdown-menu">
-            <li className="header-title">Configuration</li>
+          <ul className="dropdown-menu show">
+            <li className="header-title">สีพื้นหลังเมนู</li>
             <li className="adjustments-line">
-              <p className="pull-left">Background Image</p>
-
-              <div className="pull-right">
-                <Toggle
-                  defaultChecked={this.state.bg_checked}
-                  onChange={this.onChangeClick}
+              <div className="badge-colors text-center">
+                <span
+                  className={
+                    this.props.bgColor === "black"
+                      ? "badge filter badge-dark active"
+                      : "badge filter badge-dark"
+                  }
+                  data-color="black"
+                  onClick={() => {
+                    this.props.handleBgClick("black");
+                  }}
+                />
+                <span
+                  className={
+                    this.props.bgColor === "white"
+                      ? "badge filter badge-light active"
+                      : "badge filter badge-light"
+                  }
+                  data-color="white"
+                  onClick={() => {
+                    this.props.handleBgClick("white");
+                  }}
                 />
               </div>
-              <div className="clearfix" />
             </li>
+            <li className="header-title">สีตัวหนังสือ</li>
             <li className="adjustments-line">
-              <a className="switch-trigger">
-                <p>Filters</p>
-                <div className="pull-right">
-                  <span
-                    className={
-                      this.props.bgColor === "black"
-                        ? "badge filter active"
-                        : "badge filter"
-                    }
-                    data-color="black"
-                    onClick={() => {
-                      this.props.handleColorClick("black");
-                    }}
-                  />
-                  <span
-                    className={
-                      this.props.bgColor === "azure"
-                        ? "badge filter badge-azure active"
-                        : "badge filter badge-azure"
-                    }
-                    data-color="azure"
-                    onClick={() => {
-                      this.props.handleColorClick("azure");
-                    }}
-                  />
-                  <span
-                    className={
-                      this.props.bgColor === "green"
-                        ? "badge filter badge-green active"
-                        : "badge filter badge-green"
-                    }
-                    data-color="green"
-                    onClick={() => {
-                      this.props.handleColorClick("green");
-                    }}
-                  />
-                  <span
-                    className={
-                      this.props.bgColor === "orange"
-                        ? "badge filter badge-orange active"
-                        : "badge filter badge-orange"
-                    }
-                    data-color="orange"
-                    onClick={() => {
-                      this.props.handleColorClick("orange");
-                    }}
-                  />
-                  <span
-                    className={
-                      this.props.bgColor === "red"
-                        ? "badge filter badge-red active"
-                        : "badge filter badge-red"
-                    }
-                    data-color="red"
-                    onClick={() => {
-                      this.props.handleColorClick("red");
-                    }}
-                  />
-                  <span
-                    className={
-                      this.props.bgColor === "purple"
-                        ? "badge filter badge-purple active"
-                        : "badge filter badge-purple"
-                    }
-                    data-color="purple"
-                    onClick={() => {
-                      this.props.handleColorClick("purple");
-                    }}
-                  />
-                </div>
-                <div className="clearfix" />
-              </a>
-            </li>
-            <li className="header-title">Sidebar Images</li>
-            <li className={this.state["bgImage"] === imagine1 ? "active" : ""}>
-              <a
-                className="img-holder switch-trigger"
-                onClick={() => {
-                  this.setState({ bgImage: imagine1 });
-                  this.props.handleImageClick(imagine1);
-                }}
-              >
-                <img src={imagine1} alt="..." />
-              </a>
-            </li>
-            <li className={this.state["bgImage"] === imagine2 ? "active" : ""}>
-              <a
-                className="img-holder switch-trigger"
-                onClick={() => {
-                  this.setState({ bgImage: imagine2 });
-                  this.props.handleImageClick(imagine2);
-                }}
-              >
-                <img src={imagine2} alt="..." />
-              </a>
-            </li>
-            <li className={this.state["bgImage"] === imagine3 ? "active" : ""}>
-              <a
-                className="img-holder switch-trigger"
-                onClick={() => {
-                  this.setState({ bgImage: imagine3 });
-                  this.props.handleImageClick(imagine3);
-                }}
-              >
-                <img src={imagine3} alt="..." />
-              </a>
-            </li>
-            <li className={this.state["bgImage"] === imagine4 ? "active" : ""}>
-              <a
-                className="img-holder switch-trigger"
-                onClick={() => {
-                  this.setState({ bgImage: imagine4 });
-                  this.props.handleImageClick(imagine4);
-                }}
-              >
-                <img src={imagine4} alt="..." />
-              </a>
+              <div className="badge-colors text-center">
+                <span
+                  className={
+                    this.props.activeColor === "primary"
+                      ? "badge filter badge-primary active"
+                      : "badge filter badge-primary"
+                  }
+                  data-color="primary"
+                  onClick={() => {
+                    this.props.handleActiveClick("primary");
+                  }}
+                />
+                <span
+                  className={
+                    this.props.activeColor === "info"
+                      ? "badge filter badge-info active"
+                      : "badge filter badge-info"
+                  }
+                  data-color="info"
+                  onClick={() => {
+                    this.props.handleActiveClick("info");
+                  }}
+                />
+                <span
+                  className={
+                    this.props.activeColor === "success"
+                      ? "badge filter badge-success active"
+                      : "badge filter badge-success"
+                  }
+                  data-color="success"
+                  onClick={() => {
+                    this.props.handleActiveClick("success");
+                  }}
+                />
+                <span
+                  className={
+                    this.props.activeColor === "warning"
+                      ? "badge filter badge-warning active"
+                      : "badge filter badge-warning"
+                  }
+                  data-color="warning"
+                  onClick={() => {
+                    this.props.handleActiveClick("warning");
+                  }}
+                />
+                <span
+                  className={
+                    this.props.activeColor === "danger"
+                      ? "badge filter badge-danger active"
+                      : "badge filter badge-danger"
+                  }
+                  data-color="danger"
+                  onClick={() => {
+                    this.props.handleActiveClick("danger");
+                  }}
+                />
+              </div>
             </li>
           </ul>
         </div>

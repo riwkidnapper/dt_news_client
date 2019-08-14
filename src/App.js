@@ -1,7 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import adminlogin from "./components/admin/adminlogin";
+import AdminLayout from "./components/admin/layouts/admin";
 
 import Login from "./components/auth/loginpage/login";
 import Register from "./components/auth/signinpage/signin";
@@ -18,14 +19,19 @@ import Errorpage from "./pages/errorpage";
 
 import "./App.css";
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <div>
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/admin" component={adminlogin} />
+            <Route
+              exact
+              path="/admin/dashboard"
+              render={props => <AdminLayout {...props} />}
+            />
             <Route exact path="/aboutus" component={aboutus} />
             <Route exact path="/addcredit" component={addcredit} />
             <Route exact path="/confirmpay" component={confirmpay} />
@@ -37,7 +43,7 @@ class App extends React.Component {
             <Route component={Errorpage} />
           </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

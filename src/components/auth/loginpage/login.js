@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+// import Footer from "../../../layout/footer/footer";
+// import { Button } from "react-bootstrap";
+// import "../css/login.css";
+// import { MdHome } from "react-icons/md";
+//import CircularProgress from "@material-ui/core/CircularProgress";
+// import Typography from "@material-ui/core/Typography";
 
-export class login extends Component {
+class Login extends React.Component {
   render() {
     return <div />;
   }
 }
 
-export default login;
+export default Login;
