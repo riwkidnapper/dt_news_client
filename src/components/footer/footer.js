@@ -11,23 +11,12 @@ class Footer extends React.Component {
       >
         <Container fluid={this.props.fluid ? true : false}>
           <Row>
-            <nav className="footer-nav">
-              <ul>
-                <li>
-                  <a href="https://www.creative-tim.com">Creative Tim</a>
-                </li>
-                <li>
-                  <a href="https://blog.creative-tim.com">Blog</a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license">Licenses</a>
-                </li>
-              </ul>
-            </nav>
             <div className="credits ml-auto">
               <div className="copyright">
-                &copy; {1900 + new Date().getYear()}, made with{" "}
-                <i className="fa fa-heart heart" /> by Creative Tim
+                &copy; {new Date().getFullYear()}{" "}
+                <a className="copyrightx" href="/">
+                  D T ACC TAX AND AUDIT
+                </a>
               </div>
             </div>
           </Row>
