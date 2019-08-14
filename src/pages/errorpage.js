@@ -19,7 +19,7 @@ function error404(props) {
 
           <footer className="footer error-page">
             {" "}
-            <Container fluid>
+            <Container>
               <p className="copyright">
                 &copy; {new Date().getFullYear()}{" "}
                 <a className="copyright error" href="/">

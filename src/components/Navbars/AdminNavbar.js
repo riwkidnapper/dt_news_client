@@ -107,8 +107,8 @@ class Header extends React.Component {
             </div>
             <NavbarBrand href="/admin/dashboard">{this.getBrand()}</NavbarBrand>
           </div>
-
           <Nav>
+            <NavItem>{"Administrator "}</NavItem> &nbsp;
             <NavItem>
               <Link to="/admin">
                 <MdExitToApp />

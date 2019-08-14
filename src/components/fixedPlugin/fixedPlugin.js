@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { FaWhmcs } from "react-icons/fa";
 class FixedPlugin extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class FixedPlugin extends Component {
       <div className="fixed-plugin">
         <div className={this.state.classes}>
           <div onClick={this.handleClick}>
-            <i className="fa fa-cog fa-2x" />
+            <FaWhmcs />
           </div>
           <ul className="dropdown-menu show">
             <li className="header-title">สีพื้นหลังเมนู</li>
