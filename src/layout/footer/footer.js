@@ -11,7 +11,7 @@ export class footer extends Component {
             <a className="copyright link" href="/">
               D T ACC TAX AND AUDIT
             </a>
-            <span> ห้างหุ้นส่วนจำกัด ดี ที การบัญชี ภาษี และตรวจสอบs</span>
+            <span> ห้างหุ้นส่วนจำกัด ดี ที การบัญชี ภาษี และตรวจสอบ</span>
             <span> D T ACCOUNTING TAX AND AUDIT LIMITED PARTNERSHIP </span>
             <span>
               เลขที่ 113/2 หมู่ที่ 3 ตำบลดอนศรีชุม อำเภอดอกคำใต้ จังหวัดพะเยา
