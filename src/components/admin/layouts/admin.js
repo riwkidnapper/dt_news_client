@@ -4,9 +4,9 @@ import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
 
 import AdminNavbar from "../../Navbars/AdminNavbar";
-import Footer from "../../Footer/Footer";
-import Sidebar from "../../Sidebar/Sidebar";
-import FixedPlugin from "../../FixedPlugin/FixedPlugin";
+import Footer from "../../Footer/footer";
+import Sidebar from "../../Sidebar/sidebar";
+import FixedPlugin from "../../FixedPlugin/fixedPlugin";
 
 import routes from "../../../routes";
 

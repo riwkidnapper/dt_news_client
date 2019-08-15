@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FaWhmcs } from "react-icons/fa";
+
 class FixedPlugin extends Component {
   constructor(props) {
     super(props);

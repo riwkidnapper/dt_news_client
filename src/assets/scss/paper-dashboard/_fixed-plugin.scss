@@ -157,7 +157,6 @@
 
   .adjustments-line {
     p {
-      float: left;
       display: inline-block;
       margin-bottom: 0;
       font-size: 1em;
@@ -226,6 +225,11 @@
         img {
           margin-top: auto;
         }
+      }
+
+      a.switch-trigger:hover,
+      & > a.switch-trigger:focus {
+        background-color: transparent;
       }
 
       a.switch-trigger:hover,
@@ -315,6 +319,12 @@
 div.dropdown.show {
   padding: 10px;
   color: #f8f8f8;
+  font-size: 180%;
+}
+
+div.dropdown {
+  padding: 10px;
+  color: #919191;
   font-size: 180%;
 }
 

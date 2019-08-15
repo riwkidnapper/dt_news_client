@@ -19,6 +19,14 @@ a.copyright.link {
   color: rgb(47, 104, 9) !important;
 }
 
+a.copyrightx {
+  color: rgb(59, 59, 59) !important;
+}
+
+a.copyrightx {
+  text-decoration: none;
+}
+
 p.copyright > span {
   display: block;
   font-size: 14px;

@@ -351,6 +351,33 @@
     color: inherit;
   }
 
+  .navbar .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-nav {
+    .nav-link {
+      &.profile-photo {
+        padding: 0;
+        margin: 7px $padding-base-horizontal;
+      }
+    }
+  }
+
+  .section-nucleo-icons .icons-container {
+    margin: 0 0 0 auto;
+  }
+
+  .dropdown-menu .dropdown-item {
+    color: inherit;
+  }
+
+  .footer {
+    .copyright {
+      padding-right: 15px;
+    }
+  }
+
   .sidebar {
     .sidebar-wrapper {
       li.active {

@@ -15,6 +15,9 @@ class Footer extends React.Component {
               <div className="copyright">
                 &copy; {new Date().getFullYear()}{" "}
                 <span> ห้างหุ้นส่วนจำกัด ดี ที การบัญชี ภาษี และตรวจสอบ</span>
+                <a className="copyrightx" href="/">
+                  D T ACC TAX AND AUDIT
+                </a>
               </div>
             </div>
           </Row>
