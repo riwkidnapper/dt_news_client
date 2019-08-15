@@ -1,8 +1,10 @@
 div.bord.row {
-	width: auto;
-    padding-top: 5%;
-    padding-right: 10%;
-    padding-left: 10%;
-    padding-bottom: 5%;
-    border: 2px solid rgba(21, 156, 16, 0.397);
+  width: auto;
+  padding-top: 5%;
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-bottom: 5%;
+  background-color: rgba(255, 255, 255, 0.664);
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.3);
+  border: 8px dashed rgba(91, 156, 16, 0.658);
 }
