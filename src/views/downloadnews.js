@@ -17,7 +17,13 @@ class downloadnews extends Component {
                 placeholder="Search..."
               />
               <br />
-              <Button variant="outline-success" size="sm">
+              <Button
+                variant="outline-success"
+                style={{
+                  border: "2px solid"
+                }}
+                size="sm"
+              >
                 SEARCH
               </Button>
             </Form>
