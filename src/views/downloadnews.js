@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Card, CardBody, CardFooter, CardTitle, CardImg } from "reactstrap";
 
 import Footer from "../layout/footer/footer";
 
@@ -29,59 +30,104 @@ class downloadnews extends Component {
             </Form>
             <Col lg={9} md={9} xs={12}>
               <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
-              <p>
-                <span>
-                  เบิร์ดบ๊อบเมี่ยงคำคาแร็คเตอร์เนอะ มอบตัวบาร์บี้เปโซวีไอพี
-                  สะกอมแอลมอนด์ ช็อปจัมโบ้ ทัวร์นาเมนท์สลัมเคลื่อนย้าย
-                  วิภัชภาคโกลด์ ขั้นตอน เครปดอกเตอร์ดีพาร์ทเมนท์
-                  ทิปภควัทคีตาโฮปออกแบบสเตชัน แม่ค้าทิปยังไงแซววานิลลา ซูเอี๋ย
-                  เท็กซ์โอเลี้ยง คาปูชิโนเซอร์วิสดีเจฮัลโหล
-                  แอคทีฟเหมยเชอร์รี่ภคันทลาพาธคาแร็คเตอร์ วาซาบิ
-                  บุ๋นแพทยสภาต่อรองบราภารตะ
-                </span>
-              </p>
-              <p>
-                <span>
-                  ฟอยล์ แพนดาแพนด้าภควัมปติเฝอฮอต ไฟลต์คันถธุระยากูซ่า
-                  ใช้งานโมเต็ลว่ะแป๋ววานิลลา เคลมคอร์สออร์เดอร์แคทวอล์คโดนัท
-                  สตริงโดมิโน ลิสต์ ทอล์คน็อค ทอร์นาโดรีไทร์นายพรานแพกเกจ
-                  แชมเปี้ยนเซลส์แมนแยมโรลว่ะ เฟรมดั๊มพ์ โอเลี้ยง
-                  บิลปาสเตอร์อมาตยาธิปไตย ผิดพลาดเนอะหยวนซูเอี๋ย
-                  อัลตราบลูเบอร์รี่แซนด์วิชแจ๊กเก็ต อุปนายิกากุมภาพันธ์นรีแพทย์
-                </span>
-              </p>
-              <p>
-                <span>
-                  ทรู เทอร์โบกิฟท์ตาปรือผลักดันเยอร์บีร่า
-                  มินต์เฮอร์ริเคนเธครันเวย์ เกมส์คอมเมนต์จ๊าบกลาส
-                  อิกัวนาธรรมาภิบาลโกเต็กซ์บลูเบอร์รี่มอคค่า ภารตะออยล์ไอซียู
-                  จูน โมเดลกัมมันตะ เอฟเฟ็กต์อพาร์ตเมนต์ ฟีดล็อต
-                  เอ็นทรานซ์สึนามิ กาญจนาภิเษกแชมปิยอง ศึกษาศาสตร์
-                  สตีลเทเลกราฟอพาร์ตเมนต์ ฮ็อตด็อกรูบิคแฟรี่เปราะบางจูน
-                  ลีกมอยส์เจอไรเซอร์
-                </span>
-              </p>
-              <p>
-                <span>
-                  โปรดักชั่นเคลมทัวริสต์เซ็นเซอร์สเปค แฟรนไชส์แซนด์วิชคาร์โก้
-                  ฟิวเจอร์จัมโบ้แยมโรลเฝอ ตัวเองซิตีคอรัปชั่นกุนซือฟินิกซ์
-                  โกเต็กซ์ดิกชันนารี แคนูบอกซ์ท็อปบู๊ท เบญจมบพิตรแอ็กชั่นโฮม
-                  โบว์รีดไถเวิร์คธัมโมชะโนด ตนเองชินบัญชรความหมายออร์แกนิก
-                  สโตร์อัลบัม โมหจริต ตังค์ เดโมละตินคลับฮวงจุ้ยดีไซน์
-                  แอ็กชั่นป๊อกมหภาคสเตริโอพล็อต สลัมเอ๊าะ
-                  ไหร่ไคลแม็กซ์บอดี้ท็อปบู๊ทม้านั่ง
-                </span>
-              </p>
-
-              <p>
-                <span>
-                  แชมป์ คาร์โก้เจล หลวงพี่มาร์คมอบตัวแบต อิกัวนาสไลด์ก่อนหน้า
-                  ติ๋มสุนทรีย์โง่เขลาสตีล โพลารอยด์พลานุภาพอินดอร์ วานิลลา
-                  สันทนาการ สถาปัตย์รีดไถลอร์ด โฟมจ๊อกกี้ แม่ค้า
-                  วิวสารขัณฑ์เรตเอสเพรสโซ ริคเตอร์แชมพูโบกี้ชาร์ป คอมเพล็กซ์
-                  เคลมจิตพิสัยวาริชศาสตร์พาร์ตเนอร์ สตริงซินโดรมคอนโทรลโมหจริต
-                </span>
-              </p>
+              <Row>
+                <Col lg="4" md="6" sm="6">
+                  <Card className="card-stats">
+                    <CardImg
+                      top
+                      width="100%"
+                      src="https://www.gogoprint.co.th/media/wysiwyg/opening-images_41.jpg"
+                      alt="Card image cap"
+                    />
+                    <CardBody>
+                      <Row>
+                        <Col md="4" xs="5">
+                          <div className="icon-big text-center icon-warning">
+                            <i className="nc-icon nc-globe text-warning" />
+                          </div>
+                        </Col>
+                        <Col md="8" xs="7">
+                          <div className="numbers">
+                            <p className="card-category">Capacity</p>
+                            <CardTitle tag="p">150GB</CardTitle>
+                            <p />
+                          </div>
+                        </Col>
+                      </Row>
+                    </CardBody>
+                    <CardFooter>
+                      <hr />
+                      <div className="stats">
+                        <i className="fas fa-sync-alt" /> Update Now
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </Col>
+                <Col lg="4" md="6" sm="6">
+                  <Card className="card-stats">
+                    <CardImg
+                      top
+                      width="100%"
+                      src="https://www.gogoprint.co.th/media/wysiwyg/opening-images_41.jpg"
+                      alt="Card image cap"
+                    />
+                    <CardBody>
+                      <Row>
+                        <Col md="4" xs="5">
+                          <div className="icon-big text-center icon-warning">
+                            <i className="nc-icon nc-money-coins text-success" />
+                          </div>
+                        </Col>
+                        <Col md="8" xs="7">
+                          <div className="numbers">
+                            <p className="card-category">Revenue</p>
+                            <CardTitle tag="p">$ 1,345</CardTitle>
+                            <p />
+                          </div>
+                        </Col>
+                      </Row>
+                    </CardBody>
+                    <CardFooter>
+                      <hr />
+                      <div className="stats">
+                        <i className="far fa-calendar" /> Last day
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </Col>
+                <Col lg="4" md="6" sm="6">
+                  <Card className="card-stats">
+                    <CardImg
+                      top
+                      width="100%"
+                      src="https://www.gogoprint.co.th/media/wysiwyg/opening-images_41.jpg"
+                      alt="Card image cap"
+                    />
+                    <CardBody>
+                      <Row>
+                        <Col md="4" xs="5">
+                          <div className="icon-big text-center icon-warning">
+                            <i className="nc-icon nc-vector text-danger" />
+                          </div>
+                        </Col>
+                        <Col md="8" xs="7">
+                          <div className="numbers">
+                            <p className="card-category">Errors</p>
+                            <CardTitle tag="p">23</CardTitle>
+                            <p />
+                          </div>
+                        </Col>
+                      </Row>
+                    </CardBody>
+                    <CardFooter>
+                      <hr />
+                      <div className="stats">
+                        <i className="far fa-clock" /> In the last hour
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
