@@ -33,7 +33,7 @@ div.search.col {
   .tabsearch {
     text-align: center;
     width: 20%;
-    height: 110vh;
+    height: auto;
     padding: 2%;
     padding-top: 10%;
     margin-top: -10%;
