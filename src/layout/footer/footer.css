@@ -23,6 +23,10 @@ a.copyrightx {
   color: rgb(59, 59, 59) !important;
 }
 
+a.copyrightx {
+  text-decoration: none;
+}
+
 p.copyright > span {
   display: block;
   font-size: 14px;
