@@ -1,11 +1,14 @@
 import React from "react";
+
+import Jumbotron from "react-bootstrap/Jumbotron";
+import { Container, Col } from "react-bootstrap";
+
 import Navbar from "../layout/navbar/navbar";
 import Carousel from "../layout/carousel/Carousel";
 import Item from "../layout/item/itembar";
-import "./css/Homepage.css";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import { Container, Col } from "react-bootstrap";
 import Footer from "../layout/footer/footer";
+
+import "./css/Homepage.css";
 
 function Homepage() {
   return (
