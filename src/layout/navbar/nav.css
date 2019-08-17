@@ -12,10 +12,12 @@
 }
 
 .Nav_acc {
+  padding-right: 7% !important;
   position: fixed;
   top: 0%;
-  height: 25px;
-  background-color: #95be01;
+  z-index: 10000;
+  height: 50px;
+  background-color: #ffffff;
 }
 
 .Nav_acc > .nav-item {
@@ -25,17 +27,17 @@
 }
 
 .Nav_acc > .nav-item > a {
-  color: #486300;
+  color: #003b0a;
 }
 
 .Nav_acc > .nav-item > a:hover {
-  color: #cfeb81;
+  color: #16290c;
 }
 
 .Nav_bar {
   position: fixed;
   padding-left: 5%;
-  top: 25px;
+  top: 49px;
   margin: 0;
   background-color: #ffffff;
   z-index: 9999;
@@ -100,7 +102,7 @@
 }
 
 /* @media respostive */
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 768px) {
   .navbar-nav .nav-link {
     padding-left: 2%;
     padding-top: 10px;
@@ -109,6 +111,30 @@
     width: 50%;
     text-decoration: none;
     font-size: 16px;
+  }
+
+  .Nav_acc {
+    position: fixed;
+    top: 0%;
+    height: 40px;
+    background-color: #95be01;
+  }
+  .Nav_bar {
+    position: fixed;
+    padding-left: 5%;
+    top: 40px;
+    margin: 0;
+    background-color: #ffffff;
+    z-index: 9999;
+    box-shadow: 1px 1px 5px 1px rgba(67, 109, 0, 0.247);
+  }
+
+  .Nav_acc > .nav-item > a {
+    color: #486300;
+  }
+
+  .Nav_acc > .nav-item > a:hover {
+    color: #cfeb81;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -136,12 +162,25 @@
     text-decoration: none;
     font-size: 16px;
   }
+  .Nav_acc {
+    position: fixed;
+    top: 0%;
+    height: 25px;
+    background-color: #95be01;
+  }
 }
 
 @media only screen and (min-width: 1150px) {
   .offset-md-1 {
     margin-left: 12%;
     margin-right: -6%;
+  }
+  .Nav_acc {
+    padding-right: 3% !important;
+    position: fixed;
+    top: 0%;
+    height: 25px;
+    background-color: #95be01;
   }
 }
 

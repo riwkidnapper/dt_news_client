@@ -23,7 +23,38 @@ form.post {
   border: 8px dashed rgba(91, 156, 16, 0.658);
 }
 
+.require {
+  color: #f3565d;
+}
+
 form.post > h3 {
   text-align: center;
   padding-bottom: 5%;
+}
+
+.datepicker-input {
+  padding: 10px 10px 6px 10px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  color: #66615b;
+  line-height: normal;
+  font-size: 14px;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  box-shadow: none;
+}
+
+.datepicker-input.ignore--click--outside {
+  padding: 10px 10px 6px 10px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  color: #66615b;
+  line-height: normal;
+  font-size: 14px;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  box-shadow: none;
 }

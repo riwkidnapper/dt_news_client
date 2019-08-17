@@ -2,20 +2,48 @@ import React, { Component } from "react";
 
 import Footer from "../../../layout/footer/footer";
 
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import { green } from "@material-ui/core/colors";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import IconButton from "@material-ui/core/IconButton";
+import { InputAdornment } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 import { Button, Form } from "react-bootstrap";
 import { MdHome } from "react-icons/md";
+import { green } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
     primary: green
+  },
+  eye: {
+    cursor: "pointer"
   }
 });
 class Register extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      passwordIsMasked: true,
+      showPassword: true
+    };
+  }
+
+  togglePasswordMask = () => {
+    this.setState(prevState => ({
+      passwordIsMasked: !prevState.passwordIsMasked
+    }));
+  };
+
+  toggleConfirmPasswordMask = () => {
+    this.setState(prevState => ({
+      showPassword: !prevState.showPassword
+    }));
+  };
+
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
       document.body.classList.toggle("logins");
@@ -28,6 +56,7 @@ class Register extends Component {
   }
 
   render() {
+    const { passwordIsMasked, showPassword } = this.state;
     return (
       <div>
         <br />
@@ -35,10 +64,9 @@ class Register extends Component {
         <br />
         <br />
         <Form>
-          <Typography variant="h5" style={{ marginBottom: 24 }}>
-            <h1 className="head">Sign Up,</h1>
-            <h3 className="head">Create your New Account</h3>
-          </Typography>
+          <Typography variant="h1">Sign Up, </Typography>
+          <Typography variant="h3">Create your New Account </Typography>
+          <br />
           <br />
           <div className="wrappers fadeInDown">
             <div id="formContent">
@@ -82,24 +110,55 @@ class Register extends Component {
                   id="outlined-password-input"
                   label="Password"
                   className="Password"
-                  type="Password"
                   name="Password"
                   autoComplete="Password"
                   margin="normal"
                   variant="outlined"
+                  type={passwordIsMasked ? "password" : "text"}
+                  {...this.props}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={this.togglePasswordMask}
+                        >
+                          {passwordIsMasked ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
                 />
                 <TextField
                   style={{ width: 350 }}
                   id="outlined-password-input"
                   label="Confirm Password"
                   className="Password"
-                  type="Password"
                   name="Password"
                   autoComplete="Confirm Password"
                   margin="normal"
                   variant="outlined"
+                  type={showPassword ? "password" : "text"}
+                  {...this.props}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={this.toggleConfirmPasswordMask}
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
                 />
               </ThemeProvider>
+
               <br />
               <br />
               <Button

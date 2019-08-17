@@ -28,10 +28,12 @@ a.callback svg :hover {
   padding-right: 10%;
 }
 
-.head {
+.MuiTypography-h1,
+.MuiTypography-h3 {
   color: rgb(47, 104, 9) !important;
   z-index: 100;
   padding-left: 25%;
+  font-family: "Kanit" !important;
 }
 
 .bg-bubbles {
@@ -174,6 +176,20 @@ a > h2 {
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(52, 88, 41, 0.3);
   box-shadow: 0 30px 60px 0 rgba(51, 94, 32, 0.3);
+  text-align: center;
+}
+
+#formContentad {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 

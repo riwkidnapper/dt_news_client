@@ -110,9 +110,8 @@ class Header extends React.Component {
           <Nav>
             <NavItem>{"Administrator "}</NavItem> &nbsp;
             <NavItem>
-              <Link to="/admin">
+              <Link to="/">
                 <MdExitToApp />
-                {"   "}
                 ออกจากระบบ
               </Link>
             </NavItem>

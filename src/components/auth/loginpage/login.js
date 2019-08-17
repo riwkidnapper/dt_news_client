@@ -2,11 +2,15 @@ import React from "react";
 
 import Footer from "../../../layout/footer/footer";
 
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import IconButton from "@material-ui/core/IconButton";
+import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { green } from "@material-ui/core/colors";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
 
 import { Button, Form } from "react-bootstrap";
 import { MdHome } from "react-icons/md";
@@ -20,6 +24,20 @@ const theme = createMuiTheme({
   }
 });
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      passwordIsMasked: true
+    };
+  }
+
+  togglePasswordMask = () => {
+    this.setState(prevState => ({
+      passwordIsMasked: !prevState.passwordIsMasked
+    }));
+  };
+
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
       document.body.classList.toggle("logins");
@@ -32,6 +50,7 @@ class Login extends React.Component {
   }
 
   render() {
+    const { passwordIsMasked } = this.state;
     return (
       <div>
         <br />
@@ -39,10 +58,9 @@ class Login extends React.Component {
         <br />
         <br />
         <Form>
-          <Typography variant="h5" style={{ marginBottom: 24 }}>
-            <h1 className="head">Welcome Back,</h1>
-            <h3 className="head">Sign to continue</h3>
-          </Typography>
+          <Typography variant="h1">Welcome Back,</Typography>
+          <Typography variant="h3">Sign to continue</Typography>
+          <br />
           <br />
           <div className="wrappers fadeInDown">
             <div id="formContent">
@@ -76,11 +94,28 @@ class Login extends React.Component {
                   id="outlined-password-input"
                   label="Password"
                   className="Password"
-                  type="Password"
                   name="Password"
                   autoComplete="Password"
                   margin="normal"
                   variant="outlined"
+                  type={passwordIsMasked ? "password" : "text"}
+                  {...this.props}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={this.togglePasswordMask}
+                        >
+                          {passwordIsMasked ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
                 />
               </ThemeProvider>
               <br />

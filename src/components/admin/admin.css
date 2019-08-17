@@ -16,6 +16,9 @@ body.login-on {
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.616);
 }
 
+a.btn.btn-dark.btn-lg {
+  width: 60%;
+}
 .form-signin .form-control {
   position: relative;
   font-size: 16px;
