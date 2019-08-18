@@ -27,7 +27,7 @@ class navbar extends Component {
           </Nav.Item>
         </Navbar>
         <Navbar fixed="top" className="Nav_bar" collapseOnSelect expand="lg">
-          <Navbar.Brand href="/">
+          <Navbar.Brand>
             <img alt="" src={logo} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

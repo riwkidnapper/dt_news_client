@@ -7,10 +7,10 @@ import AdminLayout from "./components/admin/layouts/admin";
 import Login from "./components/auth/loginpage/login";
 import Register from "./components/auth/signinpage/signin";
 
-import aboutus from "./views/aboutus";
+// import aboutus from "./views/aboutus";
 import addcredit from "./views/addcredit";
 import confirmpay from "./views/confirmpay";
-import contact from "./views/contact";
+// import contact from "./views/contact";
 import Homepage from "./pages/homepage";
 import postnews from "./views/postnews";
 import updatenews from "./views/updatenews";
