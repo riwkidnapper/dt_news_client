@@ -1,6 +1,5 @@
 import React from "react";
 // import { loginUser } from "../../../redux/actions/userActions";
-
 import Footer from "../../../layout/footer/footer";
 
 import Typography from "@material-ui/core/Typography";
@@ -8,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
-import CircularProgress from "@material-ui/core/CircularProgress";
+// import CircularProgress from "@material-ui/core/CircularProgress";
 import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -16,7 +15,6 @@ import { green } from "@material-ui/core/colors";
 
 import { Button, Form, Spinner } from "react-bootstrap";
 import { MdHome } from "react-icons/md";
-//import CircularProgress from "@material-ui/core/CircularProgress";
 
 import "../css/login.css";
 
@@ -46,10 +44,10 @@ class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };
+    // const userData = {
+    //   email: this.state.email,
+    //   password: this.state.password
+    // };
     this.props.history.push("/");
   };
 

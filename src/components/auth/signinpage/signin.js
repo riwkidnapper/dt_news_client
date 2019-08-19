@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Footer from "../../../layout/footer/footer";
 
 import Typography from "@material-ui/core/Typography";
@@ -10,9 +9,10 @@ import IconButton from "@material-ui/core/IconButton";
 import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { green } from "@material-ui/core/colors";
+
 import { Button, Form } from "react-bootstrap";
 import { MdHome } from "react-icons/md";
-import { green } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
