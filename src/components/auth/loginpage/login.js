@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 import Footer from "../../../layout/footer/footer";
@@ -8,6 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
+
 import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -51,6 +53,7 @@ class Login extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault();
+
     const userData = {
       email: this.state.email,
       password: this.state.password

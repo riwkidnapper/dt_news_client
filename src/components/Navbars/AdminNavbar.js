@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, NavbarBrand, Nav, NavItem, Container } from "reactstrap";
-
 import { MdExitToApp } from "react-icons/md";
 import routes from "../../routes";
 

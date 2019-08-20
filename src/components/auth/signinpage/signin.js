@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+
 import PropTypes from "prop-types";
+
+
 import Footer from "../../../layout/footer/footer";
 
 import Typography from "@material-ui/core/Typography";
@@ -11,9 +14,14 @@ import Grid from "@material-ui/core/Grid";
 import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+
 import { Button, Form, Spinner } from "react-bootstrap";
-import { MdHome } from "react-icons/md";
+
 import { green } from "@material-ui/core/colors";
+
+import { Button, Form } from "react-bootstrap";
+
+import { MdHome } from "react-icons/md";
 
 import { connect } from "react-redux";
 import { signupUser } from "../../../redux/actions/userActions";
