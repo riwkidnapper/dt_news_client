@@ -9,29 +9,29 @@ var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "nc-icon nc-bank",
+    icon: "lnr lnr-chart-bars",
     component: Dashboard,
     layout: "/admin"
   },
 
   {
     path: "/user-page",
-    name: "User Profile",
-    icon: "nc-icon nc-single-02",
+    name: "Profile",
+    icon: "lnr lnr-user",
     component: UserPage,
     layout: "/admin"
   },
   {
     path: "/tables",
-    name: "Table List",
-    icon: "nc-icon nc-tile-56",
+    name: "Accounts",
+    icon: "fa fa-address-card-o",
     component: TableList,
     layout: "/admin"
   },
   {
     path: "/typography",
     name: "Typography",
-    icon: "nc-icon nc-caps-small",
+    icon: "lnr lnr-diamond",
     component: Typography,
     layout: "/admin"
   }

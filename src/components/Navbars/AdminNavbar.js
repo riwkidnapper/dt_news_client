@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, NavbarBrand, Nav, NavItem, Container } from "reactstrap";
-
 import { MdExitToApp } from "react-icons/md";
 import routes from "../../routes";
 
@@ -110,9 +109,8 @@ class Header extends React.Component {
           <Nav>
             <NavItem>{"Administrator "}</NavItem> &nbsp;
             <NavItem>
-              <Link to="/admin">
+              <Link to="/">
                 <MdExitToApp />
-                {"   "}
                 ออกจากระบบ
               </Link>
             </NavItem>

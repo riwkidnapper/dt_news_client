@@ -11,6 +11,7 @@ import FixedPlugin from "../../fixedPlugin/fixedPlugin";
 import routes from "../../../routes";
 
 import "./adminlayout.css";
+
 var ps;
 
 class Dashboard extends React.Component {
