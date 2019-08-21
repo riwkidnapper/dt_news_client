@@ -5,13 +5,16 @@
   "dependencies": {
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "chartist": "^0.11.3",
     "create-react-class": "^15.6.3",
     "jquery": "^3.4.1",
+    "jwt-decode": "^2.2.0",
     "node-sass": "^4.12.0",
     "perfect-scrollbar": "^1.4.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.10",
     "react-center": "^1.1.1",
@@ -22,10 +25,13 @@
     "react-dom": "^16.9.0",
     "react-dynamic-modal": "^1.1.1",
     "react-icons": "^3.7.0",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-toggle": "^4.0.2",
-    "reactstrap": "^8.0.1"
+    "reactstrap": "^8.0.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,5 +53,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://asia-east2-news-48fc7.cloudfunctions.net/api"
 }

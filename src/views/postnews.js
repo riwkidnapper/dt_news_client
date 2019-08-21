@@ -204,6 +204,7 @@ class postnews extends React.Component {
   }
 
   render() {
+   
     var now = new Date().getFullYear() + 543;
     return (
       <div>

@@ -1,5 +1,7 @@
 import React from "react";
-// import { loginUser } from "../../../redux/actions/userActions";
+
+import PropTypes from "prop-types";
+
 import Footer from "../../../layout/footer/footer";
 
 import Typography from "@material-ui/core/Typography";
@@ -7,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
-// import CircularProgress from "@material-ui/core/CircularProgress";
+
 import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -15,6 +17,10 @@ import { green } from "@material-ui/core/colors";
 
 import { Button, Form, Spinner } from "react-bootstrap";
 import { MdHome } from "react-icons/md";
+
+import { connect } from "react-redux";
+import { loginUser } from "../../../redux/actions/userActions";
+//import CircularProgress from "@material-ui/core/CircularProgress";
 
 import "../css/login.css";
 
@@ -30,7 +36,6 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
-      loading: false,
       errors: {},
       passwordIsMasked: true
     };
@@ -41,16 +46,20 @@ class Login extends React.Component {
       passwordIsMasked: !prevState.passwordIsMasked
     }));
   };
-
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
+  }
   handleSubmit = event => {
     event.preventDefault();
-    // const userData = {
-    //   email: this.state.email,
-    //   password: this.state.password
-    // };
-    this.props.history.push("/");
-  };
 
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.loginUser(userData, this.props.history);
+  };
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -68,8 +77,10 @@ class Login extends React.Component {
   }
 
   render() {
-    const { passwordIsMasked, errors, loading } = this.state;
-
+    const { passwordIsMasked, errors } = this.state;
+    const {
+      UI: { loading }
+    } = this.props;
     return (
       <div>
         <br />
@@ -114,15 +125,17 @@ class Login extends React.Component {
                   />
                   <TextField
                     style={{ width: 350 }}
-                    id="outlined-password-input"
+                    id="password"
                     label="Password"
-                    className="Password"
-                    name="Password"
-                    autoComplete="Password"
+                    className="password"
+                    name="password"
+                    autoComplete="password"
                     margin="normal"
                     variant="outlined"
                     helperText={errors.password}
                     error={errors.password ? true : false}
+                    value={this.state.password}
+                    onChange={this.handleChange}
                     type={passwordIsMasked ? "password" : "text"}
                     {...this.props}
                     InputProps={{
@@ -144,6 +157,11 @@ class Login extends React.Component {
                   />
                 </ThemeProvider>
                 <br />
+                {errors.general && (
+                  <Typography variant="body2" className="customError">
+                    {errors.general}
+                  </Typography>
+                )}
                 <br />
                 <Button
                   type="submit"
@@ -153,13 +171,13 @@ class Login extends React.Component {
                   disabled={loading}
                 >
                   {"Login"}
-                  {
+                  {loading && (
                     <Spinner
                       animation="border"
                       variant="success"
                       className="progress"
                     />
-                  }
+                  )}
                 </Button>
                 <br />
                 <br />
@@ -193,4 +211,22 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user,
+  UI: state.UI
+});
+
+const mapActionsToProps = {
+  loginUser
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(Login);

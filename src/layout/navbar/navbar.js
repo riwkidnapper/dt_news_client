@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 import { Navbar /*,NavDropdown*/, Nav } from "react-bootstrap";
 import logo from "../../assets/1.png";
 
@@ -9,12 +9,21 @@ import "./nav.css";
 import { FiLogIn } from "react-icons/fi";
 import { MdPersonAdd } from "react-icons/md";
 
+import { connect } from "react-redux";
+import { logoutUser } from "../../redux/actions/userActions";
 class navbar extends Component {
+  handleLogout = () => {
+    this.props.logoutUser();
+  };
   render() {
+    // const {
+    //   user: { loading, authenticated }
+    // } = this.props;
     return (
       <div>
         <Navbar fixed="top" className="Nav_acc">
           <Nav.Item>
+            <button onClick={this.handleLogout} />
             <Link to="/login">
               <FiLogIn />
               {" Login"}
@@ -85,5 +94,17 @@ class navbar extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user
+});
 
-export default navbar;
+navbar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
+};
+const mapActionsToProps = { logoutUser };
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(navbar);
