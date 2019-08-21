@@ -3,11 +3,10 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
 
-import AdminNavbar from "../../Navbars/AdminNavbar";
+import AdminNavbar from "../../navbars/adminNavbar";
 import Footer from "../../footer/footer";
 import Sidebar from "../../sidebar/sidebar";
 import FixedPlugin from "../../fixedPlugin/fixedPlugin";
-
 import routes from "../../../routes";
 
 import "./adminlayout.css";
