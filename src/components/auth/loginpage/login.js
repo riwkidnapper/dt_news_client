@@ -20,7 +20,6 @@ import { MdHome } from "react-icons/md";
 
 import { connect } from "react-redux";
 import { loginUser } from "../../../redux/actions/userActions";
-//import CircularProgress from "@material-ui/core/CircularProgress";
 
 import "../css/login.css";
 

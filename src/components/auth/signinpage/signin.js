@@ -38,7 +38,7 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
-      username: "",
+      handle: "",
       errors: {},
       passwordIsMasked: true,
       showPassword: true
@@ -81,7 +81,7 @@ class Register extends Component {
       email: this.state.email,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
-      username: this.state.username
+      handle: this.state.handle
     };
     this.props.signupUser(newUserData, this.props.history);
   };
@@ -123,86 +123,6 @@ class Register extends Component {
               </a>
               <br />
 
-              {/* <Grid container>
-                <form noValidate onSubmit={this.handleSubmit}>
-                  <TextField
-                    style={{ width: 350 }}
-                    id="email"
-                    name="email"
-                    type="email"
-                    label="Email"
-                    helperText={errors.email}
-                    error={errors.email ? true : false}
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <TextField
-                    style={{ width: 350 }}
-                    id="password"
-                    name="password"
-                    type="password"
-                    label="Password"
-                    helperText={errors.password}
-                    error={errors.password ? true : false}
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <TextField
-                    style={{ width: 350 }}
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type="password"
-                    label="Confirm Password"
-                    helperText={errors.confirmPassword}
-                    error={errors.confirmPassword ? true : false}
-                    value={this.state.confirmPassword}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  <TextField
-                    style={{ width: 350 }}
-                    id="handle"
-                    name="handle"
-                    type="text"
-                    label="Handle"
-                    helperText={errors.handle}
-                    error={errors.handle ? true : false}
-                    value={this.state.handle}
-                    onChange={this.handleChange}
-                    fullWidth
-                  />
-                  {errors.general && (
-                    <Typography variant="body2">{errors.general}</Typography>
-                  )}
-                  <Button
-                    type="submit"
-                    className="button is-link"
-                    variant="outline-success"
-                    size="lg"
-                    disabled={loading}
-                  >
-                    {"Sign Up"}
-                    {loading && (
-                      <Spinner
-                        animation="border"
-                        variant="success"
-                        className="progress"
-                      />
-                    )}
-                  </Button>
-                  <br />
-                  <br />
-                  <div id="formFooter">
-                    มีบัญชีผู้ใช้แล้วคลิก
-                    <a className="underlineHover" href="/login">
-                      &nbsp;ลงชื่อเข้าใช้&nbsp;
-                    </a>
-                    เพื่อเข้าสู่ระบบ
-                  </div>
-                </form>
-              </Grid> */}
               <Grid container>
                 <form noValidate onSubmit={this.handleSubmit}>
                   <ThemeProvider theme={theme}>
@@ -220,15 +140,6 @@ class Register extends Component {
                       error={errors.email ? true : false}
                       value={this.state.email}
                       onChange={this.handleChange}
-                      // id="email"
-                      // name="email"
-                      // type="email"
-                      // label="Email"
-                      // helperText={errors.email}
-                      // error={errors.email ? true : false}
-                      // value={this.state.email}
-                      // onChange={this.handleChange}
-                      // fullWidth
                     />
                     <TextField
                       style={{ width: 350 }}
@@ -261,15 +172,6 @@ class Register extends Component {
                           </InputAdornment>
                         )
                       }}
-                      // id="password"
-                      // name="password"
-                      // type="password"
-                      // label="Password"
-                      // helperText={errors.password}
-                      // error={errors.password ? true : false}
-                      // value={this.state.password}
-                      // onChange={this.handleChange}
-                      // fullWidth
                     />
                     <TextField
                       style={{ width: 350 }}
@@ -300,29 +202,19 @@ class Register extends Component {
                           </InputAdornment>
                         )
                       }}
-                      // id="confirmPassword"
-                      // name="confirmPassword"
-                      // type="password"
-                      // label="Confirm Password"
-                      // helperText={errors.confirmPassword}
-                      // error={errors.confirmPassword ? true : false}
-                      // value={this.state.confirmPassword}
-                      // onChange={this.handleChange}
-                      // fullWidth
                     />
                     <br /> <br />
                     <TextField
                       style={{ width: 350 }}
-                      id="handle"
-                      name="username"
+                      id="username"
+                      name="handle"
                       type="text"
                       label="Username"
                       variant="outlined"
-                      helperText={errors.username}
-                      error={errors.username ? true : false}
-                      value={this.state.username}
+                      helperText={errors.handle}
+                      error={errors.handle ? true : false}
+                      value={this.state.handle}
                       onChange={this.handleChange}
-                      fullWidth
                     />
                   </ThemeProvider>
 
