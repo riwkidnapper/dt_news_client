@@ -19,10 +19,10 @@ import Register from "./components/auth/signinpage/signin";
 import addcredit from "./views/addcredit";
 import confirmpay from "./views/confirmpay";
 // import contact from "./views/contact";
-import Homepage from "./pages/homepage";
 import postnews from "./views/postnews";
 import updatenews from "./views/updatenews";
 
+import Homepage from "./pages/homepage";
 import Errorpage from "./pages/errorpage";
 
 import axios from "axios";

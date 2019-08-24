@@ -54,5 +54,9 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "proxy": "https://asia-east2-news-48fc7.cloudfunctions.net/webapi"
+=======
+  "proxy": "https://asia-east2-news-48fc7.cloudfunctions.net/wepapi"
+>>>>>>> master
 }

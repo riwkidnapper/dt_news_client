@@ -7,7 +7,6 @@ import AdminNavbar from "../../navbars/adminNavbar";
 import Footer from "../../footer/footer";
 import Sidebar from "../../sidebar/sidebar";
 import FixedPlugin from "../../fixedPlugin/fixedPlugin";
-
 import routes from "../../../routes";
 
 import "./adminlayout.css";
