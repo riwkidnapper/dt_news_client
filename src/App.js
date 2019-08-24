@@ -29,7 +29,8 @@ import axios from "axios";
 
 import "./App.css";
 
-axios.defaults.baseURL = "https://asia-east2-news-48fc7.cloudfunctions.net/webapi";
+axios.defaults.baseURL =
+  "https://asia-east2-news-48fc7.cloudfunctions.net/webapi";
 
 const token = localStorage.FBIdToken;
 if (token) {

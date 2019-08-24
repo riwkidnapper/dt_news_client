@@ -9,7 +9,7 @@ body.logins {
 }
 
 a.callback {
-  padding-left: 70%;
+  margin-left: 70%;
 }
 
 a.callback svg {

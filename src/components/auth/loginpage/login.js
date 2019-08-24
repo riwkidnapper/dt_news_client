@@ -29,8 +29,8 @@ const theme = createMuiTheme({
   }
 });
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       email: "",
@@ -80,6 +80,7 @@ class Login extends React.Component {
     const {
       UI: { loading }
     } = this.props;
+    console.log(loading);
     return (
       <div>
         <br />
