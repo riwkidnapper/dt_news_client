@@ -54,5 +54,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://asia-east2-news-48fc7.cloudfunctions.net/api"
+  "proxy": "https://asia-east2-news-48fc7.cloudfunctions.net/wepapi"
 }
