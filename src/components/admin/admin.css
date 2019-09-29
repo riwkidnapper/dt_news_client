@@ -44,6 +44,10 @@ a.btn.btn-dark.btn-lg {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.MuiFormControl-root {
+  width: 300px !important;
+}
+
 
 input.form-controls {
   margin-left: 0%;
@@ -53,7 +57,7 @@ input.form-controls {
   padding: 10px;
   box-sizing: border-box;
   display: block;
-  width: 100%;
+  width: auto;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;

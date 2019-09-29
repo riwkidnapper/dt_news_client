@@ -12,7 +12,9 @@ body {
   position: relative;
   color: rgb(90, 95, 88) !important;
 }
-
+input[type="date"] {
+  height: 39px !important;
+}
 @media only screen and (min-width: 321px) {
   body {
     margin-top: 96px;

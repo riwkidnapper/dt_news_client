@@ -1,24 +1,36 @@
 import React from "react";
+
+import PropTypes from "prop-types";
 import $ from "jquery";
 import Center from "react-center";
-import { Form, Col, Button, Row } from "react-bootstrap";
+import { Form, Col, Button, Row, Spinner } from "react-bootstrap";
 
 import { ModalManager } from "react-dynamic-modal";
 import moment from "moment-jalaali";
-import DatePicker from "react-datepicker2";
 
 import Header from "../layout/navbar/navbar";
 import Footer from "../layout/footer/footer";
 import MyModal from "../components/modals";
-
+import { connect } from "react-redux";
+import { postNews } from "../redux/actions/userActions";
 import "../css/postnews.css";
 
 class postnews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: moment(),
-      values: moment()
+      post_date: "",
+      subject: "",
+      agenda: "",
+      companyName: "",
+      meeting_time: "",
+      meeting_date: "",
+      meeting_place: "",
+      meeting_no: "",
+      announce: "",
+      honorific: "",
+      authorized_name: "",
+      authorized_position: ""
     };
     this.enabledRange = {
       min: moment().startOf("month")
@@ -32,7 +44,7 @@ class postnews extends React.Component {
 
       if (subject === "") {
         $("textarea[name='agenda']").val("");
-      } else if (subject === "1_1") {
+      } else if (subject === "เชิญประชุมปิดงบประจำปี") {
         text = "1. รับรองรายงานการประชุมครั้งที่ผ่านมา\n";
         text += "2. รายงานผลการดำเนินงานของบริษัทและรับรองงบการเงินประจำปี\n";
         text += "3. พิจารณาแต่งตั้งผู้สอบบัญชีและกำหนดค่าตอบแทนประจำปี\n";
@@ -43,18 +55,18 @@ class postnews extends React.Component {
         text += "6. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "1_2") {
+      } else if (subject === "กำหนดรายละเอียดการประชุมเอง") {
         text = "ป้อนรายละเอียดละเอียดประชุมที่นี่";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_1") {
+      } else if (subject === "เชิญประชุมย้ายที่อยู่") {
         text = "1. พิจารณาแก้ไขที่ตั้งสำนักงานของบริษัท\n";
         text += "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 2. ดังนี้\n";
         text += "ข้อ 2. สำนักงานของบริษัทตั้งอยู่ ณ จังหวัด .....\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_2") {
+      } else if (subject === "เชิญประชุมลดทุน") {
         text = "1. พิจารณาอนุมัติการลดทุนจดทะเบียนของบริษัท จำนวน ..... บาท\n";
         text +=
           "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 5. (ทุน) ดังนี้\n";
@@ -63,18 +75,18 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_3") {
+      } else if (subject === "เชิญประชุมเปลี่ยนกรรมการ") {
         text = "1. พิจารณาแต่งตั้งกรรมการและอำนาจกรรมการ\n";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_4") {
+      } else if (subject === "เชิญประชุมเปลี่ยนชื่อบริษัท") {
         text = "1. พิจารณาแก้ไขเปลี่ยนแปลงชื่อของบริษัท\n";
         text += "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 1. ดังนี้\n";
         text += "ข้อ 1. ชื่อบริษัท ..... จำกัด\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_5") {
+      } else if (subject === "เชิญประชุมเพิ่มทุน") {
         text =
           "1. พิจารณาอนุมัติการเพิ่มทุนจดทะเบียนของบริษัท จำนวน ..... บาท\n";
         text +=
@@ -84,7 +96,7 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_6") {
+      } else if (subject === "เชิญประชุมเพิ่มวัตถุประสงค์") {
         text = "1. พิจารณาแก้ไขเพิ่มเติมวัตถุประสงค์ของบริษัท\n";
         text += "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 3. ดังนี้\n";
         text +=
@@ -92,54 +104,54 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_7") {
+      } else if (subject === "เชิญประชุมเลิกบริษัท") {
         text = "1. พิจารณาลงมติพิเศษเรื่องการเลิกบริษัท\n";
         text += "2. พิจารณาแต่งตั้งผู้ชำระบัญชี\n";
         text += "3. พิจารณาแต่งตั้งผู้สอบบัญชี (ถ้ามี)\n";
         text += "4. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_8") {
+      } else if (subject === "เชิญประชุมเสร็จชำระบัญชี") {
         text = "1. รับรองรายงานการประชุมวิสามัญผู้ถือหุ้นครั้งที่ .....\n";
         text += "2. พิจารณารายงานการชำระบัญชี\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_9") {
+      } else if (subject === "เชิญประชุมแก้ไขเพิ่มเติมตราบริษัท") {
         text = "1. พิจารณาแก้ไขเพิ่มเติมตราของบริษัท\n";
         text += "2. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_10") {
+      } else if (subject === "กำหนดรายละเอียดการประชุมเอง") {
         text = "1. รับรองรายงานการประชุมครั้งที่ผ่านมา\n";
         text += "2. พิจารณาการอนุมัติการจ่ายเงินปันผลของบริษัท\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_11") {
+      } else if (subject === "เชิญประชุมแก้ไขข้อบังคับ") {
         text = "1. พิจารณาแก้ไขเพิ่มเติมข้อบังคับ\n";
         text += "2. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_12") {
+      } else if (subject === "เชิญประชุมแก้ไขข้อบังคับ") {
         text = "1. พิจารณาการควบบริษัทจำกัด\n";
         text += "2. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "2_20") {
+      } else if (subject === "กำหนดรายละเอียดการประชุมเอง") {
         text = "ป้อนรายละเอียดละเอียดประชุมที่นี่";
 
         $("textarea[name='agenda']").val(text);
       }
 
-      if (subject === "2_13") {
+      if (subject === "ประกาศเลิกบริษัท") {
         $(".hide-general").hide();
         $(".hide-2-14").hide();
         $(".hide-ofb").hide();
         $(".show-ofb").show();
 
         $("input[name='authorized_position']").val("ผู้ชำระบัญชี");
-      } else if (subject === "2_14") {
+      } else if (subject === "ประกาศจ่ายเงินปันผล") {
         $(".hide-general").hide();
         $(".hide-ofb").hide();
         $(".hide-2-14").hide();
@@ -168,7 +180,9 @@ class postnews extends React.Component {
     const honorific = this.refs.honorific.value;
     const authorized_name = this.refs.authorized_name.value;
     const authorized_position = this.refs.authorized_position.value;
+    const post_date = this.refs.post_date.value;
     const meeting_date = this.refs.meeting_date.value;
+
     if (
       subject === "-- เลือกหัวข้อ / เรื่อง --" ||
       agenda === "" ||
@@ -187,8 +201,10 @@ class postnews extends React.Component {
     } else {
       ModalManager.open(
         <MyModal
+          subject={subject}
           agenda={agenda}
           companyName={companyName}
+          post_date={post_date}
           meeting_date={meeting_date}
           meeting_no={meeting_no}
           announce={announce}
@@ -202,9 +218,28 @@ class postnews extends React.Component {
       );
     }
   }
-
+  handleSubmit = event => {
+    event.preventDefault();
+    const data = {
+      post_date: this.refs.post_date.value,
+      subject: this.refs.subject.value,
+      agenda: this.refs.agenda.value,
+      companyName: this.refs.company_name.value,
+      meeting_time: this.refs.meeting_time.value,
+      meeting_date: this.refs.meeting_date.value,
+      meeting_place: this.refs.meeting_place.value,
+      meeting_no: this.refs.meeting_no.value,
+      announce: this.refs.announce.value,
+      honorific: this.refs.honorific.value,
+      authorized_name: this.refs.authorized_name.value,
+      authorized_position: this.refs.authorized_position.value
+    };
+    this.props.postNews(data, this.props.history);
+  };
   render() {
-   
+    const {
+      UI: { loading }
+    } = this.props;
     var now = new Date().getFullYear() + 543;
     return (
       <div>
@@ -215,7 +250,7 @@ class postnews extends React.Component {
           </div>
           <br /> <br />
           <Center>
-            <Form className="post">
+            <form noValidate onSubmit={this.handleSubmit} className="post">
               <h3>ลงประกาศเชิญประชุม</h3>
               <Form.Row>
                 <Form.Group
@@ -229,27 +264,55 @@ class postnews extends React.Component {
                   <Form.Control ref="subject" name="subject" as="select">
                     <option> -- เลือกหัวข้อ / เรื่อง -- </option>
                     <optgroup label="สามัญ">
-                      <option value="1_1">เชิญประชุมปิดงบประจำปี</option>
-                      <option value="1_2">กำหนดรายละเอียดการประชุมเอง</option>
+                      <option value="เชิญประชุมปิดงบประจำปี">
+                        เชิญประชุมปิดงบประจำปี
+                      </option>
+                      <option value="กำหนดรายละเอียดการประชุมเอง">
+                        กำหนดรายละเอียดการประชุมเอง
+                      </option>
                     </optgroup>
                     <optgroup label="วิสามัญ">
-                      <option value="2_1">เชิญประชุมย้ายที่อยู่</option>
-                      <option value="2_2">เชิญประชุมลดทุน</option>
-                      <option value="2_3">เชิญประชุมเปลี่ยนกรรมการ</option>
-                      <option value="2_4">เชิญประชุมเปลี่ยนชื่อบริษัท</option>
-                      <option value="2_5">เชิญประชุมเพิ่มทุน</option>
-                      <option value="2_6">เชิญประชุมเพิ่มวัตถุประสงค์</option>
-                      <option value="2_7">เชิญประชุมเลิกบริษัท</option>
-                      <option value="2_8">เชิญประชุมเสร็จชำระบัญชี</option>
-                      <option value="2_9">
+                      <option value="เชิญประชุมย้ายที่อยู่">
+                        เชิญประชุมย้ายที่อยู่
+                      </option>
+                      <option value="เชิญประชุมลดทุน">เชิญประชุมลดทุน</option>
+                      <option value="เชิญประชุมเปลี่ยนกรรมการ">
+                        เชิญประชุมเปลี่ยนกรรมการ
+                      </option>
+                      <option value="เชิญประชุมเปลี่ยนชื่อบริษัท">
+                        เชิญประชุมเปลี่ยนชื่อบริษัท
+                      </option>
+                      <option value="เชิญประชุมเพิ่มทุน">
+                        เชิญประชุมเพิ่มทุน
+                      </option>
+                      <option value="เชิญประชุมเพิ่มวัตถุประสงค์">
+                        เชิญประชุมเพิ่มวัตถุประสงค์
+                      </option>
+                      <option value="เชิญประชุมเลิกบริษัท">
+                        เชิญประชุมเลิกบริษัท
+                      </option>
+                      <option value="เชิญประชุมเสร็จชำระบัญชี">
+                        เชิญประชุมเสร็จชำระบัญชี
+                      </option>
+                      <option value="เชิญประชุมแก้ไขเพิ่มเติมตราบริษัท">
                         เชิญประชุมแก้ไขเพิ่มเติมตราบริษัท
                       </option>
-                      <option value="2_10">เชิญประชุมอนุมัติเงินปันผล</option>
-                      <option value="2_11">เชิญประชุมแก้ไขข้อบังคับ</option>
-                      <option value="2_12">เชิญประชุมควบรวมบริษัท</option>
-                      <option value="2_13">ประกาศเลิกบริษัท</option>
-                      <option value="2_14">ประกาศจ่ายเงินปันผล</option>
-                      <option value="2_20">กำหนดรายละเอียดการประชุมเอง</option>
+                      <option value="เชิญประชุมอนุมัติเงินปันผล">
+                        เชิญประชุมอนุมัติเงินปันผล
+                      </option>
+                      <option value="เชิญประชุมแก้ไขข้อบังคับ">
+                        เชิญประชุมแก้ไขข้อบังคับ
+                      </option>
+                      <option value="เชิญประชุมแก้ไขข้อบังคับ">
+                        เชิญประชุมแก้ไขข้อบังคับ
+                      </option>
+                      <option value="ประกาศเลิกบริษัท">ประกาศเลิกบริษัท</option>
+                      <option value="ประกาศจ่ายเงินปันผล">
+                        ประกาศจ่ายเงินปันผล
+                      </option>
+                      <option value="กำหนดรายละเอียดการประชุมเอง">
+                        กำหนดรายละเอียดการประชุมเอง
+                      </option>
                     </optgroup>
                     {/* <optgroup label="อื่นๆ">
                       <option value="3_1">ลงประกาศแบบรูปภาพ</option>
@@ -295,18 +358,15 @@ class postnews extends React.Component {
                     placeholder="ท่านผู้ถือหุ้นของบริษัท"
                   />
                 </Form.Group>
-
                 <Form.Group as={Col} controlId="formGridZip" required>
                   <Form.Label>วันที่จัดประชุม</Form.Label>
                   <span className="require"> *</span>
-                  <DatePicker
-                    ref="meeting_date"
-                    name="meeting_date"
-                    timePicker={false}
-                    min={this.enabledRange.min}
-                    value={this.state.values}
-                    inputFormat=" D/MM/YYYY"
-                    onChange={values => this.setState({ values })}
+
+                  <input
+                    ref="post_date"
+                    type="date"
+                    name="post_date"
+                    className="form-control"
                   />
                 </Form.Group>
 
@@ -387,13 +447,11 @@ class postnews extends React.Component {
               <Form.Group controlId="formGridZip" required>
                 <Form.Label>วันที่ลงประกาศ</Form.Label>
                 <span className="require"> *</span>
-                <DatePicker
-                  name="ads_post_date"
-                  timePicker={false}
-                  min={this.enabledRange.min}
-                  value={this.state.value}
-                  inputFormat=" D/MM/YYYY"
-                  onChange={value => this.setState({ value })}
+                <input
+                  ref="meeting_date"
+                  type="date"
+                  name="meeting_date"
+                  className="form-control"
                 />
               </Form.Group>
               <Form.Row>
@@ -439,13 +497,20 @@ class postnews extends React.Component {
                     <br />
                     <Col md={7}>
                       <Button type="submit" variant="success">
-                        ลงประกาศ
+                        {"ลงประกาศ"}
+                        {loading && (
+                          <Spinner
+                            animation="border"
+                            variant="success"
+                            className="progress"
+                          />
+                        )}
                       </Button>
                     </Col>
                   </Center>
                 </Row>
               </Center>
-            </Form>
+            </form>
           </Center>
           <br />
         </div>
@@ -454,5 +519,18 @@ class postnews extends React.Component {
     );
   }
 }
+postnews.propTypes = {
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired,
+  postNews: PropTypes.func.isRequired
+};
 
-export default postnews;
+const mapStateToProps = state => ({
+  user: state.user,
+  UI: state.UI
+});
+
+export default connect(
+  mapStateToProps,
+  { postNews }
+)(postnews);

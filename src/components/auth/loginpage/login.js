@@ -80,7 +80,7 @@ class Login extends React.Component {
     const {
       UI: { loading }
     } = this.props;
-    console.log(loading);
+
     return (
       <div>
         <br />

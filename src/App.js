@@ -7,6 +7,8 @@ import store from "./redux/store";
 import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userActions";
 
+import ProtectedRoute from "./util/ProtectRoute";
+import AdminRoute from "./util/AdminRoute";
 import AuthRoute from "./util/AuthRoute";
 
 import adminlogin from "./components/admin/adminlogin";
@@ -21,7 +23,7 @@ import confirmpay from "./views/confirmpay";
 // import contact from "./views/contact";
 import postnews from "./views/postnews";
 import updatenews from "./views/updatenews";
-
+import Admin from "./components/admin/layouts/admin";
 import Homepage from "./pages/homepage";
 import Errorpage from "./pages/errorpage";
 
@@ -30,7 +32,7 @@ import axios from "axios";
 import "./App.css";
 
 axios.defaults.baseURL =
-  "https://asia-east2-news-48fc7.cloudfunctions.net/webapi";
+  "https://us-central1-news-48fc7.cloudfunctions.net/webapi";
 
 const token = localStorage.FBIdToken;
 if (token) {
@@ -46,45 +48,50 @@ if (token) {
 }
 
 class App extends Component {
+  isLoggedIn() {
+    return this.state.isLoggedIn;
+  }
   render() {
     return (
       <Provider store={store}>
         <Router>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route exact path="/admin" component={adminlogin} />
-              <Route
-                exact
-                path="/admin/dashboard"
-                render={props => <AdminLayout {...props} />}
-              />
-              <Route
-                exact
-                path="/admin/user-page"
-                render={props => <AdminLayout {...props} />}
-              />
-              <Route
-                exact
-                path="/admin/typography"
-                render={props => <AdminLayout {...props} />}
-              />
-              <Route
-                exact
-                path="/admin/tables"
-                render={props => <AdminLayout {...props} />}
-              />
-              <Route exact path="/aboutus" />
-              <Route exact path="/addcredit" component={addcredit} />
-              <Route exact path="/confirmpay" component={confirmpay} />
-              <Route exact path="/contact" />
-              <Route exact path="/postnews" component={postnews} />
-              <Route exact path="/updatenews" component={updatenews} />
-              <AuthRoute exact path="/login" component={Login} />
-              <AuthRoute exact path="/register" component={Register} />
-              <Route path="*" component={Errorpage} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <AdminRoute exact path="/admin" component={adminlogin} />
+            <ProtectedRoute
+              exact
+              path="/admin/dashboard"
+              render={props => <AdminLayout {...props} />}
+              component={Admin}
+            />
+            <ProtectedRoute
+              exact
+              path="/admin/user-page"
+              render={props => <AdminLayout {...props} />}
+              component={Admin}
+            />
+            <ProtectedRoute
+              exact
+              path="/admin/typography"
+              render={props => <AdminLayout {...props} />}
+              component={Admin}
+            />
+            <ProtectedRoute
+              exact
+              path="/admin/tables"
+              render={props => <AdminLayout {...props} />}
+              component={Admin}
+            />
+            <Route exact path="/aboutus" />
+            <Route exact path="/addcredit" component={addcredit} />
+            <Route exact path="/confirmpay" component={confirmpay} />
+            <Route exact path="/contact" />
+            <Route exact path="/postnews" component={postnews} />
+            <Route exact path="/updatenews" component={updatenews} />
+            <AuthRoute exact path="/login" component={Login} />
+            <AuthRoute exact path="/register" component={Register} />
+            <Route path="*" component={Errorpage} />
+          </Switch>
         </Router>
       </Provider>
     );

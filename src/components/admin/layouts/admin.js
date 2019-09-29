@@ -1,7 +1,12 @@
 import React from "react";
 
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import { logoutUser, getUserData } from "../../../redux/actions/userActions";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
+import { SET_AUTHENTICATED } from "../../../redux/types";
+import store from "../../../redux/store";
 
 import AdminNavbar from "../../navbars/adminNavbar";
 import Footer from "../../footer/footer";
@@ -12,8 +17,20 @@ import routes from "../../../routes";
 import "./adminlayout.css";
 
 var ps;
+const token = localStorage.FBIdToken;
+if (token) {
+  const decodedToken = jwtDecode(token);
+  if (decodedToken.exp * 1000 < Date.now()) {
+    store.dispatch(logoutUser());
+    window.location.href = "/";
+  } else {
+    store.dispatch({ type: SET_AUTHENTICATED });
+    axios.defaults.headers.common["Authorization"] = token;
+    store.dispatch(getUserData());
+  }
+}
 
-class Dashboard extends React.Component {
+class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +39,7 @@ class Dashboard extends React.Component {
     };
     this.mainPanel = React.createRef();
   }
+
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(this.mainPanel.current);
@@ -79,4 +97,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default Admin;

@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/moment": "^1.3.11",
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
+    "@tanem/react-nprogress": "^3.0.3",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
@@ -12,6 +14,7 @@
     "create-react-class": "^15.6.3",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
+    "material-ui-thai-datepickers": "^1.1.7",
     "node-sass": "^4.12.0",
     "perfect-scrollbar": "^1.4.0",
     "prop-types": "^15.7.2",
@@ -25,6 +28,7 @@
     "react-dom": "^16.9.0",
     "react-dynamic-modal": "^1.1.1",
     "react-icons": "^3.7.0",
+    "react-private-route": "^1.1.2",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
@@ -54,5 +58,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://asia-east2-news-48fc7.cloudfunctions.net/wepapi"
+  "proxy": "https://us-central1-news-48fc7.cloudfunctions.net/webapi"
 }

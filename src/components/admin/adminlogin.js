@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import PropTypes from "prop-types";
+
+import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -8,7 +11,10 @@ import { InputAdornment } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
-import { Button, Form } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
+
+import { connect } from "react-redux";
+import { Adminlogin } from "../../redux/actions/userActions";
 
 import "./admin.css";
 const theme = createMuiTheme({
@@ -18,11 +24,14 @@ const theme = createMuiTheme({
     }
   }
 });
-class admin extends Component {
+class Admin extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      email: "",
+      password: "",
+      errors: {},
       passwordIsMasked: true
     };
   }
@@ -43,36 +52,61 @@ class admin extends Component {
       document.body.classList.toggle("login-on");
     }
   }
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.Adminlogin(userData, this.props.history);
+  };
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
   render() {
-    const { passwordIsMasked } = this.state;
+    const { passwordIsMasked, errors } = this.state;
+    const {
+      UI: { loading }
+    } = this.props;
+
     return (
       <div className="admin">
-        <Form>
+        <form noValidate onSubmit={this.handleSubmit}>
           <div className="wrappers fadeInDown">
             <div id="formContentad">
               <br />
               <h2 className="form-signin-heading">Please Login</h2>
               <ThemeProvider theme={theme}>
                 <TextField
-                  style={{ width: 300 }}
+                  style={{ width: 350 }}
                   id="outlined-email-input"
                   label="Email"
+                  name="email"
                   className="email"
                   type="email"
-                  name="email"
-                  autoComplete="email"
+                  helperText={errors.email}
+                  error={errors.email ? true : false}
+                  value={this.state.email}
+                  onChange={this.handleChange}
                   margin="normal"
                   variant="outlined"
                 />
                 <TextField
-                  style={{ width: 300 }}
-                  id="outlined-password-input"
+                  style={{ width: 350 }}
+                  id="password"
                   label="Password"
-                  className="Password"
-                  name="Password"
-                  autoComplete="Password"
+                  className="password"
+                  name="password"
+                  autoComplete="password"
                   margin="normal"
                   variant="outlined"
+                  helperText={errors.password}
+                  error={errors.password ? true : false}
+                  value={this.state.password}
+                  onChange={this.handleChange}
                   type={passwordIsMasked ? "password" : "text"}
                   {...this.props}
                   InputProps={{
@@ -94,25 +128,48 @@ class admin extends Component {
                 />
               </ThemeProvider>
               <br />
+              {errors.general && (
+                <Typography variant="body2" className="customError">
+                  {errors.general}
+                </Typography>
+              )}
               <br />
 
-              <Button
-                type="submit"
-                size="lg"
-                href="/admin/dashboard"
-                variant="dark"
-              >
+              <Button type="submit" size="lg" variant="dark" disabled={loading}>
                 Login
+                {loading && (
+                  <Spinner
+                    animation="border"
+                    variant="white"
+                    className="progress"
+                  />
+                )}
               </Button>
 
               <br />
               <br />
             </div>
           </div>
-        </Form>
+        </form>
       </div>
     );
   }
 }
+Admin.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired
+};
 
-export default admin;
+const mapStateToProps = state => ({
+  user: state.user,
+  UI: state.UI
+});
+
+const mapActionsToProps = {
+  Adminlogin
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(Admin);

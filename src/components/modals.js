@@ -5,9 +5,11 @@ import { Modal, ModalManager, Effect } from "react-dynamic-modal";
 export class modals extends Component {
   render() {
     const {
+      subject,
       agenda,
       companyName,
       meeting_date,
+      post_date,
       meeting_no,
       announce,
       meeting_time,
@@ -20,6 +22,7 @@ export class modals extends Component {
 
     return (
       <Modal onRequestClose={onRequestClose} effect={Effect.ScaleUp}>
+        {subject}
         {agenda}
         {companyName}
         {meeting_no}
@@ -30,6 +33,7 @@ export class modals extends Component {
         {authorized_name}
         {authorized_position}
         {meeting_date}
+        {post_date}
         <Button onClick={ModalManager.close}>Close</Button>
       </Modal>
     );

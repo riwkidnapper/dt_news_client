@@ -1,10 +1,15 @@
 import React from "react";
+
+import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
 import { Navbar, NavbarBrand, Nav, NavItem, Container } from "reactstrap";
 import { MdExitToApp } from "react-icons/md";
+import { logoutAdmin } from "../../redux/actions/userActions";
+import { connect } from "react-redux";
 import routes from "../../routes";
 
-class Header extends React.Component {
+class AdminNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +21,10 @@ class Header extends React.Component {
     this.dropdownToggle = this.dropdownToggle.bind(this);
     this.sidebarToggle = React.createRef();
   }
+
+  handleLogout = () => {
+    this.props.logoutAdmin(this.props.history);
+  };
   toggle() {
     if (this.state.isOpen) {
       this.setState({
@@ -74,6 +83,7 @@ class Header extends React.Component {
       this.sidebarToggle.current.classList.toggle("toggled");
     }
   }
+
   render() {
     return (
       <Navbar
@@ -109,7 +119,7 @@ class Header extends React.Component {
           <Nav>
             <NavItem>{"Administrator "}</NavItem> &nbsp;
             <NavItem>
-              <Link to="/">
+              <Link to="/" onClick={this.handleLogout}>
                 <MdExitToApp />
                 ออกจากระบบ
               </Link>
@@ -120,5 +130,17 @@ class Header extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  user: state.user
+});
 
-export default Header;
+const mapActionsToProps = { logoutAdmin };
+
+AdminNav.propTypes = {
+  logoutAdmin: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
+};
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(AdminNav);
