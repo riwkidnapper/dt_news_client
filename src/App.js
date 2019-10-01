@@ -91,7 +91,7 @@ class App extends Component {
             <Route exact path="/contact" />
             <Route exact path="/postnews" component={postnews} />
 
-            <Route exact path="/updatenews" component={updatenews} />
+            <Route exact path="/downloadnews" component={updatenews} />
             <AuthRoute exact path="/login" component={Login} />
             <AuthRoute exact path="/register" component={Register} />
             <Route path="*" component={Errorpage} />

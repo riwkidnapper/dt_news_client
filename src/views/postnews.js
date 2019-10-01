@@ -8,7 +8,7 @@ import { Form, Col, Button, Row, Spinner } from "react-bootstrap";
 import { ModalManager } from "react-dynamic-modal";
 import moment from "moment-jalaali";
 
-import Header from "../layout/navbar/navbar";
+import Navbar from "../layout/navbar/navbar";
 import Footer from "../layout/footer/footer";
 import MyModal from "../components/modals";
 import { connect } from "react-redux";
@@ -244,7 +244,7 @@ class postnews extends React.Component {
     return (
       <div>
         <div className="post_">
-          <Header />
+          <Navbar />
           <div className="topName">
             <h1>ลงประกาศ</h1>
           </div>

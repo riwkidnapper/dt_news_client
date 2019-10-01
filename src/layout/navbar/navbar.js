@@ -66,7 +66,7 @@ class navbar extends Component {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={"/updatenews"} exact className="nav-link">
+                      <NavLink to={"/downloadnews"} exact className="nav-link">
                         หนังสือพิมพ์ล่าสุด
                       </NavLink>
                     </li>
@@ -137,7 +137,7 @@ class navbar extends Component {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={"/updatenews"} exact className="nav-link">
+                      <NavLink to={"/downloadnews"} exact className="nav-link">
                         หนังสือพิมพ์ล่าสุด
                       </NavLink>
                     </li>
@@ -208,7 +208,7 @@ class navbar extends Component {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={"/updatenews"} exact className="nav-link">
+                    <NavLink to={"/downloadnews"} exact className="nav-link">
                       หนังสือพิมพ์ล่าสุด
                     </NavLink>
                   </li>

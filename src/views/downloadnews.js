@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { Container, Col, Button, Form, Card } from "react-bootstrap";
-import { Link } from 'react-router-dom';
 import Footer from "../layout/footer/footer";
 import { FaFeatherAlt } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
@@ -34,27 +33,26 @@ class downloadnews extends Component {
 
   stateDownload = event => {
     event.preventDefault();
+    // console.log(this.state.downloadUrl);
+    // window.location.assign(this.state.downloadUrl);
+    window.open(this.state.downloadUrl, "_blank").focus();
     this.setState({
-      loading: false
+      loading: true,
+      downloadUrl: ""
     });
-
-    const load = {
-      dateload: this.refs.dateload.value
-    };
-    console.log(load);
-    console.log("itoeynahee");
   };
 
   stateCallback = event => {
     event.preventDefault();
     this.setState({
-      loading: true
+      loading: true,
+      downloadUrl: ""
     });
   };
 
   render() {
 
-    const { loading, downloadUrl } = this.state;
+    const { loading } = this.state;
 
     return loading ? (
       <div>
@@ -118,7 +116,6 @@ class downloadnews extends Component {
                   placeholder="Search..."
                 />
                 <br />{" "}
-                <Link to={downloadUrl} >
                 <Button
                   type="submit"
                   variant="success"
@@ -127,11 +124,10 @@ class downloadnews extends Component {
                     background: " rgba(91, 156, 16, 0.658)",
                     fontSize: "20px"
                   }}
-                  // onClick={this.stateDownload}
+                  onClick={this.stateDownload}
                 >
                   <FiDownload /> {"ดาวน์โหลด"}
                 </Button>
-                </Link>
                 <br />
                 <br />
                 <Button
