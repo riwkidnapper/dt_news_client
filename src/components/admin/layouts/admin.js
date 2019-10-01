@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import { SET_AUTHENTICATED } from "../../../redux/types";
 import store from "../../../redux/store";
 
-import AdminNavbar from "../../navbars/adminNavbar";
+import AdminNavbar from "../../navbars/AdminNavbar";
 import Footer from "../../footer/footer";
 import Sidebar from "../../sidebar/sidebar";
 import FixedPlugin from "../../fixedPlugin/fixedPlugin";

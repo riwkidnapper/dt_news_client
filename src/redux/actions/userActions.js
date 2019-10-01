@@ -139,3 +139,20 @@ export const postNews = (data, history) => dispatch => {
       });
     });
 };
+
+export const confirmPay = (conData, history) => dispatch => {
+  dispatch({ type: LOADING_UI });
+  axios
+    .post("/pay/confirm", conData)
+    .then(res => {
+      dispatch(getUserData());
+      dispatch({ type: CLEAR_ERRORS });
+      history.push("/success");
+    })
+    .catch(err => {
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};

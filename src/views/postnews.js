@@ -44,7 +44,7 @@ class postnews extends React.Component {
 
       if (subject === "") {
         $("textarea[name='agenda']").val("");
-      } else if (subject === "เชิญประชุมปิดงบประจำปี") {
+      } else if (subject === "ประชุมปิดงบประจำปี") {
         text = "1. รับรองรายงานการประชุมครั้งที่ผ่านมา\n";
         text += "2. รายงานผลการดำเนินงานของบริษัทและรับรองงบการเงินประจำปี\n";
         text += "3. พิจารณาแต่งตั้งผู้สอบบัญชีและกำหนดค่าตอบแทนประจำปี\n";
@@ -59,14 +59,14 @@ class postnews extends React.Component {
         text = "ป้อนรายละเอียดละเอียดประชุมที่นี่";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมย้ายที่อยู่") {
+      } else if (subject === "ประชุมย้ายที่อยู่") {
         text = "1. พิจารณาแก้ไขที่ตั้งสำนักงานของบริษัท\n";
         text += "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 2. ดังนี้\n";
         text += "ข้อ 2. สำนักงานของบริษัทตั้งอยู่ ณ จังหวัด .....\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมลดทุน") {
+      } else if (subject === "ประชุมลดทุน") {
         text = "1. พิจารณาอนุมัติการลดทุนจดทะเบียนของบริษัท จำนวน ..... บาท\n";
         text +=
           "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 5. (ทุน) ดังนี้\n";
@@ -75,18 +75,18 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมเปลี่ยนกรรมการ") {
+      } else if (subject === "ประชุมเปลี่ยนกรรมการ") {
         text = "1. พิจารณาแต่งตั้งกรรมการและอำนาจกรรมการ\n";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมเปลี่ยนชื่อบริษัท") {
+      } else if (subject === "ประชุมเปลี่ยนชื่อบริษัท") {
         text = "1. พิจารณาแก้ไขเปลี่ยนแปลงชื่อของบริษัท\n";
         text += "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 1. ดังนี้\n";
         text += "ข้อ 1. ชื่อบริษัท ..... จำกัด\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมเพิ่มทุน") {
+      } else if (subject === "ประชุมเพิ่มทุน") {
         text =
           "1. พิจารณาอนุมัติการเพิ่มทุนจดทะเบียนของบริษัท จำนวน ..... บาท\n";
         text +=
@@ -96,7 +96,7 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมเพิ่มวัตถุประสงค์") {
+      } else if (subject === "ประชุมเพิ่มวัตถุประสงค์") {
         text = "1. พิจารณาแก้ไขเพิ่มเติมวัตถุประสงค์ของบริษัท\n";
         text += "2. พิจารณาแก้ไขเพิ่มเติมหนังสือบริคณห์สนธิ ข้อ 3. ดังนี้\n";
         text +=
@@ -104,20 +104,20 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมเลิกบริษัท") {
+      } else if (subject === "ประชุมเลิกบริษัท") {
         text = "1. พิจารณาลงมติพิเศษเรื่องการเลิกบริษัท\n";
         text += "2. พิจารณาแต่งตั้งผู้ชำระบัญชี\n";
         text += "3. พิจารณาแต่งตั้งผู้สอบบัญชี (ถ้ามี)\n";
         text += "4. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมเสร็จชำระบัญชี") {
+      } else if (subject === "ประชุมเสร็จชำระบัญชี") {
         text = "1. รับรองรายงานการประชุมวิสามัญผู้ถือหุ้นครั้งที่ .....\n";
         text += "2. พิจารณารายงานการชำระบัญชี\n";
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมแก้ไขเพิ่มเติมตราบริษัท") {
+      } else if (subject === "ประชุมแก้ไขเพิ่มเติมตราบริษัท") {
         text = "1. พิจารณาแก้ไขเพิ่มเติมตราของบริษัท\n";
         text += "2. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
@@ -128,12 +128,12 @@ class postnews extends React.Component {
         text += "3. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมแก้ไขข้อบังคับ") {
+      } else if (subject === "ประชุมแก้ไขข้อบังคับ") {
         text = "1. พิจารณาแก้ไขเพิ่มเติมข้อบังคับ\n";
         text += "2. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
         $("textarea[name='agenda']").val(text);
-      } else if (subject === "เชิญประชุมแก้ไขข้อบังคับ") {
+      } else if (subject === "ประชุมแก้ไขข้อบังคับ") {
         text = "1. พิจารณาการควบบริษัทจำกัด\n";
         text += "2. พิจารณาเรื่องอื่นๆ (ถ้ามี)";
 
@@ -144,28 +144,28 @@ class postnews extends React.Component {
         $("textarea[name='agenda']").val(text);
       }
 
-      if (subject === "ประกาศเลิกบริษัท") {
-        $(".hide-general").hide();
-        $(".hide-2-14").hide();
-        $(".hide-ofb").hide();
-        $(".show-ofb").show();
+      // if (subject === "ประกาศเลิกบริษัท") {
+      //   $(".hide-general").hide();
+      //   $(".hide-2-14").hide();
+      //   $(".hide-ofb").hide();
+      //   $(".show-ofb").show();
 
-        $("input[name='authorized_position']").val("ผู้ชำระบัญชี");
-      } else if (subject === "ประกาศจ่ายเงินปันผล") {
-        $(".hide-general").hide();
-        $(".hide-ofb").hide();
-        $(".hide-2-14").hide();
-        $(".show-2-14").show();
+      //   $("input[name='authorized_position']").val("ผู้ชำระบัญชี");
+      // } else if (subject === "ประกาศจ่ายเงินปันผล") {
+      //   $(".hide-general").hide();
+      //   $(".hide-ofb").hide();
+      //   $(".hide-2-14").hide();
+      //   $(".show-2-14").show();
 
-        $("input[name='authorized_position']").val("กรรมการผู้มีอำนาจลงนาม");
-      } else {
-        $(".hide-ofb").hide();
-        $(".hide-2-14").hide();
-        $(".hide-general").hide();
-        $(".show-general").show();
+      //   $("input[name='authorized_position']").val("กรรมการผู้มีอำนาจลงนาม");
+      // } else {
+      //   $(".hide-ofb").hide();
+      //   $(".hide-2-14").hide();
+      //   $(".hide-general").hide();
+      //   $(".show-general").show();
 
-        $("input[name='authorized_position']").val("กรรมการผู้มีอำนาจลงนาม");
-      }
+      //   $("input[name='authorized_position']").val("กรรมการผู้มีอำนาจลงนาม");
+      // }
     });
   }
 
@@ -183,40 +183,40 @@ class postnews extends React.Component {
     const post_date = this.refs.post_date.value;
     const meeting_date = this.refs.meeting_date.value;
 
-    if (
-      subject === "-- เลือกหัวข้อ / เรื่อง --" ||
-      agenda === "" ||
-      companyName === "" ||
-      meeting_no === "" ||
-      announce === "" ||
-      meeting_time === "-- เลือกเวลาจัดประชุม --" ||
-      meeting_place === "" ||
-      honorific === "-- เลือกคำนำหน้าชื่อผู้ลงนาม --" ||
-      authorized_name === "" ||
-      authorized_position === ""
-    ) {
-      alert(
-        "ไม่สามารถดูตัวอย่างประกาศได้ โปรดป้อนข้อมูลให้ครบถ้วน แล้วลองใหม่อีกครั้ง"
-      );
-    } else {
-      ModalManager.open(
-        <MyModal
-          subject={subject}
-          agenda={agenda}
-          companyName={companyName}
-          post_date={post_date}
-          meeting_date={meeting_date}
-          meeting_no={meeting_no}
-          announce={announce}
-          meeting_time={meeting_time}
-          meeting_place={meeting_place}
-          honorific={honorific}
-          authorized_name={authorized_name}
-          authorized_position={authorized_position}
-          onRequestClose={() => true}
-        />
-      );
-    }
+    // if (
+    //   subject === "-- เลือกหัวข้อ / เรื่อง --" ||
+    //   agenda === "" ||
+    //   companyName === "" ||
+    //   meeting_no === "" ||
+    //   announce === "" ||
+    //   meeting_time === "-- เลือกเวลาจัดประชุม --" ||
+    //   meeting_place === "" ||
+    //   honorific === "-- เลือกคำนำหน้าชื่อผู้ลงนาม --" ||
+    //   authorized_name === "" ||
+    //   authorized_position === ""
+    // ) {
+    //   alert(
+    //     "ไม่สามารถดูตัวอย่างประกาศได้ โปรดป้อนข้อมูลให้ครบถ้วน แล้วลองใหม่อีกครั้ง"
+    //   );
+    // } else {
+    ModalManager.open(
+      <MyModal
+        subject={subject}
+        agenda={agenda}
+        companyName={companyName}
+        post_date={post_date}
+        meeting_date={meeting_date}
+        meeting_no={meeting_no}
+        announce={announce}
+        meeting_time={meeting_time}
+        meeting_place={meeting_place}
+        honorific={honorific}
+        authorized_name={authorized_name}
+        authorized_position={authorized_position}
+        onRequestClose={() => true}
+      />
+    );
+    // }
   }
   handleSubmit = event => {
     event.preventDefault();
@@ -264,7 +264,7 @@ class postnews extends React.Component {
                   <Form.Control ref="subject" name="subject" as="select">
                     <option> -- เลือกหัวข้อ / เรื่อง -- </option>
                     <optgroup label="สามัญ">
-                      <option value="เชิญประชุมปิดงบประจำปี">
+                      <option value="ประชุมปิดงบประจำปี">
                         เชิญประชุมปิดงบประจำปี
                       </option>
                       <option value="กำหนดรายละเอียดการประชุมเอง">
@@ -272,41 +272,39 @@ class postnews extends React.Component {
                       </option>
                     </optgroup>
                     <optgroup label="วิสามัญ">
-                      <option value="เชิญประชุมย้ายที่อยู่">
+                      <option value="ประชุมย้ายที่อยู่">
                         เชิญประชุมย้ายที่อยู่
                       </option>
-                      <option value="เชิญประชุมลดทุน">เชิญประชุมลดทุน</option>
-                      <option value="เชิญประชุมเปลี่ยนกรรมการ">
+                      <option value="ประชุมลดทุน">เชิญประชุมลดทุน</option>
+                      <option value="ประชุมเปลี่ยนกรรมการ">
                         เชิญประชุมเปลี่ยนกรรมการ
                       </option>
-                      <option value="เชิญประชุมเปลี่ยนชื่อบริษัท">
+                      <option value="ประชุมเปลี่ยนชื่อบริษัท">
                         เชิญประชุมเปลี่ยนชื่อบริษัท
                       </option>
-                      <option value="เชิญประชุมเพิ่มทุน">
-                        เชิญประชุมเพิ่มทุน
-                      </option>
-                      <option value="เชิญประชุมเพิ่มวัตถุประสงค์">
+                      <option value="ประชุมเพิ่มทุน">เชิญประชุมเพิ่มทุน</option>
+                      <option value="ประชุมเพิ่มวัตถุประสงค์">
                         เชิญประชุมเพิ่มวัตถุประสงค์
                       </option>
-                      <option value="เชิญประชุมเลิกบริษัท">
+                      <option value="ประชุมเลิกบริษัท">
                         เชิญประชุมเลิกบริษัท
                       </option>
-                      <option value="เชิญประชุมเสร็จชำระบัญชี">
+                      <option value="ประชุมเสร็จชำระบัญชี">
                         เชิญประชุมเสร็จชำระบัญชี
                       </option>
-                      <option value="เชิญประชุมแก้ไขเพิ่มเติมตราบริษัท">
+                      <option value="ประชุมแก้ไขเพิ่มเติมตราบริษัท">
                         เชิญประชุมแก้ไขเพิ่มเติมตราบริษัท
                       </option>
-                      <option value="เชิญประชุมอนุมัติเงินปันผล">
+                      <option value="ประชุมอนุมัติเงินปันผล">
                         เชิญประชุมอนุมัติเงินปันผล
                       </option>
-                      <option value="เชิญประชุมแก้ไขข้อบังคับ">
+                      <option value="ประชุมแก้ไขข้อบังคับ">
                         เชิญประชุมแก้ไขข้อบังคับ
                       </option>
-                      <option value="เชิญประชุมแก้ไขข้อบังคับ">
+                      <option value="ประชุมแก้ไขข้อบังคับ">
                         เชิญประชุมแก้ไขข้อบังคับ
                       </option>
-                      <option value="ประกาศเลิกบริษัท">ประกาศเลิกบริษัท</option>
+                      {/* <option value="ประกาศเลิกบริษัท">ประกาศเลิกบริษัท</option> */}
                       <option value="ประกาศจ่ายเงินปันผล">
                         ประกาศจ่ายเงินปันผล
                       </option>

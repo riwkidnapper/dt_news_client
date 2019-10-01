@@ -5,6 +5,7 @@
 
 .topName {
   width: 100%;
+
   border: 2px solid rgba(0, 0, 255, 0);
   border-block-end-color: rgba(21, 156, 16, 0.397);
 }

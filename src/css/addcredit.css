@@ -2,3 +2,6 @@ button.btn.btn-success {
   background-color: "#8bc34a" !important;
   border-color: "#8bc34a" !important;
 }
+.btn-outline-success:hover {
+  background-color: rgba(91, 156, 16, 0.658);
+}

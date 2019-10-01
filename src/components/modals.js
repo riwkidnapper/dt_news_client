@@ -22,9 +22,10 @@ export class modals extends Component {
 
     return (
       <Modal onRequestClose={onRequestClose} effect={Effect.ScaleUp}>
+        <h6>{companyName}</h6>
         {subject}
         {agenda}
-        {companyName}
+
         {meeting_no}
         {announce}
         {meeting_time}
