@@ -1,22 +1,32 @@
 import React, { Component } from "react";
 
 import { Container, Col, Button, Form, Card } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import Footer from "../layout/footer/footer";
 import { FaFeatherAlt } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { MdReply } from "react-icons/md";
+import axios from "axios";
 
 class downloadnews extends Component {
+
   state = {
-    loading: true
+    loading: true,
+    downloadUrl: ""
   };
 
   changestate = event => {
     event.preventDefault();
     if (this.refs.dateload.value !== "") {
-      this.setState({
-        loading: false
-      });
+      axios
+        .get("/pdf/generate/" + this.refs.dateload.value)
+        .then(res => {
+          this.setState({
+            loading: false,
+            downloadUrl: res.data.url
+          });
+        })
+        .catch(err => {});
     } else {
       console.log("ใส่เลขด้วยไอ้ส้สไม่ใสมึงจะใส่เดี่ยวกับกูหรอ");
     }
@@ -41,8 +51,10 @@ class downloadnews extends Component {
       loading: true
     });
   };
+
   render() {
-    const { loading } = this.state;
+
+    const { loading, downloadUrl } = this.state;
 
     return loading ? (
       <div>
@@ -106,6 +118,7 @@ class downloadnews extends Component {
                   placeholder="Search..."
                 />
                 <br />{" "}
+                <Link to={downloadUrl} >
                 <Button
                   type="submit"
                   variant="success"
@@ -114,10 +127,11 @@ class downloadnews extends Component {
                     background: " rgba(91, 156, 16, 0.658)",
                     fontSize: "20px"
                   }}
-                  onClick={this.stateDownload}
+                  // onClick={this.stateDownload}
                 >
                   <FiDownload /> {"ดาวน์โหลด"}
                 </Button>
+                </Link>
                 <br />
                 <br />
                 <Button

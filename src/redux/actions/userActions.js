@@ -117,6 +117,7 @@ export const Adminlogin = (userData, history) => dispatch => {
       });
     });
 };
+
 const setAuthorizationHeader = token => {
   const FBIdToken = `Bearer ${token}`;
   localStorage.setItem("FBIdToken", FBIdToken);
