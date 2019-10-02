@@ -88,17 +88,18 @@ class confirmpay extends React.Component {
           <br /> <br />
           <Center>
             <Row className="bord">
-              <Form as={Col}>
+              <Form as={Col} md="5">
                 <br />
                 <Center>
                   <Image
+                    style={{ Size: "auto" }}
                     src="http://www.sevenfive.co.th/product_images/uploaded_images/payment.jpg"
                     rounded
                   />
                 </Center>
               </Form>
               <form noValidate onSubmit={this.handleSubmit}>
-                <Form className="post" as={Col} style={{ paddingLeft: "3%" }}>
+                <Form className="post" as={Col} style={{ marginLeft: "20%" }}>
                   <h3>
                     แจ้งชำระเงิน
                     <br />
@@ -181,14 +182,13 @@ class confirmpay extends React.Component {
 
                   <Form.Group controlId="formGridZip">
                     <Form.Label>อัพโหลดสลิปโอนเงิน</Form.Label>
-
-                    <form onSubmit={e => this._handleSubmit(e)}>
-                      <input
-                        className="fileInput"
-                        type="file"
-                        onChange={e => this._handleImageChange(e)}
-                      />
-                    </form>
+                    <br />
+                    <input
+                      onSubmit={e => this._handleSubmit(e)}
+                      className="fileInput"
+                      type="file"
+                      onChange={e => this._handleImageChange(e)}
+                    />
                   </Form.Group>
 
                   <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -256,17 +256,18 @@ class confirmpay extends React.Component {
           <br /> <br />
           <Center>
             <Row className="bord">
-              <Form as={Col}>
+              <Form as={Col} md="5">
                 <br />
                 <Center>
                   <Image
+                    style={{ Size: "auto" }}
                     src="http://www.sevenfive.co.th/product_images/uploaded_images/payment.jpg"
                     rounded
                   />
                 </Center>
               </Form>
               <form noValidate onSubmit={this.handleSubmit}>
-                <Form className="post" as={Col} style={{ paddingLeft: "3%" }}>
+                <Form className="post" as={Col} style={{ marginLeft: "20%" }}>
                   <h3>
                     แจ้งชำระเงิน
                     <br />
@@ -348,14 +349,13 @@ class confirmpay extends React.Component {
 
                   <Form.Group controlId="formGridZip">
                     <Form.Label>อัพโหลดสลิปโอนเงิน</Form.Label>
-
-                    <form onSubmit={e => this._handleSubmit(e)}>
-                      <input
-                        className="fileInput"
-                        type="file"
-                        onChange={e => this._handleImageChange(e)}
-                      />
-                    </form>
+                    <br />
+                    <input
+                      onSubmit={e => this._handleSubmit(e)}
+                      className="fileInput"
+                      type="file"
+                      onChange={e => this._handleImageChange(e)}
+                    />
                   </Form.Group>
 
                   <Form.Group controlId="exampleForm.ControlTextarea1">

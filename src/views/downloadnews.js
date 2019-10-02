@@ -50,36 +50,35 @@ class downloadnews extends Component {
           <Col lg={9} md={9} xs={12}>
             <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
           </Col>
-          <form noValidate onSubmit={this.changestate}>
-            <Card
-              style={{
-                marginTop: "1%",
-                marginLeft: "5%",
-                marginRight: "5%"
-              }}
-            >
-              <Form className="tabsearch">
-                <h5>{"ค้นหา"}</h5>
-                <Form.Control
-                  ref="dateload"
-                  className="download"
-                  type="date"
-                  placeholder="Search..."
-                />
-                <br />{" "}
-                <Button
-                  type="submit"
-                  variant="outline-success"
-                  style={{
-                    border: "2px solid"
-                  }}
-                  onSubmit={this.changestate}
-                >
-                  <FaFeatherAlt /> {"SEARCH"}
-                </Button>
-              </Form>
-            </Card>
-          </form>
+
+          <Card
+            style={{
+              marginTop: "1%",
+              marginLeft: "5%",
+              marginRight: "5%"
+            }}
+          >
+            <Form className="tabsearch" noValidate onSubmit={this.changestate}>
+              <h5>{"ค้นหา"}</h5>
+              <Form.Control
+                ref="dateload"
+                className="download"
+                type="date"
+                placeholder="Search..."
+              />
+              <br />{" "}
+              <Button
+                type="submit"
+                variant="outline-success"
+                style={{
+                  border: "2px solid"
+                }}
+                onSubmit={this.changestate}
+              >
+                <FaFeatherAlt /> {"SEARCH"}
+              </Button>
+            </Form>
+          </Card>
         </Container>
         <Footer />
       </div>
@@ -89,52 +88,51 @@ class downloadnews extends Component {
           <Col lg={9} md={9} xs={12}>
             <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
           </Col>
-          <form noValidate onSubmit={this.handleSubmit}>
-            <Card
-              style={{
-                marginTop: "1%",
-                marginLeft: "5%",
-                marginRight: "5%"
-              }}
-            >
-              <Form className="tabsearch">
-                <h5>{"ค้นหา"}</h5>
-                <Form.Control
-                  ref="dateload"
-                  className="download"
-                  type="date"
-                  placeholder="Search..."
-                />
-                <br />{" "}
-                <Button
-                  type="submit"
-                  variant="success"
-                  style={{
-                    border: "1px solid #194D33",
-                    background: " rgba(91, 156, 16, 0.658)",
-                    fontSize: "20px"
-                  }}
-                  onClick={this.stateDownload}
-                >
-                  <FiDownload /> {"ดาวน์โหลด"}
-                </Button>
-                <br />
-                <br />
-                <Button
-                  type="submit"
-                  variant="outline-success"
-                  style={{
-                    marginTop: "-20px"
-                  }}
-                  hover={{ color: " rgba(91, 156, 16, 0.658)" }}
-                  size="lg"
-                  onClick={this.stateCallback}
-                >
-                  <MdReply /> {"ย้อนกลับ"}
-                </Button>
-              </Form>
-            </Card>
-          </form>
+
+          <Card
+            style={{
+              marginTop: "1%",
+              marginLeft: "5%",
+              marginRight: "5%"
+            }}
+          >
+            <Form className="tabsearch" noValidate onSubmit={this.handleSubmit}>
+              <h5>{"ค้นหา"}</h5>
+              <Form.Control
+                ref="dateload"
+                className="download"
+                type="date"
+                placeholder="Search..."
+              />
+              <br />{" "}
+              <Button
+                type="submit"
+                variant="success"
+                style={{
+                  border: "1px solid #194D33",
+                  background: " rgba(91, 156, 16, 0.658)",
+                  fontSize: "20px"
+                }}
+                onClick={this.stateDownload}
+              >
+                <FiDownload /> {"ดาวน์โหลด"}
+              </Button>
+              <br />
+              <br />
+              <Button
+                type="submit"
+                variant="outline-success"
+                style={{
+                  marginTop: "-20px"
+                }}
+                hover={{ color: " rgba(91, 156, 16, 0.658)" }}
+                size="lg"
+                onClick={this.stateCallback}
+              >
+                <MdReply /> {"ย้อนกลับ"}
+              </Button>
+            </Form>
+          </Card>
         </Container>
         <Footer />
       </div>

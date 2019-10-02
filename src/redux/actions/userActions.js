@@ -4,7 +4,8 @@ import {
   CLEAR_ERRORS,
   LOADING_UI,
   SET_UNAUTHENTICATED,
-  LOADING_USER
+  LOADING_USER,
+  AMOUNT_CREDIT
   // MARK_NOTIFICATIONS_READ
 } from "../types";
 import axios from "axios";
@@ -155,4 +156,10 @@ export const confirmPay = (conData, history) => dispatch => {
         payload: err.response.data
       });
     });
+};
+
+export const Payment = (amount, history) => dispatch => {
+  dispatch({ type: AMOUNT_CREDIT, amount });
+  dispatch({ type: CLEAR_ERRORS });
+  history.push("/addcredit/payment");
 };
