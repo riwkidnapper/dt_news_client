@@ -18,7 +18,7 @@ class downloadnews extends Component {
         loading: false
       });
     } else {
-      console.log("ใส่เลขด้วยไอ้ส้สไม่ใสมึงจะใส่เดี่ยวกับกูหรอ");
+      alert("กรุณาระบุวัน เดือน ปี ที่ต้องการค้นหาด้วย");
     }
   };
 
@@ -58,7 +58,7 @@ class downloadnews extends Component {
               marginRight: "5%"
             }}
           >
-            <Form className="tabsearch" noValidate onSubmit={this.changestate}>
+            <Form className="tabsearch" onSubmit={this.changestate}>
               <h5>{"ค้นหา"}</h5>
               <Form.Control
                 ref="dateload"
@@ -96,7 +96,7 @@ class downloadnews extends Component {
               marginRight: "5%"
             }}
           >
-            <Form className="tabsearch" noValidate onSubmit={this.handleSubmit}>
+            <Form className="tabsearch" onSubmit={this.handleSubmit}>
               <h5>{"ค้นหา"}</h5>
               <Form.Control
                 ref="dateload"

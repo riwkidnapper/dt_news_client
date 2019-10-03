@@ -148,7 +148,7 @@ export const confirmPay = (conData, history) => dispatch => {
     .then(res => {
       dispatch(getUserData());
       dispatch({ type: CLEAR_ERRORS });
-      history.push("/success");
+      history.push("/confirmpay/success");
     })
     .catch(err => {
       dispatch({

@@ -28,6 +28,7 @@ import Admin from "./components/admin/layouts/admin";
 import Homepage from "./pages/homepage";
 import Errorpage from "./pages/errorpage";
 import Confirm from "./views/success";
+import Consuccess from "./views/Consuccess";
 import axios from "axios";
 
 import "./App.css";
@@ -86,6 +87,7 @@ class App extends Component {
             <Route exact path="/aboutus" />
             <Route exact path="/addcredit" component={addcredit} />
             <Route exact path="/addcredit/payment" component={payment} />
+            <Route exact path="/addcredit/success" component={Consuccess} />
             <Route exact path="/confirmpay/success" component={Confirm} />
             <Route exact path="/confirmpay" component={confirmpay} />
             <Route exact path="/contact" />

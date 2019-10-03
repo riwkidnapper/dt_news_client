@@ -74,7 +74,7 @@ class Admin extends Component {
 
     return (
       <div className="admin">
-        <form noValidate onSubmit={this.handleSubmit}>
+        <form  onSubmit={this.handleSubmit}>
           <div className="wrappers fadeInDown">
             <div id="formContentad">
               <br />

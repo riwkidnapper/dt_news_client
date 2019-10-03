@@ -98,7 +98,7 @@ class confirmpay extends React.Component {
                   />
                 </Center>
               </Form>
-              <form noValidate onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}>
                 <Form className="post" as={Col} style={{ marginLeft: "20%" }}>
                   <h3>
                     แจ้งชำระเงิน
@@ -110,9 +110,11 @@ class confirmpay extends React.Component {
                     </small>
                   </h3>
                   <Form.Row>
-                    <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Group as={Col} controlId="validationCustom01">
                       <Form.Label>อีเมลที่ใช้ลงทะเบียน</Form.Label>
                       <Form.Control
+                        required
+                        type="text"
                         disabled
                         ref="con_email"
                         name="con_email"
@@ -122,19 +124,31 @@ class confirmpay extends React.Component {
                   </Form.Row>
 
                   <Form.Row>
-                    <Form.Group as={Col} controlId="formGridZip">
+                    <Form.Group as={Col} controlId="validationCustom01">
                       <Form.Label>ชื่อ</Form.Label>
-                      <Form.Control ref="con_name" name="con_name" />
+                      <Form.Control
+                        required
+                        type="text"
+                        ref="con_name"
+                        name="con_name"
+                      />
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridZip">
                       <Form.Label>นามสกุล</Form.Label>
-                      <Form.Control ref="con_lastname" name="con_lastname" />
+                      <Form.Control
+                        required
+                        type="text"
+                        ref="con_lastname"
+                        name="con_lastname"
+                      />
                     </Form.Group>
                   </Form.Row>
 
                   <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>เบอร์โทรศัพท์</Form.Label>
                     <Form.Control
+                      required
+                      type="text"
                       ref="con_phone"
                       name="con_phone"
                       placeholder="0812345678"
@@ -143,12 +157,19 @@ class confirmpay extends React.Component {
 
                   <Form.Group controlId="formGridAddress1">
                     <Form.Label>เลขที่คำสั่งซื้อ (Order ID)</Form.Label>
-                    <Form.Control ref="con_orderId" name="con_orderId" />
+                    <Form.Control
+                      required
+                      type="text"
+                      ref="con_orderId"
+                      name="con_orderId"
+                    />
                   </Form.Group>
 
                   <Form.Group controlId="formGridState">
                     <Form.Label>วิธีชำระเงิน</Form.Label>
                     <Form.Control
+                      required
+                      type="text"
                       ref="con_Payment"
                       name="con_Payment"
                       as="select"
@@ -164,6 +185,8 @@ class confirmpay extends React.Component {
                   <Form.Group controlId="formGridState">
                     <Form.Label>ระบุวันที่ชำระเงิน</Form.Label>
                     <Form.Control
+                      required
+                      type="text"
                       ref="con_datePay"
                       name="con_datePay"
                       placeholder="dd/mm/yy"
@@ -177,7 +200,7 @@ class confirmpay extends React.Component {
 
                   <Form.Group controlId="formGridZip">
                     <Form.Label>จำนวนเงิน</Form.Label>
-                    <Form.Control ref="con_amount" name="con_amount" />
+                    <Form.Control required ref="con_amount" name="con_amount" />
                   </Form.Group>
 
                   <Form.Group controlId="formGridZip">
@@ -194,6 +217,8 @@ class confirmpay extends React.Component {
                   <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>รายละเอียดเพิ่มเติม</Form.Label>
                     <Form.Control
+                      required
+                      type="text"
                       ref="more_details"
                       name="more_details"
                       as="textarea"
@@ -266,7 +291,7 @@ class confirmpay extends React.Component {
                   />
                 </Center>
               </Form>
-              <form noValidate onSubmit={this.handleSubmit}>
+              <form  onSubmit={this.handleSubmit}>
                 <Form className="post" as={Col} style={{ marginLeft: "20%" }}>
                   <h3>
                     แจ้งชำระเงิน
@@ -281,6 +306,7 @@ class confirmpay extends React.Component {
                     <Form.Group as={Col} controlId="formGridEmail">
                       <Form.Label>อีเมลที่ใช้ลงทะเบียน</Form.Label>
                       <Form.Control
+                        required
                         ref="con_email"
                         name="con_email"
                         placeholder="example@example.com"
@@ -291,17 +317,22 @@ class confirmpay extends React.Component {
                   <Form.Row>
                     <Form.Group as={Col} controlId="formGridZip">
                       <Form.Label>ชื่อ</Form.Label>
-                      <Form.Control ref="con_name" name="con_name" />
+                      <Form.Control required ref="con_name" name="con_name" />
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridZip">
                       <Form.Label>นามสกุล</Form.Label>
-                      <Form.Control ref="con_lastname" name="con_lastname" />
+                      <Form.Control
+                        required
+                        ref="con_lastname"
+                        name="con_lastname"
+                      />
                     </Form.Group>
                   </Form.Row>
 
                   <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>เบอร์โทรศัพท์</Form.Label>
                     <Form.Control
+                      required
                       ref="con_phone"
                       name="con_phone"
                       placeholder="0812345678"
@@ -310,12 +341,17 @@ class confirmpay extends React.Component {
 
                   <Form.Group controlId="formGridAddress1">
                     <Form.Label>เลขที่คำสั่งซื้อ (Order ID)</Form.Label>
-                    <Form.Control ref="con_orderId" name="con_orderId" />
+                    <Form.Control
+                      required
+                      ref="con_orderId"
+                      name="con_orderId"
+                    />
                   </Form.Group>
 
                   <Form.Group controlId="formGridState">
                     <Form.Label>วิธีชำระเงิน</Form.Label>
                     <Form.Control
+                      required
                       ref="con_Payment"
                       name="con_Payment"
                       as="select"
@@ -331,6 +367,7 @@ class confirmpay extends React.Component {
                   <Form.Group controlId="formGridState">
                     <Form.Label>ระบุวันที่ชำระเงิน</Form.Label>
                     <Form.Control
+                      required
                       ref="con_datePay"
                       name="con_datePay"
                       placeholder="dd/mm/yy"

@@ -106,7 +106,7 @@ class Login extends React.Component {
                 <h2 className="inactive underlineHover">Sign Up </h2>
               </a>
               <br />
-              <form noValidate onSubmit={this.handleSubmit}>
+              <form  onSubmit={this.handleSubmit}>
                 <ThemeProvider theme={theme}>
                   <TextField
                     style={{ width: 350 }}

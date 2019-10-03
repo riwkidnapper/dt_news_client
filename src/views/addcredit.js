@@ -68,7 +68,7 @@ class Addcredit extends React.Component {
           </h3>
           <br />
           <br />
-          <form noValidate>
+          <form >
             <Center>
               <CardDeck>
                 <Card style={{ width: "20rem", borderColor: "#8bc34a" }}>

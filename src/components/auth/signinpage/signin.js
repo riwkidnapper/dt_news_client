@@ -124,7 +124,7 @@ class Register extends Component {
               <br />
 
               <Grid container>
-                <form noValidate onSubmit={this.handleSubmit}>
+                <form  onSubmit={this.handleSubmit}>
                   <ThemeProvider theme={theme}>
                     <TextField
                       style={{ width: 350 }}
