@@ -1,3 +1,21 @@
+import { AMOUNT_CREDIT } from "../types";
+
+const initialState = {
+  amount: 0,
+  errors: null
+};
+
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case AMOUNT_CREDIT:
+      return {
+        ...state,
+        amount: action.amount
+      };
+    default:
+      return state;
+  }
+}
 // import {
 //   SET_SCREAMS,
 //   LIKE_SCREAM,

@@ -250,7 +250,7 @@ class postnews extends React.Component {
           </div>
           <br /> <br />
           <Center>
-            <form noValidate onSubmit={this.handleSubmit} className="post">
+            <form onSubmit={this.handleSubmit} className="post">
               <h3>ลงประกาศเชิญประชุม</h3>
               <Form.Row>
                 <Form.Group

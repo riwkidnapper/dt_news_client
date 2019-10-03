@@ -27,7 +27,8 @@ import updatenews from "./views/updatenews";
 import Admin from "./components/admin/layouts/admin";
 import Homepage from "./pages/homepage";
 import Errorpage from "./pages/errorpage";
-// import Confirm from "./views/lib/con";
+import Confirm from "./views/success";
+import Consuccess from "./views/Consuccess";
 import axios from "axios";
 
 import "./App.css";
@@ -86,11 +87,11 @@ class App extends Component {
             <Route exact path="/aboutus" />
             <Route exact path="/addcredit" component={addcredit} />
             <Route exact path="/addcredit/payment" component={payment} />
-            {/* <Route exact path="/confirmpay/success" component={Confirm} /> */}
+            <Route exact path="/addcredit/success" component={Consuccess} />
+            <Route exact path="/confirmpay/success" component={Confirm} />
             <Route exact path="/confirmpay" component={confirmpay} />
             <Route exact path="/contact" />
             <Route exact path="/postnews" component={postnews} />
-
             <Route exact path="/downloadnews" component={updatenews} />
             <AuthRoute exact path="/login" component={Login} />
             <AuthRoute exact path="/register" component={Register} />
