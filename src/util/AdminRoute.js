@@ -2,8 +2,13 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
-const AdminRoute = ({ component: Component, authenticated, ...rest }) => (
+const AdminRoute = ({
+  component: Component,
+  Homepage,
+  authenticated,
+  credentials,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props =>
@@ -17,7 +22,8 @@ const AdminRoute = ({ component: Component, authenticated, ...rest }) => (
 );
 
 const mapStateToProps = state => ({
-  authenticated: state.user.authenticated
+  authenticated: state.user.authenticated,
+  credentials: state.user.credentials
 });
 
 AdminRoute.propTypes = {

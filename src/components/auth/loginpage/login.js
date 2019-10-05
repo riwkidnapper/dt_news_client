@@ -64,6 +64,7 @@ class Login extends React.Component {
     });
   };
   componentDidMount() {
+    window.scrollTo(0, 0);
     if (navigator.platform.indexOf("Win") > -1) {
       document.body.classList.toggle("logins");
     }
@@ -106,7 +107,7 @@ class Login extends React.Component {
                 <h2 className="inactive underlineHover">Sign Up </h2>
               </a>
               <br />
-              <form  onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}>
                 <ThemeProvider theme={theme}>
                   <TextField
                     style={{ width: 350 }}

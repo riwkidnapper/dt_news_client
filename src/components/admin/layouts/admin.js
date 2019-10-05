@@ -2,21 +2,19 @@ import React from "react";
 
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { logoutUser, getUserData } from "../../../redux/actions/userActions";
-import PerfectScrollbar from "perfect-scrollbar";
-import { Route, Switch } from "react-router-dom";
-import { SET_AUTHENTICATED } from "../../../redux/types";
+import { logoutUser } from "../../../redux/actions/userActions";
+import { Route, Switch, Redirect } from "react-router-dom";
 import store from "../../../redux/store";
-
+import { connect } from "react-redux";
 import AdminNavbar from "../../navbars/AdminNavbar";
 import Footer from "../../footer/footer";
 import Sidebar from "../../sidebar/sidebar";
 import FixedPlugin from "../../fixedPlugin/fixedPlugin";
 import routes from "../../../routes";
-
+import PropTypes from "prop-types";
 import "./adminlayout.css";
+import { getUsers } from "../../../redux/actions/dataActions";
 
-var ps;
 const token = localStorage.FBIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);
@@ -24,9 +22,8 @@ if (token) {
     store.dispatch(logoutUser());
     window.location.href = "/";
   } else {
-    store.dispatch({ type: SET_AUTHENTICATED });
     axios.defaults.headers.common["Authorization"] = token;
-    store.dispatch(getUserData());
+    store.dispatch(getUsers());
   }
 }
 
@@ -40,16 +37,6 @@ class Admin extends React.Component {
     this.mainPanel = React.createRef();
   }
 
-  componentDidMount() {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(this.mainPanel.current);
-    }
-  }
-  componentWillUnmount() {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps.destroy();
-    }
-  }
   componentDidUpdate(e) {
     if (e.history.action === "PUSH") {
       this.mainPanel.current.scrollTop = 0;
@@ -63,38 +50,60 @@ class Admin extends React.Component {
     this.setState({ backgroundColor: color });
   };
   render() {
-    return (
-      <div className="wrapper">
-        <Sidebar
-          {...this.props}
-          routes={routes}
-          bgColor={this.state.backgroundColor}
-          activeColor={this.state.activeColor}
-        />
-        <div className="main-panel" ref={this.mainPanel}>
-          <AdminNavbar {...this.props} />
-          <Switch>
-            {routes.map((prop, key) => {
-              return (
-                <Route
-                  path={prop.layout + prop.path}
-                  component={prop.component}
-                  key={key}
-                />
-              );
-            })}
-          </Switch>
-          <Footer fluid />
-        </div>
-        <FixedPlugin
-          bgColor={this.state.backgroundColor}
-          activeColor={this.state.activeColor}
-          handleActiveClick={this.handleActiveClick}
-          handleBgClick={this.handleBgClick}
-        />
-      </div>
-    );
+    const {
+      user: {
+        credentials: { admin },
+        authenticated
+      }
+    } = this.props;
+    console.log(admin);
+    if (authenticated) {
+      if (admin === true) {
+        return (
+          <div className="wrapper">
+            <Sidebar
+              {...this.props}
+              routes={routes}
+              bgColor={this.state.backgroundColor}
+              activeColor={this.state.activeColor}
+            />
+            <div className="main-panel" ref={this.mainPanel}>
+              <AdminNavbar {...this.props} />
+              <Switch>
+                {routes.map((prop, key) => {
+                  return (
+                    <Route
+                      path={prop.layout + prop.path}
+                      component={prop.component}
+                      key={key}
+                    />
+                  );
+                })}
+              </Switch>
+              <Footer fluid />
+            </div>
+            <FixedPlugin
+              bgColor={this.state.backgroundColor}
+              activeColor={this.state.activeColor}
+              handleActiveClick={this.handleActiveClick}
+              handleBgClick={this.handleBgClick}
+            />
+          </div>
+        );
+      } else if (admin === false) {
+        return <Redirect to="/" />;
+      } else {
+        return <div></div>;
+      }
+    } else {
+      return <Redirect to="/" />;
+    }
   }
 }
-
-export default Admin;
+Admin.propTypes = {
+  user: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  user: state.user
+});
+export default connect(mapStateToProps)(Admin);

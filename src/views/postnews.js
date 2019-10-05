@@ -38,6 +38,7 @@ class postnews extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     $("select[name='subject']").bind("change", function() {
       var subject = $("select[name='subject']").val();
       var text;

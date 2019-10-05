@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Container, Col, Button, Form, Card } from "react-bootstrap";
+import { Container, Col, Button, Form, Card, Spinner } from "react-bootstrap";
 import Footer from "../layout/footer/footer";
 import { FaFeatherAlt } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
@@ -8,26 +8,36 @@ import { MdReply } from "react-icons/md";
 import axios from "axios";
 
 class downloadnews extends Component {
-
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   state = {
+    downloading: false,
     loading: true,
     downloadUrl: ""
   };
 
   changestate = event => {
     event.preventDefault();
+
     if (this.refs.dateload.value !== "") {
+      this.setState({
+        downloading: true,
+        loading: true,
+        downloadUrl: ""
+      });
       axios
         .get("/pdf/generate/" + this.refs.dateload.value)
         .then(res => {
           this.setState({
+            downloading: false,
             loading: false,
             downloadUrl: res.data.url
           });
         })
         .catch(err => {});
     } else {
-      alert("กรุณาระบุวัน เดือน ปี ที่ต้องการค้นหาด้วย");
+      alert("กรุณาระบุวัน เดือน ปี ที่ต้องการค้นหา");
     }
   };
 
@@ -51,47 +61,84 @@ class downloadnews extends Component {
   };
 
   render() {
-
-    const { loading } = this.state;
+    const { loading, downloading } = this.state;
 
     return loading ? (
-      <div>
-        <Container fluid>
-          <Col lg={9} md={9} xs={12}>
-            <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
-          </Col>
+      downloading === false ? (
+        <div>
+          <Container fluid>
+            <Col lg={9} md={9} xs={12}>
+              <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
+            </Col>
 
-          <Card
-            style={{
-              marginTop: "1%",
-              marginLeft: "5%",
-              marginRight: "5%"
-            }}
-          >
-            <Form className="tabsearch" onSubmit={this.changestate}>
-              <h5>{"ค้นหา"}</h5>
-              <Form.Control
-                ref="dateload"
-                className="download"
-                type="date"
-                placeholder="Search..."
-              />
-              <br />{" "}
-              <Button
-                type="submit"
-                variant="outline-success"
-                style={{
-                  border: "2px solid"
-                }}
-                onSubmit={this.changestate}
-              >
-                <FaFeatherAlt /> {"SEARCH"}
-              </Button>
-            </Form>
-          </Card>
-        </Container>
-        <Footer />
-      </div>
+            <Card
+              style={{
+                marginTop: "1%",
+                marginLeft: "5%",
+                marginRight: "5%"
+              }}
+            >
+              <Form className="tabsearch" onSubmit={this.changestate}>
+                <h5>{"ค้นหา"}</h5>
+                <Form.Control
+                  ref="dateload"
+                  className="download"
+                  type="date"
+                  placeholder="Search..."
+                />
+                <br />
+                <Button
+                  type="submit"
+                  variant="outline-success"
+                  style={{
+                    border: "2px solid"
+                  }}
+                  onSubmit={this.changestate}
+                >
+                  <FaFeatherAlt /> {"SEARCH"}
+                </Button>
+              </Form>
+            </Card>
+          </Container>
+          <Footer />
+        </div>
+      ) : (
+        <div>
+          <Container fluid>
+            <Col lg={9} md={9} xs={12}>
+              <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
+            </Col>
+
+            <Card
+              style={{
+                marginTop: "1%",
+                marginLeft: "5%",
+                marginRight: "5%"
+              }}
+            >
+              <Form className="tabsearch" onSubmit={this.changestate}>
+                <h5>{"ค้นหา"}</h5>
+                <br />
+                <div className="Spinner-download">
+                  {downloading && (
+                    <Spinner
+                      className="Spinner-download"
+                      style={{
+                        marginLeft: "30px",
+                        marginRight: "30px"
+                      }}
+                      animation="border"
+                      variant="success"
+                    />
+                  )}
+                  {" Loading... "}
+                </div>
+              </Form>
+            </Card>
+          </Container>
+          <Footer />
+        </div>
+      )
     ) : (
       <div>
         <Container fluid>
@@ -107,14 +154,14 @@ class downloadnews extends Component {
             }}
           >
             <Form className="tabsearch" onSubmit={this.handleSubmit}>
-              <h5>{"ค้นหา"}</h5>
-              <Form.Control
+              <h5>{"รายการดาวน์โหลดหนังสือพิมพ์"}</h5>
+              {/* <Form.Control
                 ref="dateload"
                 className="download"
                 type="date"
                 placeholder="Search..."
-              />
-              <br />{" "}
+              /> */}
+              <br />
               <Button
                 type="submit"
                 variant="success"

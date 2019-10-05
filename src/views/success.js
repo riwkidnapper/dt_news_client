@@ -3,6 +3,9 @@ import Footer from "../layout/footer/footer";
 import Navbar from "../layout/navbar/navbar";
 import check from "../assets/check.gif";
 class success extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <div>

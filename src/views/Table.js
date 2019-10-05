@@ -11,6 +11,9 @@ import {
 } from "reactstrap";
 
 class Tables extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <>

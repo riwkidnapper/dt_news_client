@@ -48,6 +48,19 @@ h3.payment {
 .form-check .form-check-label {
   padding-left: 0px !important;
 }
+div.Spinner-download {
+  margin-left: -80px;
+  font-size: 25px;
+  color: rgba(91, 156, 16, 0.658);
+}
+.Spinner-download.spinner-border.text-success {
+  width: 5rem !important;
+  height: 5rem !important;
+  color: rgba(91, 156, 16, 0.658) !important;
+  border: 0.5em solid currentColor;
+  border-right-color: transparent;
+}
+
 @media only screen and (min-width: 321px) {
   body {
     margin-top: 96px;

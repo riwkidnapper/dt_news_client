@@ -10,7 +10,7 @@ class payment extends Component {
     const {
       data: { amount }
     } = this.props;
-    //console.log(amount);
+    console.log(amount);
     if (amount >= 10) {
       return (
         <div>

@@ -50,12 +50,14 @@ export const logoutUser = () => dispatch => {
   localStorage.removeItem("FBIdToken");
   delete axios.defaults.headers.common["Authorization"];
   dispatch({ type: SET_UNAUTHENTICATED });
+  dispatch({ type: CLEAR_ERRORS });
 };
 
 export const logoutAdmin = history => dispatch => {
   localStorage.removeItem("FBIdToken");
   delete axios.defaults.headers.common["Authorization"];
   dispatch({ type: SET_UNAUTHENTICATED });
+  dispatch({ type: CLEAR_ERRORS });
   history.push("/");
 };
 
@@ -71,16 +73,6 @@ export const getUserData = () => dispatch => {
     })
     .catch(err => console.log(err));
 };
-
-// export const uploadImage = formData => dispatch => {
-//   dispatch({ type: LOADING_USER });
-//   axios
-//     .post("/user/image", formData)
-//     .then(() => {
-//       dispatch(getUserData());
-//     })
-//     .catch(err => console.log(err));
-// };
 
 // export const editUserDetails = userDetails => dispatch => {
 //   dispatch({ type: LOADING_USER });
@@ -130,7 +122,6 @@ export const postNews = (data, history) => dispatch => {
   axios
     .post("/crud/news", data)
     .then(res => {
-      dispatch(getUserData());
       dispatch({ type: CLEAR_ERRORS });
       history.push("/");
     })
@@ -142,14 +133,26 @@ export const postNews = (data, history) => dispatch => {
     });
 };
 
-export const confirmPay = (conData, history) => dispatch => {
+export const confirmPay = (conData, formData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/pay/confirm", conData)
-    .then(res => {
-      dispatch(getUserData());
-      dispatch({ type: CLEAR_ERRORS });
-      history.push("/confirmpay/success");
+    .post("/image/upload", formData)
+    .then(url => {
+      if (url.data !== null && url.data.url !== "") {
+        conData.image = url.data.url;
+        axios
+          .post("/pay/confirm", conData)
+          .then(res => {
+            dispatch({ type: CLEAR_ERRORS });
+            history.push("/confirmpay/success");
+          })
+          .catch(err => {
+            dispatch({
+              type: SET_ERRORS,
+              payload: err.response.data
+            });
+          });
+      }
     })
     .catch(err => {
       dispatch({
@@ -160,7 +163,8 @@ export const confirmPay = (conData, history) => dispatch => {
 };
 
 export const Payment = (amount, history) => dispatch => {
-  dispatch({ type: AMOUNT_CREDIT, amount });
+  console.log(amount);
+  dispatch({ type: AMOUNT_CREDIT, amount: amount });
   dispatch({ type: CLEAR_ERRORS });
   history.push("/addcredit/payment");
 };

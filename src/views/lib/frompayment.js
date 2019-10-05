@@ -6,6 +6,9 @@ class From_pay extends Component {
     super(props);
     this.Submit = this.Submit.bind(this);
   }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   Submit = event => {
     event.preventDefault();
     return this.props.history.push("/addcredit/success");

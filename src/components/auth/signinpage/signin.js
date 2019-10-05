@@ -58,6 +58,7 @@ class Register extends Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0);  
     if (navigator.platform.indexOf("Win") > -1) {
       document.body.classList.toggle("logins");
     }
@@ -124,7 +125,7 @@ class Register extends Component {
               <br />
 
               <Grid container>
-                <form  onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                   <ThemeProvider theme={theme}>
                     <TextField
                       style={{ width: 350 }}

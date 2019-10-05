@@ -21,6 +21,7 @@ class navbar extends Component {
   };
 
   async componentDidMount() {
+    window.scrollTo(0, 0);
     await this.loading;
     this.setState(() => ({
       authenticated: false
@@ -89,6 +90,11 @@ class navbar extends Component {
                     <li>
                       <NavLink to={"/confirmpay"} exact className="nav-link">
                         แจ้งชำระเงิน
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/me"} exact className="nav-link">
+                        รายการของฉัน
                       </NavLink>
                     </li>
                     <li>
@@ -231,6 +237,11 @@ class navbar extends Component {
                   <li>
                     <NavLink to={"/confirmpay"} exact className="nav-link">
                       แจ้งชำระเงิน
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={"#"} exact className="nav-link">
+                      รายการของฉัน
                     </NavLink>
                   </li>
                   <li>

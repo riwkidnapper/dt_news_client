@@ -16,7 +16,7 @@ var routes = [
 
   {
     path: "/user-page",
-    name: "Profile",
+    name: "user",
     icon: "lnr lnr-user",
     component: UserPage,
     layout: "/admin"
@@ -34,7 +34,8 @@ var routes = [
     icon: "lnr lnr-diamond",
     component: Typography,
     layout: "/admin"
-  }
+  },
+
 ];
 
 export default routes;

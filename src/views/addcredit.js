@@ -35,6 +35,7 @@ class Addcredit extends React.Component {
     event.preventDefault();
     const amount = parseInt(this.money.value);
     this.props.Payment(amount, this.props.history);
+    console.log(amount);
   };
 
   handleSubmit1 = event => {
@@ -68,7 +69,7 @@ class Addcredit extends React.Component {
           </h3>
           <br />
           <br />
-          <form >
+          <form>
             <Center>
               <CardDeck>
                 <Card style={{ width: "20rem", borderColor: "#8bc34a" }}>

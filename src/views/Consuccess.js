@@ -5,6 +5,9 @@ import check from "../assets/check.gif";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 class Consuccess extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     const {
       data: { amount }

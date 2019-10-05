@@ -50,6 +50,9 @@ if (token) {
 }
 
 class App extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   isLoggedIn() {
     return this.state.isLoggedIn;
   }

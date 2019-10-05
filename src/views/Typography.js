@@ -3,6 +3,9 @@ import React from "react";
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
 class Typography extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <>
@@ -71,7 +74,7 @@ class Typography extends React.Component {
                         worth billions of dollars, because I got the answers. I
                         understand culture. I am the nucleus. I think that’s a
                         responsibility that I have, to push possibilities, to
-                        show people, this is the level that things could be at."{" "}
+                        show people, this is the level that things could be at."
                         <br />
                         <br />
                         <small>- Noaa</small>
