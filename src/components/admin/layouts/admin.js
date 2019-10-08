@@ -56,7 +56,6 @@ class Admin extends React.Component {
         authenticated
       }
     } = this.props;
-    console.log(admin);
     if (authenticated) {
       if (admin === true) {
         return (
@@ -80,6 +79,9 @@ class Admin extends React.Component {
                   );
                 })}
               </Switch>
+              <br />
+              <br />
+              <br />
               <Footer fluid />
             </div>
             <FixedPlugin

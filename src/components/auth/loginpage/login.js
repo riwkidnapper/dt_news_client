@@ -107,86 +107,87 @@ class Login extends React.Component {
                 <h2 className="inactive underlineHover">Sign Up </h2>
               </a>
               <br />
-              <form onSubmit={this.handleSubmit}>
-                <ThemeProvider theme={theme}>
-                  <TextField
-                    style={{ width: 350 }}
-                    id="outlined-email-input"
-                    label="Email"
-                    name="email"
-                    className="email"
-                    type="email"
-                    helperText={errors.email}
-                    error={errors.email ? true : false}
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    margin="normal"
-                    variant="outlined"
+
+              <ThemeProvider theme={theme}>
+                <TextField
+                  style={{ width: 350 }}
+                  id="outlined-email-input"
+                  label="Email"
+                  name="email"
+                  className="email"
+                  type="email"
+                  helperText={errors.email}
+                  error={errors.email ? true : false}
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  margin="normal"
+                  variant="outlined"
+                />
+                <TextField
+                  style={{ width: 350 }}
+                  id="password"
+                  label="Password"
+                  className="password"
+                  name="password"
+                  autoComplete="password"
+                  margin="normal"
+                  variant="outlined"
+                  helperText={errors.password}
+                  error={errors.password ? true : false}
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  type={passwordIsMasked ? "password" : "text"}
+                  {...this.props}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={this.togglePasswordMask}
+                        >
+                          {passwordIsMasked ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
+                />
+              </ThemeProvider>
+              <br />
+              {errors.general && (
+                <Typography variant="body2" className="customError">
+                  {errors.general}
+                </Typography>
+              )}
+              <br />
+              <Button
+                onClick={this.handleSubmit}
+                type="submit"
+                className="button is-link"
+                variant="outline-success"
+                size="lg"
+                disabled={loading}
+              >
+                {"Login"}
+                {loading && (
+                  <Spinner
+                    animation="border"
+                    variant="success"
+                    className="progress"
                   />
-                  <TextField
-                    style={{ width: 350 }}
-                    id="password"
-                    label="Password"
-                    className="password"
-                    name="password"
-                    autoComplete="password"
-                    margin="normal"
-                    variant="outlined"
-                    helperText={errors.password}
-                    error={errors.password ? true : false}
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    type={passwordIsMasked ? "password" : "text"}
-                    {...this.props}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={this.togglePasswordMask}
-                          >
-                            {passwordIsMasked ? (
-                              <VisibilityOff />
-                            ) : (
-                              <Visibility />
-                            )}
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </ThemeProvider>
-                <br />
-                {errors.general && (
-                  <Typography variant="body2" className="customError">
-                    {errors.general}
-                  </Typography>
                 )}
-                <br />
-                <Button
-                  type="submit"
-                  className="button is-link"
-                  variant="outline-success"
-                  size="lg"
-                  disabled={loading}
-                >
-                  {"Login"}
-                  {loading && (
-                    <Spinner
-                      animation="border"
-                      variant="success"
-                      className="progress"
-                    />
-                  )}
-                </Button>
-                <br />
-                <br />
-                <div id="formFooter">
-                  <a className="underlineHover" href="/#">
-                    Forgot Password?
-                  </a>
-                </div>
-              </form>
+              </Button>
+              <br />
+              <br />
+              <div id="formFooter">
+                <a className="underlineHover" href="/#">
+                  Forgot Password?
+                </a>
+              </div>
+
               <ul className="bg-bubbles">
                 <li />
                 <li />

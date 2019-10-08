@@ -240,7 +240,7 @@ class navbar extends Component {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={"#"} exact className="nav-link">
+                    <NavLink to={"/me"} exact className="nav-link">
                       รายการของฉัน
                     </NavLink>
                   </li>

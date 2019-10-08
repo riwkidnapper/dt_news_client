@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userActions";
-
+  
 import ProtectedRoute from "./util/ProtectRoute";
 import AdminRoute from "./util/AdminRoute";
 import AuthRoute from "./util/AuthRoute";
@@ -94,6 +94,7 @@ class App extends Component {
             <Route exact path="/confirmpay/success" component={Confirm} />
             <Route exact path="/confirmpay" component={confirmpay} />
             <Route exact path="/contact" />
+            <Route exact path="/me" />
             <Route exact path="/postnews" component={postnews} />
             <Route exact path="/downloadnews" component={updatenews} />
             <AuthRoute exact path="/login" component={Login} />
