@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
-class Typography extends React.Component {
+class Newspeper extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -140,4 +140,4 @@ class Typography extends React.Component {
   }
 }
 
-export default Typography;
+export default Newspeper;

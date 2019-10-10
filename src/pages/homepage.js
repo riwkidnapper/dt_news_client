@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import Jumbotron from "react-bootstrap/Jumbotron";
-import { Container, Col } from "react-bootstrap";
+import { Container, Col ,Jumbotron} from "react-bootstrap";
 
 import { NProgress } from "@tanem/react-nprogress";
 import Bar from "../layout/navbar/tool/Bar";

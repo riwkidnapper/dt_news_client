@@ -65,6 +65,58 @@ div.Spinner-download {
   margin-left: 5% !important;
   width: 150px !important;
 }
+
+.file-head {
+  margin-left: 15%;
+}
+
+.text-head {
+  font-size: 12px;
+  margin-left: 15%;
+  color: rgba(58, 58, 58, 0.541);
+}
+
+.file-drag {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-top: 2%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+  border: 0.1em dashed rgb(68, 124, 5);
+}
+.preview {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.edittext {
+  padding: 5%;
+  margin-left: 5%;
+  margin-right: 5% !important;
+  background-color: rgba(169, 169, 169, 0.315);
+}
+
+.previewFile {
+  margin-left: 20%;
+}
+
+.texthead {
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.file-bt {
+  margin-right: 20%;
+  margin-left: 20%;
+}
+.file-dragedit {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 5%;
+  border: 0.1em dashed rgb(68, 124, 5);
+}
+
 @media only screen and (min-width: 321px) {
   body {
     margin-top: 96px;

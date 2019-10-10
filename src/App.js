@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userActions";
-  
+
 import ProtectedRoute from "./util/ProtectRoute";
 import AdminRoute from "./util/AdminRoute";
 import AuthRoute from "./util/AuthRoute";
@@ -39,7 +39,7 @@ axios.defaults.baseURL =
 const token = localStorage.FBIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);
-  if (decodedToken.exp * 1000 < Date.now()) {
+  if (decodedToken.exp * 1000 + 2000 < Date.now()) {
     store.dispatch(logoutUser());
     window.location.href = "/login";
   } else {
@@ -77,13 +77,13 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/admin/typography"
+              path="/admin/newspeper"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />
             <ProtectedRoute
               exact
-              path="/admin/tables"
+              path="/admin/Pagemodify"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />

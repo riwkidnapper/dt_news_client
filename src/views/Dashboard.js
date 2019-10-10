@@ -13,7 +13,6 @@ import {
 } from "reactstrap";
 
 import {
-  dashboard24HoursPerformanceChart,
   dashboardEmailStatisticsChart,
   dashboardNASDAQChart
 } from "../variables/charts";
@@ -139,14 +138,7 @@ class Dashboard extends React.Component {
                   <CardTitle tag="h5">Users Behavior</CardTitle>
                   <p className="card-category">24 Hours performance</p>
                 </CardHeader>
-                <CardBody>
-                  <Line
-                    data={dashboard24HoursPerformanceChart.data}
-                    options={dashboard24HoursPerformanceChart.options}
-                    width={400}
-                    height={100}
-                  />
-                </CardBody>
+                <CardBody></CardBody>
                 <CardFooter>
                   <hr />
                   <div className="stats">

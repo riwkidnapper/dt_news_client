@@ -1,7 +1,7 @@
 import Dashboard from "./views/Dashboard";
 
-import Typography from "./views/Typography";
-import TableList from "./views/Table";
+import Newspeper from "./views/newspeper";
+import pagemodify from "./views/pagemodify";
 
 import UserPage from "./views/User";
 
@@ -9,11 +9,17 @@ var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "lnr lnr-chart-bars",
+    icon: "lnr lnr-diamond",
     component: Dashboard,
     layout: "/admin"
   },
-
+  {
+    path: "/Pagemodify",
+    name: "Modify Page",
+    icon: "lnr lnr-laptop-phone",
+    component: pagemodify,
+    layout: "/admin"
+  },
   {
     path: "/user-page",
     name: "user",
@@ -21,21 +27,14 @@ var routes = [
     component: UserPage,
     layout: "/admin"
   },
-  {
-    path: "/tables",
-    name: "Accounts",
-    icon: "fa fa-address-card-o",
-    component: TableList,
-    layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "lnr lnr-diamond",
-    component: Typography,
-    layout: "/admin"
-  },
 
+  {
+    path: "/newspeper",
+    name: "newspeper",
+    icon: "fa fa-newspaper-o",
+    component: Newspeper,
+    layout: "/admin"
+  }
 ];
 
 export default routes;
