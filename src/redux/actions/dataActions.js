@@ -1,8 +1,7 @@
 import {
   SET_LISTUSERS,
   CLEAR_ERRORS,
-  DELETE_USER,
-  EDIT_USER
+  DELETE_USER
   //SET_ERRORS
   // DELETE_SCREAM,
   // SET_ERRORS,
@@ -53,13 +52,11 @@ export const deleteUser = userId => {
   };
 };
 
-export const editUser = (userId, editUserdata, history) => dispatch => {
+export const editUser = (userId, editUserdata) => dispatch => {
   axios
     .post("/list/users/update/" + userId, editUserdata)
     .then(res => {
       dispatch(getUsers());
-      history.push("/admin/user-page");
-      dispatch({ type: EDIT_USER });
     })
     .catch(err => {});
 };

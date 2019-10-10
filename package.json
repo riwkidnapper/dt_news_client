@@ -10,13 +10,13 @@
     "@tanem/react-nprogress": "^3.0.5",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "bs-stepper": "^1.7.0",
     "chart.js": "^2.8.0",
     "chartist": "^0.11.4",
     "create-react-class": "^15.6.3",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
     "material-table": "^1.51.0",
-    "material-ui-thai-datepickers": "^1.1.7",
     "node-sass": "^4.12.0",
     "perfect-scrollbar": "^1.4.0",
     "prop-types": "^15.7.2",
@@ -25,6 +25,7 @@
     "react-center": "^1.1.1",
     "react-chartist": "^0.13.3",
     "react-chartjs-2": "^2.8.0",
+    "react-datepicker": "^2.9.6",
     "react-datepicker2": "^3.0.3",
     "react-datetime-bootstrap": "^1.4.5",
     "react-dom": "^16.10.2",
@@ -61,5 +62,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://us-central1-news-48fc7.cloudfunctions.net/webapi"
+  "proxy": "https://us-central1-news-48fc7.cloudfunctions.net/webapi",
+  "devDependencies": {}
 }
