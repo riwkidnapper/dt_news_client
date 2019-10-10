@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 
-import Navbar from "../layout/navbar/navbar";
-import Downloadnews from "./downloadnews";
+import NavBar from "../layout/navbar/navbar";
+import DownloadNews from "./downloadnews";
 
 import "../css/downloadnews.css";
 
-export class updatenews extends Component {
+export class UpdateNews extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
   render() {
     return (
       <div>
-        <Navbar />
-        <Downloadnews />
+        <NavBar />
+        <DownloadNews />
       </div>
     );
   }
 }
 
-export default updatenews;
+export default UpdateNews;

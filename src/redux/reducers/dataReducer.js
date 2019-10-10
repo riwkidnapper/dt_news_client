@@ -1,8 +1,7 @@
 import { AMOUNT_CREDIT } from "../types";
 
 const initialState = {
-  amount: 0,
-  errors: null
+  amount: 0
 };
 
 export default function(state = initialState, action) {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
-class Newspeper extends React.Component {
+class NewsPeper extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -140,4 +140,4 @@ class Newspeper extends React.Component {
   }
 }
 
-export default Newspeper;
+export default NewsPeper;

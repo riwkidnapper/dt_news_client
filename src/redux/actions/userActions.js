@@ -94,7 +94,7 @@ export const getUserData = () => dispatch => {
 //     })
 //     .catch(err => console.log(err));
 // };
-export const Adminlogin = (userData, history) => dispatch => {
+export const adminLogin = (userData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
     .post("/login", userData)
@@ -162,8 +162,7 @@ export const confirmPay = (conData, formData, history) => dispatch => {
     });
 };
 
-export const Payment = (amount, history) => dispatch => {
-  console.log(amount);
+export const payment = (amount, history) => dispatch => {
   dispatch({ type: AMOUNT_CREDIT, amount: amount });
   dispatch({ type: CLEAR_ERRORS });
   history.push("/addcredit/payment");

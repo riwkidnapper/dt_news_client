@@ -5,7 +5,7 @@ import { Button, Card, CardDeck } from "react-bootstrap";
 import PropTypes from "prop-types";
 import Navbar from "../layout/navbar/navbar";
 import Footer from "../layout/footer/footer";
-import { Payment } from "../redux/actions/userActions";
+import { payment } from "../redux/actions/userActions";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
@@ -19,7 +19,7 @@ const theme = createMuiTheme({
   }
 });
 
-class Addcredit extends React.Component {
+class AddCredit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,26 +34,26 @@ class Addcredit extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const amount = parseInt(this.money.value);
-    this.props.Payment(amount, this.props.history);
+    this.props.payment(amount, this.props.history);
     console.log(amount);
   };
 
   handleSubmit1 = event => {
     event.preventDefault();
     const amount = 1;
-    this.props.Payment(amount, this.props.history);
+    this.props.payment(amount, this.props.history);
   };
 
   handleSubmit2 = event => {
     event.preventDefault();
     const amount = 5;
-    this.props.Payment(amount, this.props.history);
+    this.props.payment(amount, this.props.history);
   };
 
   handleSubmit3 = event => {
     event.preventDefault();
     const amount = 10;
-    this.props.Payment(amount, this.props.history);
+    this.props.payment(amount, this.props.history);
   };
   render() {
     return (
@@ -273,13 +273,16 @@ class Addcredit extends React.Component {
     );
   }
 }
-Addcredit.propTypes = {
+
+AddCredit.propTypes = {
   money: PropTypes.number
 };
+
 const mapStateToProps = state => ({
   count: state.count
 });
+
 export default connect(
   mapStateToProps,
-  { Payment }
-)(Addcredit);
+  { payment }
+)(AddCredit);

@@ -46,8 +46,8 @@ class Login extends React.Component {
     }));
   };
   componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) {
-      this.setState({ errors: nextProps.UI.errors });
+    if (nextProps.ui.errors) {
+      this.setState({ errors: nextProps.ui.errors });
     }
   }
   handleSubmit = event => {
@@ -78,7 +78,7 @@ class Login extends React.Component {
   render() {
     const { passwordIsMasked, errors } = this.state;
     const {
-      UI: { loading }
+      ui: { loading }
     } = this.props;
 
     return (
@@ -215,12 +215,12 @@ class Login extends React.Component {
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired
+  ui: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user,
-  UI: state.UI
+  ui: state.ui
 });
 
 const mapActionsToProps = {

@@ -15,7 +15,7 @@ import { MdPersonAdd, MdExitToApp } from "react-icons/md";
 import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/userActions";
 
-class navbar extends Component {
+class NavBar extends Component {
   state = {
     authenticated: true
   };
@@ -272,7 +272,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = { logoutUser };
 
-navbar.propTypes = {
+NavBar.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };
@@ -280,4 +280,4 @@ navbar.propTypes = {
 export default connect(
   mapStateToProps,
   mapActionsToProps
-)(navbar);
+)(NavBar);

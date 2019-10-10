@@ -14,7 +14,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { Button, Spinner } from "react-bootstrap";
 
 import { connect } from "react-redux";
-import { Adminlogin } from "../../redux/actions/userActions";
+import { adminLogin } from "../../redux/actions/userActions";
 
 import "./admin.css";
 const theme = createMuiTheme({
@@ -24,10 +24,9 @@ const theme = createMuiTheme({
     }
   }
 });
-class Admin extends Component {
+class AdminLogin extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: "",
@@ -47,11 +46,13 @@ class Admin extends Component {
       document.body.classList.toggle("login-on");
     }
   }
+
   componentWillUnmount() {
     if (navigator.platform.indexOf("Win") > -1) {
       document.body.classList.toggle("login-on");
     }
   }
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -59,17 +60,19 @@ class Admin extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.Adminlogin(userData, this.props.history);
+    this.props.adminLogin(userData, this.props.history);
   };
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
+
   render() {
     const { passwordIsMasked, errors } = this.state;
     const {
-      UI: { loading }
+      ui: { loading }
     } = this.props;
 
     return (
@@ -155,21 +158,20 @@ class Admin extends Component {
     );
   }
 }
-Admin.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+AdminLogin.propTypes = {
   user: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired
+  ui: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user,
-  UI: state.UI
+  ui: state.ui
 });
 
 const mapActionsToProps = {
-  Adminlogin
+  adminLogin
 };
 export default connect(
   mapStateToProps,
   mapActionsToProps
-)(Admin);
+)(AdminLogin);

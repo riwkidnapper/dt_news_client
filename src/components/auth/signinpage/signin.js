@@ -69,8 +69,8 @@ class Register extends Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) {
-      this.setState({ errors: nextProps.UI.errors });
+    if (nextProps.ui.errors) {
+      this.setState({ errors: nextProps.ui.errors });
     }
   }
   handleSubmit = event => {
@@ -94,7 +94,7 @@ class Register extends Component {
 
   render() {
     const {
-      UI: { loading }
+      ui: { loading }
     } = this.props;
     const { passwordIsMasked, showPassword, errors } = this.state;
     return (
@@ -280,13 +280,13 @@ class Register extends Component {
 
 Register.propTypes = {
   user: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired,
+  ui: PropTypes.object.isRequired,
   signupUser: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user,
-  UI: state.UI
+  ui: state.ui
 });
 
 export default connect(

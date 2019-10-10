@@ -186,10 +186,12 @@ class User extends React.Component {
     );
   }
 }
+
 User.propTypes = {
   getUsers: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
   data: state.getUsers,
   user: state.user

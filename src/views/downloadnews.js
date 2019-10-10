@@ -7,10 +7,12 @@ import { FiDownload } from "react-icons/fi";
 import { MdReply } from "react-icons/md";
 import axios from "axios";
 
-class downloadnews extends Component {
+class DownloadNews extends Component {
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+
   state = {
     downloading: false,
     loading: true,
@@ -197,4 +199,4 @@ class downloadnews extends Component {
   }
 }
 
-export default downloadnews;
+export default DownloadNews;

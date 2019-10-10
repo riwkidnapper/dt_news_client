@@ -43,12 +43,15 @@ class Admin extends React.Component {
       document.scrollingElement.scrollTop = 0;
     }
   }
+
   handleActiveClick = color => {
     this.setState({ activeColor: color });
   };
+
   handleBgClick = color => {
     this.setState({ backgroundColor: color });
   };
+
   render() {
     const {
       user: {
@@ -102,10 +105,13 @@ class Admin extends React.Component {
     }
   }
 }
+
 Admin.propTypes = {
   user: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
   user: state.user
 });
+
 export default connect(mapStateToProps)(Admin);

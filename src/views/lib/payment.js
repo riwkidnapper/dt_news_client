@@ -5,7 +5,8 @@ import FromPay from "./frompayment";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-class payment extends Component {
+
+class Payment extends Component {
   render() {
     const {
       data: { amount }
@@ -70,10 +71,13 @@ class payment extends Component {
     }
   }
 }
-payment.propTypes = {
+
+Payment.propTypes = {
   money: PropTypes.number
 };
+
 const mapStateToProps = state => ({
   data: state.data
 });
-export default connect(mapStateToProps)(payment);
+
+export default connect(mapStateToProps)(Payment);

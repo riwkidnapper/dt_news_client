@@ -11,22 +11,22 @@ import ProtectedRoute from "./util/ProtectRoute";
 import AdminRoute from "./util/AdminRoute";
 import AuthRoute from "./util/AuthRoute";
 
-import adminlogin from "./components/admin/adminlogin";
+import AdminLogin from "./components/admin/adminlogin";
 import AdminLayout from "./components/admin/layouts/admin";
 
 import Login from "./components/auth/loginpage/login";
 import Register from "./components/auth/signinpage/signin";
 
 // import aboutus from "./views/aboutus";
-import addcredit from "./views/addcredit";
-import confirmpay from "./views/confirmpay";
-import payment from "./views/lib/payment";
+import AddCredit from "./views/addcredit";
+import ConfirmPay from "./views/confirmpay";
+import Payment from "./views/lib/payment";
 // import contact from "./views/contact";
-import postnews from "./views/postnews";
-import updatenews from "./views/updatenews";
+import PostNews from "./views/postnews";
+import UpdateNews from "./views/updatenews";
 import Admin from "./components/admin/layouts/admin";
-import Homepage from "./pages/homepage";
-import Errorpage from "./pages/errorpage";
+import HomePage from "./pages/homepage";
+import ErrorPage from "./pages/errorpage";
 import Confirm from "./views/success";
 import Consuccess from "./views/Consuccess";
 import axios from "axios";
@@ -37,6 +37,7 @@ axios.defaults.baseURL =
   "https://us-central1-news-48fc7.cloudfunctions.net/webapi";
 
 const token = localStorage.FBIdToken;
+
 if (token) {
   const decodedToken = jwtDecode(token);
   if (decodedToken.exp * 1000 + 2000 < Date.now()) {
@@ -53,16 +54,18 @@ class App extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+
   isLoggedIn() {
     return this.state.isLoggedIn;
   }
+
   render() {
     return (
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Homepage} />
-            <AdminRoute exact path="/admin" component={adminlogin} />
+            <Route exact path="/" component={HomePage} />
+            <AdminRoute exact path="/admin" component={AdminLogin} />
             <ProtectedRoute
               exact
               path="/admin/dashboard"
@@ -83,23 +86,23 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/admin/Pagemodify"
+              path="/admin/pagemodify"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />
             <Route exact path="/aboutus" />
-            <Route exact path="/addcredit" component={addcredit} />
-            <Route exact path="/addcredit/payment" component={payment} />
+            <Route exact path="/addcredit" component={AddCredit} />
+            <Route exact path="/addcredit/payment" component={Payment} />
             <Route exact path="/addcredit/success" component={Consuccess} />
             <Route exact path="/confirmpay/success" component={Confirm} />
-            <Route exact path="/confirmpay" component={confirmpay} />
+            <Route exact path="/confirmpay" component={ConfirmPay} />
             <Route exact path="/contact" />
             <Route exact path="/me" />
-            <Route exact path="/postnews" component={postnews} />
-            <Route exact path="/downloadnews" component={updatenews} />
+            <Route exact path="/postnews" component={PostNews} />
+            <Route exact path="/downloadnews" component={UpdateNews} />
             <AuthRoute exact path="/login" component={Login} />
             <AuthRoute exact path="/register" component={Register} />
-            <Route path="*" component={Errorpage} />
+            <Route path="*" component={ErrorPage} />
           </Switch>
         </Router>
       </Provider>

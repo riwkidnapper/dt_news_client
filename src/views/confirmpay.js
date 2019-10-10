@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { confirmPay } from "../redux/actions/userActions";
 import "../css/confirmpay.css";
 
-class confirmpay extends React.Component {
+class ConfirmPay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -462,18 +462,19 @@ class confirmpay extends React.Component {
     return confirm;
   }
 }
-confirmpay.propTypes = {
+
+ConfirmPay.propTypes = {
   user: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired,
+  ui: PropTypes.object.isRequired,
   confirmPay: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user,
-  UI: state.UI
+  ui: state.ui
 });
+
 export default connect(
   mapStateToProps,
-
   { confirmPay }
-)(confirmpay);
+)(ConfirmPay);

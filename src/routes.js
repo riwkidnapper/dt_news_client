@@ -1,8 +1,6 @@
 import Dashboard from "./views/Dashboard";
-
-import Newspeper from "./views/newspeper";
-import pagemodify from "./views/pagemodify";
-
+import NewsPeper from "./views/newspeper";
+import PageModify from "./views/pagemodify";
 import UserPage from "./views/User";
 
 var routes = [
@@ -14,10 +12,10 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/Pagemodify",
+    path: "/pagemodify",
     name: "Modify Page",
     icon: "lnr lnr-laptop-phone",
-    component: pagemodify,
+    component: PageModify,
     layout: "/admin"
   },
   {
@@ -32,7 +30,7 @@ var routes = [
     path: "/newspeper",
     name: "newspeper",
     icon: "fa fa-newspaper-o",
-    component: Newspeper,
+    component: NewsPeper,
     layout: "/admin"
   }
 ];

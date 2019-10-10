@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 import { postNews } from "../redux/actions/userActions";
 import "../css/postnews.css";
 
-class postnews extends React.Component {
+class PostNews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -239,7 +239,7 @@ class postnews extends React.Component {
   };
   render() {
     const {
-      UI: { loading }
+      ui: { loading }
     } = this.props;
     var now = new Date().getFullYear() + 543;
     return (
@@ -518,18 +518,19 @@ class postnews extends React.Component {
     );
   }
 }
-postnews.propTypes = {
+
+PostNews.propTypes = {
   user: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired,
+  ui: PropTypes.object.isRequired,
   postNews: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user,
-  UI: state.UI
+  ui: state.ui
 });
 
 export default connect(
   mapStateToProps,
   { postNews }
-)(postnews);
+)(PostNews);

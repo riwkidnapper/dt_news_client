@@ -1,17 +1,10 @@
 import {
   SET_LISTUSERS,
-  CLEAR_ERRORS,
   DELETE_USER,
-  EDIT_USER
-  //SET_ERRORS
-  // DELETE_SCREAM,
-  // SET_ERRORS,
-  // POST_SCREAM,
-
-  // LOADING_UI,
-  // SET_SCREAM,
-  // STOP_LOADING_UI,
-  // SUBMIT_COMMENT
+  EDIT_USER,
+  LOADING_INDEX,
+  SET_INDEX,
+  DELETE_INDEX
 } from "../types";
 import axios from "axios";
 
@@ -64,6 +57,43 @@ export const editUser = (userId, editUserdata, history) => dispatch => {
     .catch(err => {});
 };
 
-export const clearErrors = () => dispatch => {
-  dispatch({ type: CLEAR_ERRORS });
+// Get all index
+export const getIndex = () => dispatch => {
+  dispatch({ type: LOADING_INDEX });
+  axios
+    .get("/data/index")
+    .then(res => {
+      dispatch({
+        type: SET_INDEX,
+        payload: res.data
+      });
+    })
+    .catch(err => {});
+};
+
+export const editIndex = (data) => dispatch => {
+  axios
+    .post("/data/index/update", data)
+    .then(res => {
+      dispatch(getIndex());
+    })
+    .catch(err => {});
+};
+
+export const uploadImage = (data) => dispatch => {
+  axios
+    .post("/data/index/upload", data)
+    .then(res => {
+      dispatch(getIndex());
+    })
+    .catch(err => {});
+};
+
+export const deleteImage = url => dispatch => {
+  axios
+    .post("/data/index/delete", { url: url })
+    .then(() => {
+      dispatch({ type: DELETE_INDEX, url: url });
+    })
+    .catch(err => {});
 };
