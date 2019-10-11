@@ -68,11 +68,7 @@ class Listusers extends Component {
       admin: this.state.checkedA
     };
 
-    this.props.editUser(
-      this.props.users.userId,
-      editUserdata,
-      this.props.history
-    );
+    this.props.editUser(this.props.users.userId, editUserdata);
   };
 
   handleCancel = () => {
