@@ -86,8 +86,9 @@ div.Spinner-download {
   border: 0.1em dashed rgb(68, 124, 5);
 }
 .preview {
-  margin-left: 15%;
+  margin-left: 5%;
   margin-right: 15%;
+  width: 100%;
 }
 
 .edittext {
@@ -147,6 +148,12 @@ button.step-trigger:focus {
   padding-right: -50%;
 }
 
+.size {
+  margin-left: 20%;
+  color: rgba(68, 124, 5, 0.534);
+  size: 12;
+}
+
 .uploadead1:hover {
   border: 0.2em dashed rgb(75, 75, 75);
 }
@@ -164,19 +171,28 @@ button.react-datepicker__close-icon {
   body {
     margin-top: 96px;
   }
+
 }
 
 @media only screen and (min-width: 768px) {
   body {
     margin-top: 112px;
   }
+
   .text_success {
     text-align: center;
     margin-top: -100px;
     margin-left: auto;
     font-size: 20px;
     z-index: 1;
-  }
+  }  
+  
+  .preview {
+  margin-left: 5%;
+  margin-right: 15%;
+  width: auto;
+}
+
   .payment {
     padding-top: 1px;
     margin: 10%;

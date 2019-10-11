@@ -31,6 +31,7 @@ class PageModify extends React.Component {
   }
 
   editpage = () => {
+    window.scrollTo(0, 0);
     this.setState({
       edit: !this.state.edit,
       preview: ""
@@ -38,6 +39,7 @@ class PageModify extends React.Component {
   };
 
   handleSummit = () => {
+    window.scrollTo(0, 0);
     if (this.state.file != null) {
       const image = this.state.file;
       const formData = new FormData();
@@ -47,7 +49,7 @@ class PageModify extends React.Component {
     const data = {
       title: this.refs.title.value,
       subtitle: this.refs.subtitle.value,
-      detail: this.refs.detail.value,
+      detail: this.refs.detail.value
     };
     this.props.editIndex(data);
     this.setState({
@@ -57,6 +59,7 @@ class PageModify extends React.Component {
   };
 
   handleCancel = () => {
+    window.scrollTo(0, 0);
     this.setState({
       edit: !this.state.edit,
       preview: ""
@@ -71,13 +74,13 @@ class PageModify extends React.Component {
       reader.onloadend = ev => {
         this.setState({
           preview: reader.result,
-          file: file,
+          file: file
         });
       };
     } else {
       this.setState({
         preview: "",
-        file: null,
+        file: null
       });
     }
   };
@@ -85,7 +88,9 @@ class PageModify extends React.Component {
   render() {
     const { edit, preview } = this.state;
     const { title, subtitle, detail, image } = this.props.data.payload;
-    let images = image.map((value, index) => (<ImageShow key={index} url={value} />));
+    let images = image.map((value, index) => (
+      <ImageShow key={index} url={value} />
+    ));
     return !edit ? (
       <>
         <div className="content">
@@ -101,6 +106,7 @@ class PageModify extends React.Component {
                     รูปภาพใช้แสดงในหน้าแรกของเว็บไซต์
                   </h6>
                   <br />
+                  <h6 className="size">ขนาดรูปภาพควรเท่ากับ 1688*550</h6>
                   <div className="file-drag">
                     &nbsp;&nbsp; &nbsp;&nbsp; {"สไลด์โชว์"}
                     <br />
@@ -152,7 +158,7 @@ class PageModify extends React.Component {
                 </CardTitle>
                 <h6 className="file-head">อัปโหลดรูปภาพของคุณ</h6>
                 <h6 className="text-head">รูปภาพใช้แสดงในหน้าแรกของเว็บไซต์</h6>
-                <br />
+                <br /> <h6 className="size">ขนาดรูปภาพควรเท่ากับ 1688*550</h6>
                 <div className="file-dragedit">
                   <Input
                     onChange={this.fileUploaded}
@@ -256,7 +262,7 @@ PageModify.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  data: state.index,
+  data: state.index
 });
 
 export default connect(

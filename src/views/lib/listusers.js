@@ -59,6 +59,7 @@ class Listusers extends Component {
   };
 
   handleSummit = () => {
+    window.scrollTo(0, 0);
     this.setState({
       edit: !this.state.edit
     });
@@ -72,6 +73,7 @@ class Listusers extends Component {
   };
 
   handleCancel = () => {
+    window.scrollTo(0, 0);
     this.setState({
       edit: !this.state.edit,
       checkedA: this.props.users.admin
