@@ -62,7 +62,8 @@ class NewsPeper extends React.Component {
   };
 
   imageClick4 = () => {
-    this.stepper.next();
+      window.scrollTo(0, 0);
+    this.stepper.previous();
     this.setState({
       alt: "news",
       src:
@@ -120,7 +121,7 @@ class NewsPeper extends React.Component {
                         <button className="step-trigger" disabled>
                           <UnarchiveIcon />
                           <span className="bs-stepper-label">
-                            อัปโหลดเนื้อหาข่าว
+                            อัปโหลดเนื้อหา
                           </span>
                         </button>
                       </div>

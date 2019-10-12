@@ -120,7 +120,7 @@ const setAuthorizationHeader = token => {
 export const postNews = (data, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/crud/news", data)
+    .post("/news/post", data)
     .then(res => {
       dispatch({ type: CLEAR_ERRORS });
       history.push("/");
@@ -136,7 +136,7 @@ export const postNews = (data, history) => dispatch => {
 export const confirmPay = (conData, formData, history) => dispatch => {
   dispatch({ type: LOADING_UI });
   axios
-    .post("/image/upload", formData)
+    .post("/pay/confirm/upload", formData)
     .then(url => {
       if (url.data !== null && url.data.url !== "") {
         conData.image = url.data.url;

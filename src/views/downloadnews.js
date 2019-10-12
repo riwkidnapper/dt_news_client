@@ -26,10 +26,10 @@ class DownloadNews extends Component {
       this.setState({
         downloading: true,
         loading: true,
-        downloadUrl: ""
-      });
+        downloadUrl: ""    
+      });  
       axios
-        .get("/pdf/generate/" + this.refs.dateload.value)
+        .post("/pdf/generate/" + this.refs.dateload.value)
         .then(res => {
           this.setState({
             downloading: false,

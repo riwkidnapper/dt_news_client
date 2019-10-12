@@ -22,7 +22,8 @@ import ImageShow from "./lib/imageshow";
 class PageModify extends React.Component {
   state = {
     preview: "",
-    edit: false
+    edit: false,
+    loading: false
   };
 
   componentDidMount() {
@@ -34,8 +35,10 @@ class PageModify extends React.Component {
     window.scrollTo(0, 0);
     this.setState({
       edit: !this.state.edit,
-      preview: ""
+      preview: "",
+      loading: false
     });
+    console.log(this.state.loading);
   };
 
   handleSummit = () => {
@@ -54,7 +57,8 @@ class PageModify extends React.Component {
     this.props.editIndex(data);
     this.setState({
       edit: !this.state.edit,
-      preview: ""
+      preview: "",
+      loading: true
     });
   };
 
@@ -220,31 +224,32 @@ class PageModify extends React.Component {
               </CardBody>
               <br />
               <br />
-              <div>
-                <Fab
-                  onClick={this.handleSummit}
-                  style={{
-                    marginLeft: "73%",
-                    backgroundColor: "rgba(84,149,13, 0.81)",
-                    color: "white"
-                  }}
-                  aria-label="edit"
-                >
-                  <CheckIcon />
-                </Fab>
-                <Fab
-                  onClick={this.handleCancel}
-                  style={{
-                    marginLeft: "80%",
-                    marginTop: "-7%",
-                    backgroundColor: "#FC4C4C",
-                    color: "white"
-                  }}
-                  aria-label="edit"
-                >
-                  <CloseIcon />
-                </Fab>
-              </div>
+              <Row style={{ marginLeft: "80%" }}>
+                <Col>
+                  <Fab
+                    onClick={this.handleSummit}
+                    style={{
+                      backgroundColor: "rgba(84,149,13, 0.81)",
+                      color: "white"
+                    }}
+                    aria-label="edit"
+                  >
+                    <CheckIcon />
+                  </Fab>
+                </Col>
+                <Col style={{ marginLeft: "-50%" }}>
+                  <Fab
+                    onClick={this.handleCancel}
+                    style={{
+                      backgroundColor: "#FC4C4C",
+                      color: "white"
+                    }}
+                    aria-label="edit"
+                  >
+                    <CloseIcon />
+                  </Fab>
+                </Col>
+              </Row>
               <br />
               <br />
             </Card>
