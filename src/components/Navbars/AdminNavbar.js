@@ -114,7 +114,7 @@ class AdminNav extends React.Component {
                 <span className="navbar-toggler-bar bar3" />
               </button>
             </div>
-            <NavbarBrand href="/admin/dashboard">{this.getBrand()}</NavbarBrand>
+            <NavbarBrand href="/dtnews/dashboard">{this.getBrand()}</NavbarBrand>
           </div>
           <Nav>
             <NavItem>{"Administrator "}</NavItem> &nbsp;

@@ -11,7 +11,7 @@ const ProtectedRoute = ({ component: Component, authenticated, ...rest }) => (
         <Component {...props} />
       ) : (
         <Redirect
-          to="/admin"
+          to="/dtnews"
         />
       )
     }

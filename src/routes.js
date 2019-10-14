@@ -9,21 +9,21 @@ var routes = [
     name: "Dashboard",
     icon: "lnr lnr-diamond",
     component: Dashboard,
-    layout: "/admin"
+    layout: "/dtnews"
   },
   {
     path: "/pagemodify",
     name: "Modify Page",
     icon: "lnr lnr-laptop-phone",
     component: PageModify,
-    layout: "/admin"
+    layout: "/dtnews"
   },
   {
     path: "/user-page",
     name: "user",
     icon: "lnr lnr-user",
     component: UserPage,
-    layout: "/admin"
+    layout: "/dtnews"
   },
 
   {
@@ -31,7 +31,7 @@ var routes = [
     name: "newspeper",
     icon: "fa fa-newspaper-o",
     component: NewsPeper,
-    layout: "/admin"
+    layout: "/dtnews"
   }
 ];
 

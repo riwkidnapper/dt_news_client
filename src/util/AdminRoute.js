@@ -14,7 +14,7 @@ const AdminRoute = ({
     {...rest}
     render={props =>
       authenticated === true ? (
-        <Redirect to="/admin/dashboard" />
+        <Redirect to="/dtnews/dashboard" />
       ) : (
         <Component {...props} />
       )

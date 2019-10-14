@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { connect } from "react-redux";
 import {
   Card,
@@ -41,7 +41,7 @@ class PageModify extends React.Component {
     console.log(this.state.loading);
   };
 
-  handleSummit = () => {
+  handleSummit = async () => {
     window.scrollTo(0, 0);
     if (this.state.file != null) {
       const image = this.state.file;
@@ -54,6 +54,7 @@ class PageModify extends React.Component {
       subtitle: this.refs.subtitle.value,
       detail: this.refs.detail.value
     };
+
     this.props.editIndex(data);
     this.setState({
       edit: !this.state.edit,
@@ -90,67 +91,85 @@ class PageModify extends React.Component {
   };
 
   render() {
-    const { edit, preview } = this.state;
+    const { edit, preview, loading } = this.state;
     const { title, subtitle, detail, image } = this.props.data.payload;
+
     let images = image.map((value, index) => (
       <ImageShow key={index} url={value} />
     ));
     return !edit ? (
-      <>
-        <div className="content">
-          <Row>
-            <Col md="12">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">
-                    &nbsp;&nbsp;&nbsp;&nbsp;ปรับแต่งหน้าเว็บไซส์
-                  </CardTitle>
-                  <h6 className="file-head">อัปโหลดรูปภาพของคุณ</h6>
-                  <h6 className="text-head">
-                    รูปภาพใช้แสดงในหน้าแรกของเว็บไซต์
-                  </h6>
-                  <br />
-                  <h6 className="size">ขนาดรูปภาพควรเท่ากับ 1688*550</h6>
-                  <div className="file-drag">
-                    &nbsp;&nbsp; &nbsp;&nbsp; {"สไลด์โชว์"}
+      loading === false ? (
+        <>
+          <div className="content">
+            <Row>
+              <Col md="12">
+                <Card>
+                  <CardHeader>
+                    <CardTitle tag="h4">
+                      &nbsp;&nbsp;&nbsp;&nbsp;ปรับแต่งหน้าเว็บไซส์
+                    </CardTitle>
+                    <h6 className="file-head">อัปโหลดรูปภาพของคุณ</h6>
+                    <h6 className="text-head">
+                      รูปภาพใช้แสดงในหน้าแรกของเว็บไซต์
+                    </h6>
                     <br />
-                    {images}
-                  </div>
-                </CardHeader>
-                <CardBody>
+                    <h6 className="size">ขนาดรูปภาพควรเท่ากับ 1688*550</h6>
+                    <div className="file-drag">
+                      &nbsp;&nbsp; &nbsp;&nbsp; {"สไลด์โชว์"}
+                      <br />
+                      {images}
+                    </div>
+                  </CardHeader>
+                  <CardBody>
+                    <br />
+                    <div className="texthead">
+                      <Container>
+                        <h1>{title}</h1>
+                        <p>{subtitle}</p>
+                      </Container>
+                    </div>
+                    <br />
+                    <br />
+                    <div className="edittext">
+                      <Col>{detail}</Col>
+                    </div>
+                  </CardBody>
                   <br />
-                  <div className="texthead">
-                    <Container>
-                      <h1>{title}</h1>
-                      <p>{subtitle}</p>
-                    </Container>
-                  </div>
+                  <br />
+                  <Fab
+                    onClick={this.editpage}
+                    style={{
+                      marginLeft: "80%",
+                      backgroundColor: "rgba(84,149,13, 0.81)",
+                      color: "white"
+                    }}
+                    aria-label="edit"
+                  >
+                    <EditIcon />
+                  </Fab>
                   <br />
                   <br />
-                  <div className="edittext">
-                    <Col>{detail}</Col>
-                  </div>
-                </CardBody>
-                <br />
-                <br />
-                <Fab
-                  onClick={this.editpage}
-                  style={{
-                    marginLeft: "80%",
-                    backgroundColor: "rgba(84,149,13, 0.81)",
-                    color: "white"
-                  }}
-                  aria-label="edit"
-                >
-                  <EditIcon />
-                </Fab>
-                <br />
-                <br />
-              </Card>
-            </Col>
-          </Row>
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        </>
+      ) : (
+        <div className="Spinner-download">
+          {loading && (
+            <Spinner
+              className="Spinner-download"
+              style={{
+                marginLeft: "30px",
+                marginRight: "30px"
+              }}
+              animation="border"
+              variant="success"
+            />
+          )}
+          {" Loading... "}
         </div>
-      </>
+      )
     ) : (
       <div className="content">
         <Row>
@@ -224,7 +243,7 @@ class PageModify extends React.Component {
               </CardBody>
               <br />
               <br />
-              <Row style={{ marginLeft: "80%" }}>
+              <Row style={{ marginLeft: "75%" }}>
                 <Col>
                   <Fab
                     onClick={this.handleSummit}

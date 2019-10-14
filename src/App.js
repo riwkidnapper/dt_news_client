@@ -65,28 +65,28 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <AdminRoute exact path="/admin" component={AdminLogin} />
+            <AdminRoute exact path="/dtnews" component={AdminLogin} />
             <ProtectedRoute
               exact
-              path="/admin/dashboard"
+              path="/dtnews/dashboard"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />
             <ProtectedRoute
               exact
-              path="/admin/user-page"
+              path="/dtnews/user-page"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />
             <ProtectedRoute
               exact
-              path="/admin/newspeper"
+              path="/dtnews/newspeper"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />
             <ProtectedRoute
               exact
-              path="/admin/pagemodify"
+              path="/dtnews/pagemodify"
               render={props => <AdminLayout {...props} />}
               component={Admin}
             />
