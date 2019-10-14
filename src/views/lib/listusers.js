@@ -59,17 +59,25 @@ class Listusers extends Component {
   };
 
   handleSummit = () => {
-    window.scrollTo(0, 0);
-    this.setState({
-      edit: !this.state.edit
-    });
+    this.setState({ load: true });
 
     const editUserdata = {
       credit: parseInt(this.credit.value),
       admin: this.state.checkedA
     };
-
-    this.props.editUser(this.props.users.userId, editUserdata);
+    this.setState({
+      edit: !this.state.edit,
+      checkedA: this.props.users.admin
+    });
+    this.props
+      .editUser(this.props.users.userId, editUserdata)
+      .then(() => {
+        this.setState({ load: false });
+      })
+      .catch(err => {
+        console.log("Error edit index" + err);
+      });
+    window.scrollTo(0, 0);
   };
 
   handleCancel = () => {
@@ -179,6 +187,20 @@ class Listusers extends Component {
           </tr>
         </>
       )
+    ) : load ? (
+      <div div className="content">
+        <Spinner
+          className="deleteload"
+          style={{
+            width: "2rem",
+            height: "2rem",
+            color: "rgba(91, 156, 16, 0.658)",
+            marginLeft: "150%"
+          }}
+          animation="border"
+          variant="success"
+        />
+      </div>
     ) : (
       <tr>
         <th scope="row">{index + 1}</th>

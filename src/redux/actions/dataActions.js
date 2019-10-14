@@ -45,13 +45,22 @@ export const deleteUser = userId => {
   };
 };
 
-export const editUser = (userId, editUserdata) => dispatch => {
-  axios
-    .post("/list/users/update/" + userId, editUserdata)
-    .then(res => {
-      dispatch(getUsers());
-    })
-    .catch(err => {});
+export const editUser = (userId, editUserdata) => {
+  return async dispatch => {
+    try {
+      await axios
+        .post("/list/users/update/" + userId, editUserdata)
+        .then(res => {
+          dispatch(getUsers());
+          return Promise.resolve(true);
+        })
+        .catch(err => {});
+         return Promise.resolve(false);
+    } catch (err) {
+      console.log(err);
+      return Promise.reject();
+    }
+  };
 };
 
 // Get all index
@@ -68,16 +77,27 @@ export const getIndex = () => dispatch => {
     .catch(err => {});
 };
 
-export const editIndex = (data) => dispatch => {
-  axios
-    .post("/data/index/update", data)
-    .then(res => {
-      dispatch(getIndex());
-    })
-    .catch(err => {});
+export const editIndex = data => {
+  return async dispatch => {
+    try {
+      await axios
+        .post("/data/index/update", data)
+        .then(() => {
+          dispatch(getIndex());
+          return Promise.resolve(true);
+        })
+        .catch(err => {
+          console.log(err);
+          return Promise.resolve(false);
+        });
+    } catch (err) {
+      console.log(err);
+      return Promise.reject();
+    }
+  };
 };
 
-export const uploadImage = (data) => dispatch => {
+export const uploadImage = data => dispatch => {
   axios
     .post("/data/index/upload", data)
     .then(res => {
