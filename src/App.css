@@ -171,7 +171,6 @@ button.react-datepicker__close-icon {
   body {
     margin-top: 96px;
   }
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -185,18 +184,37 @@ button.react-datepicker__close-icon {
     margin-left: auto;
     font-size: 20px;
     z-index: 1;
-  }  
-  
+  }
+
   .preview {
-  margin-left: 5%;
-  margin-right: 15%;
-  width: auto;
-}
+    margin-left: 5%;
+    margin-right: 15%;
+    width: auto;
+  }
 
   .payment {
     padding-top: 1px;
     margin: 10%;
   }
+}
+
+.loading {
+  margin-top: 8%;
+  margin-left: 20%;
+  color: rgba(68, 124, 5, 0.534);
+}
+
+.linepostnews {
+  border: 0.3px solid rgba(173, 173, 173, 0.281);
+}
+
+.postnews {
+  float: right;
+  text-align: center;
+  margin-right: 5%;
+  margin-top:3% ;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 @media only screen and (min-width: 1024px) {

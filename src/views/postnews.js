@@ -362,9 +362,9 @@ class PostNews extends React.Component {
                   <span className="require"> *</span>
 
                   <input
-                    ref="post_date"
+                    ref="meeting_date"
                     type="date"
-                    name="post_date"
+                    name="meeting_date"
                     className="form-control"
                   />
                 </Form.Group>
@@ -447,9 +447,9 @@ class PostNews extends React.Component {
                 <Form.Label>วันที่ลงประกาศ</Form.Label>
                 <span className="require"> *</span>
                 <input
-                  ref="meeting_date"
+                  ref="post_date"
                   type="date"
-                  name="meeting_date"
+                  name="post_date"
                   className="form-control"
                 />
               </Form.Group>

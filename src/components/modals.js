@@ -22,7 +22,11 @@ export class modals extends Component {
 
     return (
       <Modal onRequestClose={onRequestClose} effect={Effect.ScaleUp}>
-        <h6>{companyName}</h6>
+        <div className="linepostnews">
+          <h5>ตัวอย่างการลงประกาศ</h5>
+        </div>
+        <h6 className="postnews">{companyName}</h6>
+        {post_date}
         {subject}
         {agenda}
 
@@ -34,7 +38,7 @@ export class modals extends Component {
         {authorized_name}
         {authorized_position}
         {meeting_date}
-        {post_date}
+        
         <Button onClick={ModalManager.close}>Close</Button>
       </Modal>
     );

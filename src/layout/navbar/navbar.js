@@ -92,12 +92,7 @@ class NavBar extends Component {
                         แจ้งชำระเงิน
                       </NavLink>
                     </li>
-                    <li>
-                      <NavLink to={"/me"} exact className="nav-link">
-                        รายการของฉัน
-                      </NavLink>
-                    </li>
-                    <li>
+                                      <li>
                       <NavLink to={"/aboutus"} exact className="nav-link">
                         เกี่ยวกับเรา
                       </NavLink>
@@ -240,9 +235,6 @@ class NavBar extends Component {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={"/me"} exact className="nav-link">
-                      รายการของฉัน
-                    </NavLink>
                   </li>
                   <li>
                     <NavLink to={"/aboutus"} exact className="nav-link">

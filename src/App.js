@@ -97,7 +97,6 @@ class App extends Component {
             <Route exact path="/confirmpay/success" component={Confirm} />
             <Route exact path="/confirmpay" component={ConfirmPay} />
             <Route exact path="/contact" />
-            <Route exact path="/me" />
             <Route exact path="/postnews" component={PostNews} />
             <Route exact path="/downloadnews" component={UpdateNews} />
             <AuthRoute exact path="/login" component={Login} />

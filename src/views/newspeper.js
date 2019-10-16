@@ -19,7 +19,7 @@ import {
   Input
 } from "reactstrap";
 registerLocale("th", th);
-
+const now = new Date();
 class NewsPeper extends React.Component {
   constructor(props) {
     super(props);
@@ -67,7 +67,7 @@ class NewsPeper extends React.Component {
     this.setState({
       alt: "news",
       src:
-        "https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-2019-10-01.png?alt=media&token=7fbb301f-d87e-414c-b49c-f0731fa62a69"
+        "https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-" + now + ".png?alt=media&token=7fbb301f-d87e-414c-b49c-f0731fa62a69"
     });
   };
 
@@ -203,7 +203,7 @@ class NewsPeper extends React.Component {
                                   className="uploadead1"
                                   onClick={this.imageClick4}
                                   alt="news"
-                                  src="https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-2019-10-01.png?alt=media&token=7fbb301f-d87e-414c-b49c-f0731fa62a69"
+                                  src="https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews.png?alt=media&token=7fbb301f-d87e-414c-b49c-f0731fa62a69"
                                   width="100%"
                                   height="auto"
                                 />

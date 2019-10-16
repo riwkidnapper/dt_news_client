@@ -111,8 +111,9 @@ class User extends React.Component {
       rowsPerPage: 10
     };
   }
-  handleChangePage = page => {
-    this.setState({ page });
+
+  handleChangePage = (event, page) => {
+    this.setState({ page: page });
   };
 
   handleChangeRowsPerPage = event => {
@@ -129,7 +130,11 @@ class User extends React.Component {
     let listusers = getUsers
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       .map((users, index) => (
-        <Listusers key={users.getUserId} users={users.getUser} index={index} />
+        <Listusers
+          key={users.getUserId}
+          users={users.getUser}
+          index={page * rowsPerPage + index}
+        />
       ));
 
     return (

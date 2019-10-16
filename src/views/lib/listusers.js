@@ -181,26 +181,32 @@ class Listusers extends Component {
                   }}
                   animation="border"
                   variant="success"
-                />
-              )}
+                ></Spinner>
+              )}{" "}
             </td>
+            <div className="loading">{"กำลังโหลด"}</div>
           </tr>
         </>
       )
     ) : load ? (
-      <div div className="content">
-        <Spinner
-          className="deleteload"
-          style={{
-            width: "2rem",
-            height: "2rem",
-            color: "rgba(91, 156, 16, 0.658)",
-            marginLeft: "150%"
-          }}
-          animation="border"
-          variant="success"
-        />
-      </div>
+      <tr>
+        <td>
+          <div div className="content">
+            <Spinner
+              className="deleteload"
+              style={{
+                width: "2rem",
+                height: "2rem",
+                color: "rgba(91, 156, 16, 0.658)",
+                marginLeft: "150%"
+              }}
+              animation="border"
+              variant="success"
+            ></Spinner>
+          </div>
+        </td>{" "}
+        <div className="loading">{"กำลังโหลด"}</div>
+      </tr>
     ) : (
       <tr>
         <th scope="row">{index + 1}</th>

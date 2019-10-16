@@ -8,7 +8,6 @@ import { MdReply } from "react-icons/md";
 import axios from "axios";
 
 class DownloadNews extends Component {
-
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -26,8 +25,8 @@ class DownloadNews extends Component {
       this.setState({
         downloading: true,
         loading: true,
-        downloadUrl: ""    
-      });  
+        downloadUrl: ""
+      });
       axios
         .post("/pdf/generate/" + this.refs.dateload.value)
         .then(res => {
@@ -133,7 +132,7 @@ class DownloadNews extends Component {
                       variant="success"
                     />
                   )}
-                  {" Loading... "}
+                  {" กำลังโหลด. "}
                 </div>
               </Form>
             </Card>

@@ -222,7 +222,7 @@ class PageModify extends React.Component {
                 variant="success"
               />
             )}
-            {" Loading... "}
+            {" กำลังโหลด. "}
           </div>
         </>
       )

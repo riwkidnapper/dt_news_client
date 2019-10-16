@@ -248,7 +248,7 @@ class ConfirmPay extends React.Component {
                               variant="success"
                             />
                           )}
-                          {" Loading... "}
+                          {" กำลังโหลด. "}
                         </div>
                       </Center>
                     </Center>
@@ -358,7 +358,7 @@ class ConfirmPay extends React.Component {
                       />
                     </Form.Group>
 
-                    <Form.Group controlId="formGridAddress1">
+                    {/* <Form.Group controlId="formGridAddress1">
                       <Form.Label>เลขที่คำสั่งซื้อ (Order ID)</Form.Label>
                       <Form.Control
                         required
@@ -366,7 +366,7 @@ class ConfirmPay extends React.Component {
                         ref="con_orderId"
                         name="con_orderId"
                       />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group controlId="formGridState">
                       <Form.Label>วิธีชำระเงิน</Form.Label>
@@ -398,7 +398,11 @@ class ConfirmPay extends React.Component {
 
                     <Form.Group controlId="formGridState">
                       <Form.Label>เวลาทีชำระเงิน</Form.Label>
-                      <Form.Control />
+                      <Form.Control
+                        type="time"
+                        ref="timepayment"
+                        name="timepayment"
+                      />
                     </Form.Group>
 
                     <Form.Group controlId="formGridZip">
