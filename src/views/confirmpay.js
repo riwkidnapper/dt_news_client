@@ -26,7 +26,6 @@ class ConfirmPay extends React.Component {
       file: "",
       imagePreviewUrl: ""
     });
-
     const image = this.state.image;
     const formData = new FormData();
     formData.append("image", image, image.name);

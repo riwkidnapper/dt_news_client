@@ -124,6 +124,7 @@ class User extends React.Component {
     window.scrollTo(0, 0);
     this.props.getUsers();
   }
+
   render() {
     const { rowsPerPage, page } = this.state;
     const { getUsers } = this.props.data;

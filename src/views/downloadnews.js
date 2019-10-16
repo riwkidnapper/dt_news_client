@@ -20,7 +20,6 @@ class DownloadNews extends Component {
 
   changestate = event => {
     event.preventDefault();
-
     if (this.refs.dateload.value !== "") {
       this.setState({
         downloading: true,
@@ -71,7 +70,6 @@ class DownloadNews extends Component {
             <Col lg={9} md={9} xs={12}>
               <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
             </Col>
-
             <Card
               style={{
                 marginTop: "1%",
@@ -109,7 +107,6 @@ class DownloadNews extends Component {
             <Col lg={9} md={9} xs={12}>
               <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
             </Col>
-
             <Card
               style={{
                 marginTop: "1%",
@@ -146,7 +143,6 @@ class DownloadNews extends Component {
           <Col lg={9} md={9} xs={12}>
             <h1 className="topName">หนังสือพิมพ์บัญชี</h1>
           </Col>
-
           <Card
             style={{
               marginTop: "1%",
