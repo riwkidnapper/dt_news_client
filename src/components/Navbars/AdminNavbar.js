@@ -9,7 +9,7 @@ import { logoutAdmin } from "../../redux/actions/userActions";
 import { connect } from "react-redux";
 import routes from "../../routes";
 
-class AdminNav extends React.Component {
+class AdminNavbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -136,11 +136,12 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = { logoutAdmin };
 
-AdminNav.propTypes = {
+AdminNavbar.propTypes = {
   logoutAdmin: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };
+
 export default connect(
   mapStateToProps,
   mapActionsToProps
-)(AdminNav);
+)(AdminNavbar);

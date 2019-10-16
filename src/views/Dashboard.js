@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getUsers, getConfirm } from "../redux/actions/dataActions";
 
 import { Line, Pie } from "react-chartjs-2";
 
@@ -18,10 +21,18 @@ import {
 } from "../variables/charts";
 
 class Dashboard extends React.Component {
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+
+  componentWillMount() {
+    this.props.getUsers();
+    this.props.getConfirm();
+  }
+
   render() {
+    // const { confirms } = this.props;
     return (
       <>
         <div className="content">
@@ -37,8 +48,8 @@ class Dashboard extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                       <div className="numbers">
-                        <p className="card-category">Capacity</p>
-                        <CardTitle tag="p">150GB</CardTitle>
+                        <p className="card-category">Users</p>
+                        <CardTitle tag="p">{this.props.users.getUsers.length} user</CardTitle>
                         <p />
                       </div>
                     </Col>
@@ -208,4 +219,19 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+Dashboard.propTypes = {
+  getUsers: PropTypes.func.isRequired,
+  getConfirm: PropTypes.func.isRequired,
+  confirms: PropTypes.object.isRequired,
+  users: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  users: state.getUsers,
+  confirms: state.data.confirms,
+});
+
+export default connect(
+  mapStateToProps,
+  { getUsers, getConfirm }
+)(Dashboard);

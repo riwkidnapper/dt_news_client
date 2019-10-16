@@ -1,6 +1,12 @@
-import { AMOUNT_CREDIT } from "../types";
+import {
+  AMOUNT_CREDIT,
+  LOADING_CONFIRM,
+  SET_CONFIRM,
+  DELETE_CONFIRM
+} from "../types";
 
 const initialState = {
+  confirms: [],
   amount: 0
 };
 
@@ -10,6 +16,19 @@ export default function(state = initialState, action) {
       return {
         ...state,
         amount: action.amount
+      };
+    case LOADING_CONFIRM:
+      return {
+        ...state
+      };
+    case SET_CONFIRM:
+      return {
+        ...state,
+        confirms: action.payload
+      };
+    case DELETE_CONFIRM:
+      return {
+        ...state
       };
     default:
       return state;

@@ -6,7 +6,7 @@ import { logoutUser } from "../../../redux/actions/userActions";
 import { Route, Switch, Redirect } from "react-router-dom";
 import store from "../../../redux/store";
 import { connect } from "react-redux";
-import AdminNavbar from "../../Navbars/AdminNavbar";
+import AdminNavbar from "../../navbars/AdminNavbar";
 import Footer from "../../footer/footer";
 import Sidebar from "../../sidebar/sidebar";
 import FixedPlugin from "../../fixedPlugin/fixedPlugin";

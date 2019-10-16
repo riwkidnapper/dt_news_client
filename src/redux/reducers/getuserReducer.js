@@ -1,4 +1,5 @@
 import { SET_LISTUSERS, LOADING_DATA, DELETE_USER } from "../types";
+
 const initialState = {
   getUsers: [],
   loading: false

@@ -12,6 +12,9 @@ export const LOADING_DATA = "LOADING_DATA";
 export const STOP_LOADING_UI = "STOP_LOADING_UI";
 // Data reducer types
 export const AMOUNT_CREDIT = "AMOUNT_CREDIT";
+export const LOADING_CONFIRM = "LOADING_CONFIRM";
+export const SET_CONFIRM = "SET_CONFIRM";
+export const DELETE_CONFIRM = "DELETE_CONFIRM";
 export const LOADING_INDEX = "LOADING_INDEX";
 export const SET_INDEX = "SET_INDEX";
 export const DELETE_INDEX = "DELETE_INDEX";
