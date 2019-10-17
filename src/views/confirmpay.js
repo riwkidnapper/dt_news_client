@@ -34,10 +34,11 @@ class ConfirmPay extends React.Component {
       con_name: this.refs.con_name.value,
       con_lastname: this.refs.con_lastname.value,
       con_phone: this.refs.con_phone.value,
-      con_orderId: this.refs.con_orderId.value,
+      con_orderId: 1,
       con_Payment: this.refs.con_Payment.value,
       con_datePay: this.refs.con_datePay.value,
       con_amount: this.refs.con_amount.value,
+      con_time : this.refs.con_time.value,
       more_details: this.refs.more_details.value,
       image: ""
     };
@@ -198,7 +199,12 @@ class ConfirmPay extends React.Component {
 
                     <Form.Group controlId="formGridState">
                       <Form.Label>เวลาทีชำระเงิน</Form.Label>
-                      <Form.Control />
+                      <Form.Control
+                        required
+                        ref="con_time"
+                        name="con_time"
+                        type="time"
+                      />
                     </Form.Group>
 
                     <Form.Group controlId="formGridZip">
@@ -399,8 +405,8 @@ class ConfirmPay extends React.Component {
                       <Form.Label>เวลาทีชำระเงิน</Form.Label>
                       <Form.Control
                         type="time"
-                        ref="timepayment"
-                        name="timepayment"
+                        ref="con_time"
+                        name="con_time"
                       />
                     </Form.Group>
 

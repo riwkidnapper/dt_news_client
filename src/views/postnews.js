@@ -221,7 +221,8 @@ class PostNews extends React.Component {
   }
   handleSubmit = event => {
     event.preventDefault();
-    const data = {
+    if(this.props.user.credentials.credit>=1){
+        const data = {
       post_date: this.refs.post_date.value,
       subject: this.refs.subject.value,
       agenda: this.refs.agenda.value,
@@ -235,8 +236,20 @@ class PostNews extends React.Component {
       authorized_name: this.refs.authorized_name.value,
       authorized_position: this.refs.authorized_position.value
     };
-    this.props.postNews(data, this.props.history);
+    this.props.postNews(
+      data,
+      this.props.user.credentials.userId,
+      {
+        credit: this.props.user.credentials.credit - 1
+      },
+      this.props.history
+    );
+    }else{
+      alert("เครดิตของคุณไม่เพียงพอกรุณาเติมเครดิตก่อนทำการลงประกาศ")
+    }
+  
   };
+
   render() {
     const {
       ui: { loading }

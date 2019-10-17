@@ -198,6 +198,7 @@ button.react-datepicker__close-icon {
   }
 }
 
+
 .loading {
   margin-top: 8%;
   margin-left: 20%;
@@ -208,13 +209,45 @@ button.react-datepicker__close-icon {
   border: 0.3px solid rgba(173, 173, 173, 0.281);
 }
 
+.linepostnews > h6 {
+  margin: 3%;
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .postnews {
   float: right;
   text-align: center;
   margin-right: 5%;
-  margin-top:3% ;
+  margin-top: 3%;
   font-weight: 400;
   font-size: 12px;
+}
+
+.post_date {
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+}
+
+.text-post {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 15%;
+  float: right;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.text-postll { 
+  margin-top: 7%;
+  margin-left: 60%;
+  padding-left: 10%;
+  font-weight: 400;
+  font-size: 12px;
+}
+.text-ll{
+  margin-left: 22%;
 }
 
 @media only screen and (min-width: 1024px) {

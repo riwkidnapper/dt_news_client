@@ -35,7 +35,6 @@ class AddCredit extends React.Component {
     event.preventDefault();
     const amount = parseInt(this.money.value);
     this.props.payment(amount, this.props.history);
-    console.log(amount);
   };
 
   handleSubmit1 = event => {

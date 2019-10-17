@@ -12,7 +12,6 @@ class Consuccess extends Component {
     const {
       data: { amount }
     } = this.props;
-    console.log(amount);
     if (amount >= 1) {
       return (
         <div>

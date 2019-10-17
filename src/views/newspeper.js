@@ -23,6 +23,15 @@ import {
 } from "reactstrap";
 registerLocale("th", th);
 const now = new Date();
+var twoDigit = num => {
+      return num > 9 ? num.toString() : "0" + num.toString();
+    };
+    var nowString =
+      now.getFullYear().toString() +
+      "-" +
+      twoDigit(now.getMonth() + 1) +
+      "-" +
+      twoDigit(now.getDate());
 class NewsPeper extends React.Component {
   constructor(props) {
     super(props);
@@ -82,7 +91,9 @@ class NewsPeper extends React.Component {
       id: "4",
       alt: "news",
       src:
-        "https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-" + now + ".png?alt=media&token=7fbb301f-d87e-414c-b49c-f0731fa62a69"
+        "https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-" +
+        nowString +
+        ".png?alt=media&token=7fbb301f-d87e-414c-b49c-f0731fa62a69"
     });
   };
 
@@ -132,7 +143,8 @@ class NewsPeper extends React.Component {
           this.stepper.reset();
         })
         .catch(() => {});
-    }
+    }else 
+    alert("กรุณาเลือกรูปภาพ ข่าว โฆษณา เพื่อลงประกาศ")
   }
 
   render() {
@@ -251,7 +263,7 @@ class NewsPeper extends React.Component {
                                   onClick={this.imageClick4}
                                   alt="news"
 
-                                  src="https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-2019-10-01.png?alt=media"
+                                  src={"https://firebasestorage.googleapis.com/v0/b/news-48fc7.appspot.com/o/news%2Fnews-" + nowString + ".png?alt=media"}
                                   width="100%"
                                   height="auto"
                                 />

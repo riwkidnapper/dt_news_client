@@ -97,21 +97,32 @@ const setAuthorizationHeader = token => {
   axios.defaults.headers.common["Authorization"] = FBIdToken;
 };
 
-export const postNews = (data, history) => dispatch => {
-  dispatch({ type: LOADING_UI });
-  axios
-    .post("/news/post", data)
-    .then(res => {
-      dispatch({ type: CLEAR_ERRORS });
-      history.push("/");
-    })
-    .catch(err => {
-      dispatch({
-        type: SET_ERRORS,
-        payload: err.response.data
-      });
-    });
-};
+export const postNews = (data, userId, userData, history) => dispatch => {
+         dispatch({ type: LOADING_UI });
+         axios
+           .post("/news/post", data)
+           .then(res => {
+             axios
+               .post("/list/users/update/credit/" + userId, userData)
+               .then(res => {
+                 dispatch(getUserData());
+                 dispatch({ type: CLEAR_ERRORS });
+                 history.push("/");
+               })
+               .catch(err => {
+                 dispatch({
+                   type: SET_ERRORS,
+                   payload: err.response.data
+                 });
+               });
+           })
+           .catch(err => {
+             dispatch({
+               type: SET_ERRORS,
+               payload: err.response.data
+             });
+           });
+       };
 
 export const confirmPay = (conData, formData, history) => dispatch => {
   dispatch({ type: LOADING_UI });

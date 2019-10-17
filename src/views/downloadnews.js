@@ -43,8 +43,6 @@ class DownloadNews extends Component {
 
   stateDownload = event => {
     event.preventDefault();
-    // console.log(this.state.downloadUrl);
-    // window.location.assign(this.state.downloadUrl);
     window.open(this.state.downloadUrl, "_blank").focus();
     this.setState({
       loading: true,

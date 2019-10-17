@@ -4,8 +4,8 @@ import {
   LOADING_INDEX,
   SET_INDEX,
   DELETE_INDEX,
-  LOADING_CONFIRM,
-  SET_CONFIRM
+  SET_CONFIRM,
+  SET_NEWS,
 } from "../types";
 import axios from "axios";
 
@@ -66,7 +66,6 @@ export const editUser = (userId, editUserdata) => {
 };
 
 export const getConfirm = () => dispatch => {
-  dispatch({ type: LOADING_CONFIRM });
   axios
     .get("/pay/confirm")
     .then(res => {
@@ -81,6 +80,26 @@ export const getConfirm = () => dispatch => {
         payload: []
       });
     });
+};
+
+export const deleteConfirm = id => {
+  return async dispatch => {
+    try {
+      await axios
+        .post("/pay/confirm/delete/" + id)
+        .then(() => {
+          dispatch(getConfirm());
+          return Promise.resolve(true);
+        })
+        .catch(err => {
+          console.log(err);
+          return Promise.resolve(false);
+        });
+    } catch (err) {
+      console.log(err);
+      return Promise.reject();
+    }
+  };
 };
 
 // Get all index
@@ -169,4 +188,22 @@ export const deleteImage = url => dispatch => {
       dispatch({ type: DELETE_INDEX, url: url });
     })
     .catch(err => {});
+};
+
+
+export const getnews = url => dispatch => {
+  axios
+    .get("/news")
+    .then(res => {
+      dispatch({
+        type: SET_NEWS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: SET_NEWS,
+        payload: []
+      });
+    });
 };
